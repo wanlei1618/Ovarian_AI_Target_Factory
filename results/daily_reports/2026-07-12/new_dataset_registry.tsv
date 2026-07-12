@@ -1,0 +1,3 @@
+dataset_id	title	disease	modality	platform	sample_count	download_url	priority_score	recommended_action
+MOCK-GEO-OV-001	Mock HGSOC single-cell cohort with treatment metadata	high-grade serous ovarian cancer	single-cell RNA-seq	10x Genomics	12	https://example.org/mock-geo-ov-001	12	Keep as mock candidate; do not download during MVP.
+MOCK-ST-OV-002	Mock ovarian spatial transcriptomics with immune-rich niches	ovarian carcinoma	spatial transcriptomics	Visium	6	https://example.org/mock-st-ov-002	11	Use metadata only until real-data phase is approved.

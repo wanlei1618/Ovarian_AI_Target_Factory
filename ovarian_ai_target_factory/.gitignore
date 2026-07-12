@@ -1,0 +1,35 @@
+__pycache__/
+*.pyc
+.venv/
+
+# large data and local outputs
+/data_raw/
+/data_processed/
+/cache/
+/results/figures/
+/local_data/
+*.h5ad
+*.h5
+*.loom
+*.rds
+*.RDS
+*.bam
+*.fastq
+*.fastq.gz
+*.fq.gz
+*.tar
+*.tar.gz
+*.zip
+*.7z
+
+# logs and secrets
+/logs/
+*.log
+.env
+config/secrets.yaml
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.Rproj.user/

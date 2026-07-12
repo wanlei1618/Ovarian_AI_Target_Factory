@@ -1,0 +1,6 @@
+score_max: 100
+
+rank_thresholds:
+  main_project: 80
+  mechanism_validation: 65
+  supplementary_candidate: 50

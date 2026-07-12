@@ -1,0 +1,4 @@
+dataset_id	title	disease	modality	platform	sample_count	download_url	priority_score	recommended_action
+GSE319733	Tumor-draining lymph nodes in ovarian cancer lack germinal centers but harbor tumor-reactive memory B cells clonally linked to intra-tumoral B cells	ovarian cancer	single-cell RNA-seq		20	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE319733	9	Review metadata first; do not download matrix files until approved.
+GSE262172	GSK-J4 treatment in ovarian cancer cell lines (ATAC-Seq)	ovarian cancer	methylation		9	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE262172	6	Review metadata first; do not download matrix files until approved.
+GSE310580	DNA Methylation Profiling Enables Subclassification of Mucinous Ovarian Carcinoma and Distinguishes It from Extraovarian Mucinous Metastases	ovarian cancer	methylation		162	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE310580	3	Review metadata first; do not download matrix files until approved.
