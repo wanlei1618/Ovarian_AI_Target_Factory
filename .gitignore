@@ -1,0 +1,45 @@
+# Python / R caches
+__pycache__/
+*.pyc
+.Rhistory
+.RData
+.Rproj.user/
+
+# Large data and caches
+data_raw/
+data_processed/
+cache/
+logs/
+local_data/
+
+# Runtime logs
+*.log
+results/logs/
+results/daily_reports/logs/
+
+# Large scientific files
+*.h5ad
+*.h5
+*.loom
+*.rds
+*.RDS
+*.bam
+*.fastq
+*.fastq.gz
+*.fq.gz
+*.tar
+*.tar.gz
+*.zip
+*.7z
+
+# Secrets and local environment
+.env
+config/secrets.yaml
+ovarian_ai_target_factory/config/secrets.yaml
+.venv/
+venv/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
