@@ -1,0 +1,52 @@
+score_max: 100
+categories:
+  disease_relevance:
+    max: 15
+    items:
+      bulk_high_expression: 5
+      multi_cohort_consistency: 5
+      associated_with_stage_recurrence_resistance: 5
+  clinical_value:
+    max: 15
+    items:
+      os_or_pfs_association: 5
+      multivariable_independence: 5
+      predicts_platinum_parp_bev_response: 5
+  multiomics_consistency:
+    max: 15
+    items:
+      cnv_expression_support: 4
+      methylation_expression_support: 3
+      protein_support: 4
+      phosphoprotein_or_pathway_support: 4
+  single_cell_spatial:
+    max: 20
+    items:
+      malignant_subclone_specificity: 5
+      tme_interaction_support: 5
+      spatial_colocalization_support: 5
+      niche_or_invasive_front_specificity: 5
+  functional_dependency:
+    max: 15
+    items:
+      depmap_crispr_dependency: 5
+      drug_sensitivity_association: 4
+      virtual_ko_effect: 4
+      actionable_pathway: 2
+  novelty_publishability:
+    max: 10
+    items:
+      underexplored_in_ovarian_cancer: 4
+      clear_new_mechanistic_axis: 4
+      translational_potential: 2
+  experimental_feasibility:
+    max: 10
+    items:
+      antibody_or_reagent_available: 3
+      suitable_cell_line_expression: 3
+      knockdown_or_overexpression_feasible: 2
+      animal_organoid_or_coculture_feasible: 2
+rank_thresholds:
+  main_project: 80
+  mechanism_validation: 65
+  supplementary_candidate: 50

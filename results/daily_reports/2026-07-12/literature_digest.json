@@ -1,0 +1,60 @@
+[
+  {
+    "title": "Spatially resolved tumor-immune niches nominate actionable ovarian cancer axes",
+    "authors": [
+      "Mock Research Consortium"
+    ],
+    "journal": "Mock Preprint Server",
+    "date": "2026-07-12",
+    "doi": "10.0000/mock-ov-spatial-001",
+    "pmid": "",
+    "abstract": "Mock record for MVP validation; no external data were downloaded.",
+    "url": "https://example.org/mock-ov-spatial-001",
+    "modality": [
+      "spatial transcriptomics",
+      "single-cell RNA-seq"
+    ],
+    "disease": [
+      "high-grade serous ovarian cancer"
+    ],
+    "method_tags": [
+      "tumor microenvironment",
+      "ligand receptor",
+      "target discovery"
+    ],
+    "data_availability": "Mock accession only; download intentionally disabled in MVP.",
+    "code_availability": "Not evaluated in MVP.",
+    "priority_score": 82,
+    "priority": "high",
+    "reason": "Directly exercises spatial/TME target-discovery report fields."
+  },
+  {
+    "title": "Foundation-model prioritization of recurrent ovarian cancer dependencies",
+    "authors": [
+      "Mock AI Oncology Group"
+    ],
+    "journal": "Mock Journal",
+    "date": "2026-07-12",
+    "doi": "10.0000/mock-ov-ai-002",
+    "pmid": "",
+    "abstract": "Mock method paper for MVP validation; no external query was performed.",
+    "url": "https://example.org/mock-ov-ai-002",
+    "modality": [
+      "multi-omics",
+      "DepMap"
+    ],
+    "disease": [
+      "recurrent ovarian cancer"
+    ],
+    "method_tags": [
+      "machine learning",
+      "virtual knockout",
+      "CRISPR dependency"
+    ],
+    "data_availability": "Mock metadata only.",
+    "code_availability": "Mock GitHub link omitted.",
+    "priority_score": 68,
+    "priority": "medium",
+    "reason": "Useful strategy candidate for later scoring and virtual KO work."
+  }
+]

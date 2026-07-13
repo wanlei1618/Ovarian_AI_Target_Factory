@@ -1,0 +1,9 @@
+data_root: "D:/Ovarian_AI_Target_Factory"
+raw_dir: "D:/Ovarian_AI_Target_Factory/data_raw"
+processed_dir: "D:/Ovarian_AI_Target_Factory/data_processed"
+results_dir: "D:/Ovarian_AI_Target_Factory/results"
+cache_dir: "D:/Ovarian_AI_Target_Factory/cache"
+logs_dir: "D:/Ovarian_AI_Target_Factory/logs"
+
+max_single_download_gb: 50
+warn_if_c_drive_used: true

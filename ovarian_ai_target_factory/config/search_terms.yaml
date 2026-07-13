@@ -1,0 +1,37 @@
+disease:
+  - ovarian cancer
+  - high-grade serous ovarian cancer
+  - HGSOC
+  - ovarian carcinoma
+  - platinum resistant ovarian cancer
+  - recurrent ovarian cancer
+
+omics:
+  - single-cell RNA-seq
+  - spatial transcriptomics
+  - proteogenomics
+  - phosphoproteomics
+  - multi-omics
+  - methylation
+  - copy number variation
+
+ai_methods:
+  - artificial intelligence
+  - machine learning
+  - deep learning
+  - foundation model
+  - graph neural network
+  - multimodal learning
+  - virtual knockout
+  - causal inference
+  - target discovery
+
+biology:
+  - tumor microenvironment
+  - macrophage
+  - fibroblast
+  - endothelial cell
+  - hypoxia
+  - malignant subclone
+  - ligand receptor
+  - drug resistance
