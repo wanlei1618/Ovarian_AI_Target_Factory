@@ -1,0 +1,70 @@
+[
+  {
+    "title": "Conserved hydrophobic gatekeeper mechanisms in COX-1-like pockets revealed by AI-driven pocket similarity and molecular dynamics simulations of mofezolac.",
+    "authors": [
+      "Aimen K Aljoundi",
+      "Lucia Sessa",
+      "Arkadeep Sarkar",
+      "Stefano Piotto"
+    ],
+    "journal": "Computational biology and chemistry",
+    "date": "2026-Oct",
+    "article_type": [
+      "Journal Article"
+    ],
+    "doi": "10.1016/j.compbiolchem.2026.109128",
+    "pmid": "42160909",
+    "abstract": "Cyclooxygenase-1 (COX-1, PTGS1) has recently re-emerged as a significant therapeutic target in inflammatory diseases and ovarian cancer, particularly due to its high expression in high-grade serous ovarian carcinoma. Elucidating the structural determinants that govern the selective binding of inhibitors within the COX-1 catalytic pocket is essential for rational drug design. In this study, we investigated the binding behavior and potential cross-target activity of the selective COX-1 inhibitor mofezolac using an integrated artificial intelligence-assisted pocket-based drug discovery framework. Dynamic protein binding site's volumetric topology based binding pocket similarity analysis was performed to identify proteins possessing similar binding cavities structurally comparable to the COX-1-mofezolac complex (5WBE). Five structurally related proteins were identified based on conserved dynamic pocket geometry and physicochemical descriptors. Molecular docking and 200 ns MD simulations were subsequently executed to evaluate the stability, interaction dynamics, and binding mechanisms of mofezolac within these COX-1-like pockets. Binding free-energy calculations using the MM/GBSA approach revealed favorable and thermodynamically stable interactions across all systems, with ΔG_bind values ranging from -24.16 to -54.18 kcal/mol. Molecular dynamics analysis further identified conserved phenylalanine residues acting as dynamic hydrophobic gatekeepers, stabilizing mofezolac through persistent aromatic interactions. Computational mutagenesis (Phe→Ala) supported the contribution of these residues to ligand stabilization, as mutation reduced the predicted binding strength. These conserved hydrophobic pocket architectures can facilitate cross-target ligand recognition and highlight the importance of aromatic gatekeeper residues in stabilizing COX-1 inhibitors. Importantly, these findings suggest that mofezolac may engage structurally conserved binding environments across multiple proteins, supporting its potential for multi-target activity and drug repurposing. The integration of these computational methods provides mechanistic insight into mofezolac binding and establishes a machine learning-guided framework for identifying conserved druggable pockets relevant to anti-inflammatory and cancer therapeutic development.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42160909/",
+    "modality": [],
+    "disease": [
+      "ovarian cancer",
+      "ovarian carcinoma"
+    ],
+    "method_tags": [
+      "artificial intelligence",
+      "machine learning"
+    ],
+    "data_availability": "Unknown from PubMed metadata",
+    "code_availability": "Unknown from PubMed metadata",
+    "priority_score": 52,
+    "priority": "medium",
+    "reason": "Matched ovarian cancer terms and at least one configured omics/AI/biology search concept."
+  },
+  {
+    "title": "Development and validation of a miRNA-based prognostic model for high-grade serous ovarian cancer: a retrospective cohort study.",
+    "authors": [
+      "Cristiane Esteves Teixeira",
+      "Nayara Gusmão Tessarollo",
+      "Glenerson Baptista",
+      "Alessandra Freitas Serain",
+      "Helena Zancanaro",
+      "Diego José Gomes de Paula",
+      "Luciana Castro Moreeuw",
+      "Cláudia Bessa Pereira Chaves"
+    ],
+    "journal": "Lancet regional health. Americas",
+    "date": "2026-Sep",
+    "article_type": [
+      "Journal Article"
+    ],
+    "doi": "10.1016/j.lana.2026.101527",
+    "pmid": "42291842",
+    "abstract": "Ovarian cancer, particularly high-grade serous ovarian cancer (HGSOC), is the most lethal gynecological malignancy, mainly due to late-stage diagnosis and limited prognostic biomarkers. Current clinical markers, such as CA125, have limited prognostic accuracy for risk stratification. MicroRNAs (miRNAs) have emerged as promising biomarkers due to roles in tumor biology and stability in biofluids. This study aimed to identify and validate prognostic miRNA biomarkers in HGSOC. A machine learning pipeline was implemented to develop a prognostic model using miRNA data. Candidate miRNAs were identified through feature selection and differential expression analyses. Recursive Feature Elimination determined the optimal predictor set among miRNAs combined with age, stage, and The final model, incorporating 9 miRNAs with clinical variables, achieved an AUC of 0.762 [95% CI: 0.621-0.903], exceeding previously reported signatures. Key miRNAs, including hsa-miR-205-5p and hsa-miR-150-5p, were associated with angiogenesis, invasion, and chemoresistance pathways. In RT-qPCR validation, discriminative performance decreased; however, the continuous risk score remained independently associated with survival, achieving a C-index of 0.85 in multivariable analysis. We present an interpretable miRNA-based prognostic model for HGSOC integrating molecular features. Although ROC-based discrimination was limited in external validation, survival analyses supported independent prognostic value, with the continuous risk score significantly associated with survival. Continuous and classification-based stratification identified survival groups, supporting clinical relevance of the model and identified miRNA signature. CNPq; FAPERJ; Brazilian Ministry of Health (INCA/MS). O câncer de ovário, particularmente o carcinoma seroso de alto grau (HGSOC), é a neoplasia ginecológica mais letal, principalmente devido ao diagnóstico em estágios avançados e à escassez de biomarcadores prognósticos. Marcadores clínicos atualmente utilizados, como o CA125, apresentam precisão prognóstica limitada para estratificação de risco. Os microRNAs (miRNAs) têm emergido como biomarcadores promissores devido aos seus papéis na biologia tumoral e à sua estabilidade em biofluidos. Este estudo teve como objetivo identificar e validar biomarcadores prognósticos baseados em miRNAs no HGSOC. Foi implementado um pipeline de aprendizado de máquina para desenvolver um modelo prognóstico utilizando dados de miRNA. Os miRNAs foram identificados por meio de seleção de atributos e análises de expressão diferencial. O método O modelo final, incorporando 9 miRNAs e variáveis clínicas, alcançou AUC de 0,762 [IC95%: 0.621–0.903], superando assinaturas previamente descritas. miRNAs-chave, incluindo hsa-miR-205-5p e hsa-miR-150-5p, estiveram associados a vias relacionadas à angiogênese, invasão e quimiorresistência. Na validação por RT-qPCR, o desempenho discriminatório diminuiu; entretanto, o escore contínuo de risco permaneceu independentemente associado à sobrevida. Apresentamos um modelo prognóstico interpretável baseado em miRNAs para HGSOC, integrando características moleculares. Embora a discriminação baseada em ROC tenha sido limitada na validação externa, as análises de sobrevida sustentaram valor prognóstico independente, com o escore contínuo de risco significativamente associado à sobrevida. Estratificações contínuas e baseadas em classificação identificaram grupos com diferentes desfechos de sobrevida, sustentando a relevância clínica do modelo e da assinatura de miRNAs identificada. CNPq; FAPERJ; Ministério da Saúde do Brasil (INCA/MS).",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42291842/",
+    "modality": [],
+    "disease": [
+      "ovarian cancer",
+      "high-grade serous ovarian cancer",
+      "HGSOC"
+    ],
+    "method_tags": [
+      "machine learning"
+    ],
+    "data_availability": "Unknown from PubMed metadata",
+    "code_availability": "Unknown from PubMed metadata",
+    "priority_score": 53,
+    "priority": "medium",
+    "reason": "Matched ovarian cancer terms and at least one configured omics/AI/biology search concept."
+  }
+]
