@@ -33,6 +33,21 @@ FIELDS = [
     "main_project_relevance",
     "branch_project",
     "approved_by_rule",
+    "source_type",
+    "analysis_status",
+    "evidence_level",
+    "ovarian_data_used",
+    "hgsoc_specific",
+    "public_data_accession",
+    "public_data_verified",
+    "public_code_url",
+    "public_code_verified",
+    "independent_validation",
+    "functional_perturbation",
+    "single_cell_validation",
+    "spatial_validation",
+    "depmap_validation",
+    "drug_response_validation",
 ]
 
 
@@ -108,6 +123,8 @@ def geo_summary(ids: list[str], logger: logging.Logger) -> dict:
 
 def infer_modality(text: str) -> str:
     lowered = text.lower()
+    if "atac" in lowered or "chromatin accessibility" in lowered:
+        return "ATAC-seq"
     if "spatial" in lowered or "visium" in lowered or "geomx" in lowered:
         return "spatial transcriptomics"
     if "single-cell" in lowered or "single cell" in lowered or "scrna" in lowered:
@@ -168,6 +185,7 @@ def fetch_geo_records(query: str, retmax: int, logger: logging.Logger) -> list[d
                 "download_url": f"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc={accession}",
                 "priority_score": str(score),
                 "recommended_action": "Review metadata first; do not download matrix files until approved.",
+                "source_type": "auto_geo_search",
             }
         )
     return records
@@ -192,6 +210,21 @@ CURATED_DAILY_DATASETS = {
         "main_project_relevance": "medium",
         "branch_project": "B-cell / tumor-draining lymph node immune niche in ovarian cancer",
         "approved_by_rule": "yes",
+        "source_type": "curated_manual",
+        "analysis_status": "METADATA_ONLY",
+        "evidence_level": "limited",
+        "ovarian_data_used": "yes",
+        "hgsoc_specific": "unknown",
+        "public_data_accession": "GSE319733",
+        "public_data_verified": "yes",
+        "public_code_url": "",
+        "public_code_verified": "no",
+        "independent_validation": "unknown",
+        "functional_perturbation": "no",
+        "single_cell_validation": "yes",
+        "spatial_validation": "no",
+        "depmap_validation": "no",
+        "drug_response_validation": "no",
     },
     "GSE262172": {
         "dataset_id": "GSE262172",
@@ -211,6 +244,21 @@ CURATED_DAILY_DATASETS = {
         "main_project_relevance": "low",
         "branch_project": "chromatin accessibility and epigenetic drug response",
         "approved_by_rule": "no",
+        "source_type": "curated_manual",
+        "analysis_status": "METADATA_ONLY",
+        "evidence_level": "limited",
+        "ovarian_data_used": "yes",
+        "hgsoc_specific": "no",
+        "public_data_accession": "GSE262172",
+        "public_data_verified": "yes",
+        "public_code_url": "",
+        "public_code_verified": "no",
+        "independent_validation": "unknown",
+        "functional_perturbation": "drug treatment",
+        "single_cell_validation": "no",
+        "spatial_validation": "no",
+        "depmap_validation": "no",
+        "drug_response_validation": "partial",
     },
     "GSE310580": {
         "dataset_id": "GSE310580",
@@ -230,6 +278,21 @@ CURATED_DAILY_DATASETS = {
         "main_project_relevance": "low",
         "branch_project": "mucinous ovarian carcinoma methylation classification",
         "approved_by_rule": "no",
+        "source_type": "curated_manual",
+        "analysis_status": "METADATA_ONLY",
+        "evidence_level": "limited",
+        "ovarian_data_used": "yes",
+        "hgsoc_specific": "no",
+        "public_data_accession": "GSE310580",
+        "public_data_verified": "yes",
+        "public_code_url": "",
+        "public_code_verified": "no",
+        "independent_validation": "unknown",
+        "functional_perturbation": "no",
+        "single_cell_validation": "no",
+        "spatial_validation": "no",
+        "depmap_validation": "no",
+        "drug_response_validation": "no",
     },
 }
 
@@ -270,21 +333,33 @@ def refine_dataset_record(record: dict) -> dict:
             "main_project_relevance": main_relevance,
             "branch_project": "",
             "approved_by_rule": "no",
+            "source_type": record.get("source_type", "auto_geo_search"),
+            "analysis_status": "METADATA_ONLY",
+            "evidence_level": "limited" if "ovarian" in text else "weak",
+            "ovarian_data_used": "yes" if "ovarian" in text else "unknown",
+            "hgsoc_specific": "yes" if "hgsoc" in text or "high-grade serous" in text else "unknown",
+            "public_data_accession": accession,
+            "public_data_verified": "yes" if accession.startswith("GSE") else "unknown",
+            "public_code_url": "",
+            "public_code_verified": "no",
+            "independent_validation": "unknown",
+            "functional_perturbation": "yes" if "crispr" in text or "knock" in text else "unknown",
+            "single_cell_validation": "yes" if "single-cell" in text or "single cell" in text else "no",
+            "spatial_validation": "yes" if "spatial" in text else "no",
+            "depmap_validation": "yes" if "depmap" in text else "no",
+            "drug_response_validation": "yes" if "drug" in text or "resistance" in text else "unknown",
         }
     )
     return refined
 
 
-def ensure_curated_daily_records(records: list[dict]) -> list[dict]:
-    by_id = {record.get("dataset_id", ""): record for record in records}
-    for accession, record in CURATED_DAILY_DATASETS.items():
-        by_id.setdefault(accession, record)
-    ordered = []
-    for accession in ("GSE319733", "GSE262172", "GSE310580"):
-        if accession in by_id:
-            ordered.append(by_id.pop(accession))
-    ordered.extend(by_id.values())
-    return ordered
+def curated_records() -> list[dict]:
+    return [dict(CURATED_DAILY_DATASETS[key]) for key in ("GSE319733", "GSE262172", "GSE310580")]
+
+
+def newly_detected_records(records: list[dict]) -> list[dict]:
+    curated_ids = set(CURATED_DAILY_DATASETS)
+    return [record for record in records if record.get("dataset_id") not in curated_ids]
 
 
 def write_dataset_action_audit(records: list[dict], path: Path, run_date: str) -> None:
@@ -334,21 +409,40 @@ def run(
     if dry_run:
         return report_dir
 
-    records = ensure_curated_daily_records(fetch_geo_records(query, retmax, logger))
-    refined_records = [refine_dataset_record(record) for record in records]
+    raw_records = fetch_geo_records(query, retmax, logger)
+    new_records = newly_detected_records(raw_records)
+    curated = curated_records()
+    combined_by_id = {record.get("dataset_id", ""): record for record in raw_records}
+    for record in curated:
+        combined_by_id[record["dataset_id"]] = record
+    refined_records = [refine_dataset_record(record) for record in combined_by_id.values()]
     out_path = report_dir / f"new_dataset_registry_{yyyymmdd(selected_date)}.tsv"
+    raw_path = report_dir / f"raw_geo_hits_{yyyymmdd(selected_date)}.tsv"
+    newly_path = report_dir / f"daily_newly_detected_datasets_{yyyymmdd(selected_date)}.tsv"
+    curated_path = report_dir / "curated_dataset_registry.tsv"
     refined_path = report_dir / f"refined_dataset_registry_{yyyymmdd(selected_date)}.tsv"
     audit_path = report_dir / f"dataset_action_audit_{yyyymmdd(selected_date)}.md"
+    for path, rows, fields in (
+        (raw_path, raw_records, FIELDS[:18]),
+        (newly_path, new_records, FIELDS[:18]),
+        (out_path, new_records, FIELDS[:9]),
+        (curated_path, curated, FIELDS),
+    ):
+        with path.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fields, delimiter="\t", extrasaction="ignore")
+            writer.writeheader()
+            writer.writerows(rows)
     with out_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=FIELDS[:9], delimiter="\t", extrasaction="ignore")
         writer.writeheader()
-        writer.writerows(records)
+        writer.writerows(new_records)
     with refined_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=FIELDS, delimiter="\t", extrasaction="ignore")
         writer.writeheader()
         writer.writerows(refined_records)
     write_dataset_action_audit(refined_records, audit_path, selected_date)
-    logger.info("Wrote %s GEO records to %s", len(records), out_path)
+    logger.info("Wrote %s raw GEO records to %s", len(raw_records), raw_path)
+    logger.info("Wrote %s newly detected GEO records to %s", len(new_records), newly_path)
     logger.info("Wrote refined dataset action audit to %s", audit_path)
     return report_dir
 

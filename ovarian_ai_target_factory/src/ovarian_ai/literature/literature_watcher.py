@@ -79,6 +79,14 @@ UPGRADE_TERMS = (
     "ligand-receptor",
     "therapeutic vulnerability",
 )
+PUBLIC_DATA_PATTERNS = (
+    r"\bGSE\d+\b",
+    r"\bGSM\d+\b",
+    r"\bSRP\d+\b",
+    r"\bSRA\d+\b",
+    r"\bPRJNA\d+\b",
+    r"\bE-MTAB-\d+\b",
+)
 
 
 def yyyymmdd(value: str) -> str:
@@ -181,6 +189,40 @@ def detect_availability(text: str, kind: str) -> str:
     return "Unknown from PubMed metadata"
 
 
+def extract_public_data_accessions(text: str) -> list[str]:
+    hits = []
+    for pattern in PUBLIC_DATA_PATTERNS:
+        hits.extend(re.findall(pattern, text, flags=re.IGNORECASE))
+    return sorted({hit.upper() for hit in hits})
+
+
+def extract_public_code_url(text: str) -> str:
+    match = re.search(r"https?://(?:www\.)?(?:github\.com|gitlab\.com|zenodo\.org|figshare\.com)/[^\s\]\)>,;]+", text, flags=re.IGNORECASE)
+    return match.group(0) if match else ""
+
+
+def bool_tag(text: str, tokens: tuple[str, ...]) -> bool:
+    lowered = text.lower()
+    return any(token in lowered for token in tokens)
+
+
+def evidence_level_from_record(final_score: int, accessions: list[str], text: str) -> str:
+    validation_count = sum(
+        [
+            bool(accessions),
+            bool_tag(text, ("single-cell", "single cell", "scrna")),
+            bool_tag(text, ("spatial", "visium", "geomx")),
+            bool_tag(text, ("crispr", "depmap", "functional")),
+            bool_tag(text, ("drug response", "sensitivity", "resistance")),
+        ]
+    )
+    if final_score >= 65 and validation_count >= 2:
+        return "moderate"
+    if final_score >= 45 and validation_count >= 1:
+        return "limited"
+    return "weak"
+
+
 def score_specificity(text: str) -> int:
     lowered = text.lower()
     score = 0
@@ -236,6 +278,8 @@ def refine_literature_record(record: dict) -> dict:
     title_lower = title.lower()
 
     evidence_tags = [term for term in UPGRADE_TERMS if term in lowered]
+    public_data_accession = extract_public_data_accessions(text)
+    public_code_url = extract_public_code_url(text)
     disease_score = score_specificity(text)
     omics_score = score_omics(text)
     translational_score = score_translational(text)
@@ -291,6 +335,20 @@ def refine_literature_record(record: dict) -> dict:
             "translational_relevance_score": translational_score,
             "final_literature_score": final_score,
             "priority": score_to_priority(final_score, exclusion_status),
+            "analysis_status": "METADATA_ONLY",
+            "evidence_level": evidence_level_from_record(final_score, public_data_accession, text),
+            "ovarian_data_used": bool_tag(text, ("ovarian cancer", "ovarian carcinoma", "hgsoc", "high-grade serous ovarian")),
+            "hgsoc_specific": bool_tag(text, ("hgsoc", "high-grade serous ovarian")),
+            "public_data_accession": ";".join(public_data_accession),
+            "public_data_verified": bool(public_data_accession),
+            "public_code_url": public_code_url,
+            "public_code_verified": bool(public_code_url),
+            "independent_validation": bool_tag(text, ("external validation", "validation cohort", "independent cohort")),
+            "functional_perturbation": bool_tag(text, ("knockdown", "knockout", "crispr", "perturbation", "functional validation")),
+            "single_cell_validation": bool_tag(text, ("single-cell", "single cell", "scrna")),
+            "spatial_validation": bool_tag(text, ("spatial transcriptomics", "visium", "geomx", "spatial proteomics")),
+            "depmap_validation": bool_tag(text, ("depmap", "crispr dependency")),
+            "drug_response_validation": bool_tag(text, ("drug response", "drug sensitivity", "platinum resistance", "parp inhibitor")),
         }
     )
     return refined
