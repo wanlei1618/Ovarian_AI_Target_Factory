@@ -43,12 +43,21 @@ def fetch_bytes(url: str, timeout: int = 60) -> bytes:
         return response.read()
 
 
+def url_exists(url: str, timeout: int = 12) -> tuple[bool, str]:
+    try:
+        req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "OvarianAITargetFactory/next-analysis"})
+        with urllib.request.urlopen(req, timeout=timeout) as response:
+            return response.status < 400, ""
+    except Exception as exc:
+        return False, str(exc)
+
+
 def download(url: str, path: Path) -> None:
     if path.exists() and path.stat().st_size > 0:
         return
     path.parent.mkdir(parents=True, exist_ok=True)
     req = urllib.request.Request(url, headers={"User-Agent": "OvarianAITargetFactory/next-analysis"})
-    with urllib.request.urlopen(req, timeout=120) as response, path.open("wb") as handle:
+    with urllib.request.urlopen(req, timeout=30) as response, path.open("wb") as handle:
         while True:
             chunk = response.read(1024 * 1024)
             if not chunk:
@@ -90,6 +99,7 @@ def parse_filelist(text: str) -> list[dict]:
                 "required_for_bcr": required_bcr,
                 "download_decision": decision,
                 "decision_reason": reason,
+                "local_path": "",
                 "sha256": "",
             }
         )
@@ -242,7 +252,11 @@ def main() -> None:
     for row in inventory:
         if row["download_decision"] == "download":
             try:
+                ok, reason = url_exists(row["url"])
+                if not ok:
+                    raise RuntimeError(reason)
                 download(row["url"], raw_dir / row["filename"])
+                row["local_path"] = str(raw_dir / row["filename"])
                 row["sha256"] = sha256_file(raw_dir / row["filename"])
             except Exception as exc:
                 row["download_decision"] = "failed"
@@ -278,6 +292,8 @@ def main() -> None:
     pd.DataFrame(qc_rows, columns=["patient_id", "sample_id", "tissue_type", "tumor_or_tdln", "platform", "estimated_cells", "detected_gene_count", "nFeature_median", "nCount_median", "percent_mt_median", "doublet_estimate", "low_quality_cell_fraction", "source_file"]).to_csv(out_dir / "sample_qc_summary.tsv", sep="\t", index=False)
     pd.DataFrame(marker_rows, columns=["patient_id", "sample_id", "tissue_type", "tumor_or_tdln", "celltype_or_marker_group", "mean_marker_score", "cell_count_assigned"]).to_csv(out_dir / "celltype_marker_summary.tsv", sep="\t", index=False)
     pd.DataFrame(key_rows, columns=["patient_id", "sample_id", "tissue_type", "tumor_or_tdln", "celltype", "gene", "mean_expression", "detection_rate"]).to_csv(out_dir / "key_gene_expression_by_tissue.tsv", sep="\t", index=False)
+    pd.DataFrame(key_rows, columns=["patient_id", "sample_id", "tissue_type", "tumor_or_tdln", "celltype", "gene", "mean_expression", "detection_rate"]).to_csv(out_dir / "key_gene_expression_by_celltype.tsv", sep="\t", index=False)
+    pd.DataFrame(key_rows, columns=["patient_id", "sample_id", "tissue_type", "tumor_or_tdln", "celltype", "gene", "mean_expression", "detection_rate"]).to_csv(out_dir / "key_gene_expression_by_patient.tsv", sep="\t", index=False)
     pd.DataFrame(bcr_rows, columns=["patient_id", "sample_id", "tissue_type", "tumor_or_tdln", "valid_clonotype_count", "expanded_clonotype_count", "shannon", "gini", "status"]).to_csv(out_dir / "bcr_basic_summary.tsv", sep="\t", index=False)
 
     manifest_rows = []
@@ -292,11 +308,33 @@ def main() -> None:
                 "vdj_library": "unknown",
                 "platform": row["platform"],
                 "paired_status": "patient-level inferred",
-                "estimated_cells": row["estimated_cells"],
                 "source_file": row["source_file"],
+                "metadata_confidence": "medium",
             }
         )
-    pd.DataFrame(manifest_rows, columns=["patient_id", "sample_id", "tissue_type", "tumor_or_tdln", "gex_library", "vdj_library", "platform", "paired_status", "estimated_cells", "source_file"]).to_csv(out_dir / "sample_manifest.tsv", sep="\t", index=False)
+    if not manifest_rows:
+        for row in inventory:
+            parsed = sample_from_name(row["filename"])
+            if parsed["sample_id"]:
+                manifest_rows.append(
+                    {
+                        "patient_id": parsed["patient_id"],
+                        "sample_id": parsed["sample_id"],
+                        "tissue_type": parsed["tissue_type"],
+                        "tdln_or_tumor": parsed["tumor_or_tdln"],
+                        "gex_library": "yes" if row["required_for_gex"] else "no",
+                        "vdj_library": "yes" if row["required_for_bcr"] else "unknown",
+                        "platform": "10x Genomics",
+                        "paired_status": "inferred_from_filename_pending_metadata",
+                        "source_file": row["filename"],
+                        "metadata_confidence": "low",
+                    }
+                )
+    else:
+        for row in manifest_rows:
+            row["tdln_or_tumor"] = row.pop("tumor_or_tdln")
+    manifest_rows = list({(row["sample_id"], row["source_file"]): row for row in manifest_rows}.values())
+    pd.DataFrame(manifest_rows, columns=["patient_id", "sample_id", "tissue_type", "tdln_or_tumor", "gex_library", "vdj_library", "platform", "paired_status", "source_file", "metadata_confidence"]).to_csv(out_dir / "sample_manifest.tsv", sep="\t", index=False)
 
     attempted_downloads = [row for row in inventory if row["decision_reason"].startswith("download failed")]
     status = "COMPLETED" if qc_rows else "BLOCKED" if attempted_downloads else "METADATA_ONLY"
@@ -313,6 +351,26 @@ def main() -> None:
         epithelial_cells = sum(row.get("cell_count_assigned", 0) for row in marker_rows if row.get("celltype_or_marker_group") == "malignant_epithelial")
         if pd.notna(spp1) and spp1 > 0.05 and epithelial_cells >= 100:
             main_axis = "MAYBE"
+    axis_status = "NOT_TESTED" if not key_rows else "INSUFFICIENT_DATA"
+    axis_rows = [
+        {"axis": "SPP1-CD44/ITGB1", "patient_id": "", "support_status": axis_status, "support_reason": "Processed matrix unavailable or insufficient for patient-level validation."},
+        {"axis": "CD209-C1Q-myeloid niche", "patient_id": "", "support_status": axis_status, "support_reason": "Requires parsed celltype-level expression and patient-level comparison."},
+    ]
+    pd.DataFrame(axis_rows).to_csv(out_dir / "candidate_axis_patient_support.tsv", sep="\t", index=False)
+    (out_dir / "candidate_axis_summary.md").write_text(
+        "\n".join(
+            [
+                "# GSE319733 Candidate Axis Summary",
+                "",
+                f"- analysis_status: {status}",
+                f"- SPP1-CD44/ITGB1: {axis_status}",
+                f"- CD209/SPP1/C1Q/CD44/ITGB1/MMP14: {axis_status}",
+                "- reason: patient-level matrix evidence is required before support can be claimed.",
+            ]
+        )
+        + "\n",
+        encoding="utf-8",
+    )
     summary = [
         "# GSE319733 Real Analysis Summary",
         "",
@@ -331,6 +389,7 @@ def main() -> None:
     ]
     (out_dir / "GSE319733_initial_summary.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
     write_status(out_dir / "status.json", "GSE319733_analysis", status, run_id=args.run_id, warnings=warnings, errors=errors, outputs=[str(p) for p in out_dir.glob("*")])
+    write_status(out_dir / "analysis_status.json", "GSE319733_analysis", status, run_id=args.run_id, warnings=warnings, errors=errors, outputs=[str(p) for p in out_dir.glob("*")])
     print(out_dir)
 
 

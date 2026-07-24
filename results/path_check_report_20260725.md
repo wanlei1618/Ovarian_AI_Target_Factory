@@ -1,0 +1,223 @@
+# Path Check Report: 2026-07-25
+
+Output: `D:\Ovarian_AI_Target_Factory\results\path_check_report_20260725.md`
+
+## Passed checks
+- config/paths.yaml is used by shared Python path utilities.
+- D-drive result directory is available.
+- C-drive/user-directory patterns are treated as failures unless they are guard/check code.
+- tempfile/system temporary directory usage is scanned.
+- Potential direct file writes are listed for manual review.
+
+## Failed checks
+- None
+
+## Suspicious path patterns
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\check_disk_usage.py:46
+  - `log_path.write_text(text, encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\generate_final_execution_report.py:118
+  - `report.write_text("\n".join(lines), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\run_phase0_precheck.py:67
+  - `(outdir / "environment_precheck.json").write_text(json.dumps(checks, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\sync_results_to_github.py:121
+  - `with (manifest_dir / filename).open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\sync_results_to_github.py:125
+  - `(manifest_dir / "sync_manifest.json").write_text(json.dumps({"synced": synced, "excluded": excluded}, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\sync_results_to_github.py:132
+  - `(manifest_dir / "git_sync_status.json").write_text(json.dumps(git_results, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:124
+  - `with (out_dir / "disease_group_counts.tsv").open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:128
+  - `with (out_dir / "donor_manifest.tsv").open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:131
+  - `(out_dir / "analysis_feasibility.md").write_text(`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:163
+  - `(out_dir / "GSE338829_metadata_summary.md").write_text(`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:167
+  - `with (out_dir / "GSE338829_sample_design.tsv").open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:170
+  - `(out_dir / "GSE338829_download_decision.json").write_text(json.dumps(decision, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:193
+  - `with (out_dir / "supplementary_file_inventory.tsv").open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\03_target_factory\build_candidate_target_table.py:27
+  - `with out_path.open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733_analysis.py:60
+  - `with urllib.request.urlopen(req, timeout=30) as response, path.open("wb") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733_analysis.py:123
+  - `with gzip.open(path, "rt", encoding="utf-8", errors="replace") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733_analysis.py:131
+  - `with gzip.open(path, "rt", encoding="utf-8", errors="replace") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733_analysis.py:342
+  - `(out_dir / "NOT_RUN_reason.txt").write_text(`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733_analysis.py:360
+  - `(out_dir / "candidate_axis_summary.md").write_text(`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733_analysis.py:390
+  - `(out_dir / "GSE319733_initial_summary.md").write_text("\n".join(summary) + "\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733\03_prepare_gex_files.py:24
+  - `(out_dir / "NOT_RUN_reason.txt").write_text(`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\datasets\dataset_watcher.py:275
+  - `with history_path.open("r", encoding="utf-8", newline="") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\datasets\dataset_watcher.py:319
+  - `path.write_text("\n".join(lines), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\datasets\dataset_watcher.py:351
+  - `with history_path.open("r", encoding="utf-8", newline="") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\datasets\dataset_watcher.py:375
+  - `with path.open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\datasets\dataset_watcher.py:379
+  - `with refined_path.open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\datasets\dataset_watcher.py:383
+  - `with history_path.open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\literature\literature_watcher.py:394
+  - `path.write_text("\n".join(lines), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\literature\literature_watcher.py:485
+  - `path.write_text("\n".join(lines), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\literature\literature_watcher.py:517
+  - `json_path.write_text(json.dumps(records, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\literature\literature_watcher.py:518
+  - `refined_path.write_text(json.dumps(refined_records, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\report\report_generator.py:43
+  - `with path.open("r", encoding="utf-8", newline="") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\report\report_generator.py:260
+  - `(report_dir / f"Daily_Ovarian_AI_Target_Report_{suffix}.md").write_text(report, encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\report\report_generator.py:266
+  - `(report_dir / f"Next_Action_Report_{suffix}.md").write_text(next_action_report, encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\report\report_generator.py:267
+  - `(report_dir / "codex_next_tasks.md").write_text(`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\utils\run_status.py:35
+  - `with path.open("rb") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\utils\run_status.py:51
+  - `path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_empty_high_value_section_is_explicit.py:12
+  - `(tmp_path / f"refined_literature_digest_{suffix}.json").write_text("[]", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_empty_high_value_section_is_explicit.py:13
+  - `(tmp_path / f"daily_newly_detected_datasets_{suffix}.tsv").write_text("dataset_id\ttitle\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_empty_high_value_section_is_explicit.py:14
+  - `(tmp_path / "curated_dataset_registry.tsv").write_text("dataset_id\ttitle\tdataset_action\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_no_downgraded_paper_in_high_value_section.py:14
+  - `(tmp_path / f"refined_literature_digest_{suffix}.json").write_text(json.dumps(records), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_no_downgraded_paper_in_high_value_section.py:15
+  - `(tmp_path / f"daily_newly_detected_datasets_{suffix}.tsv").write_text("dataset_id\ttitle\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_no_downgraded_paper_in_high_value_section.py:16
+  - `(tmp_path / "curated_dataset_registry.tsv").write_text("dataset_id\ttitle\tdataset_action\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_pipeline_rules.py:35
+  - `reason.write_text("No matrix parsed", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_report_uses_refined_literature.py:13
+  - `(tmp_path / f"literature_digest_{suffix}.json").write_text(json.dumps([{"title": "unrefined high", "priority": "high"}]), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_report_uses_refined_literature.py:14
+  - `(tmp_path / f"refined_literature_digest_{suffix}.json").write_text(json.dumps([{"title": "refined low", "priority": "low"}]), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_report_uses_refined_literature.py:15
+  - `(tmp_path / f"daily_newly_detected_datasets_{suffix}.tsv").write_text("dataset_id\ttitle\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_report_uses_refined_literature.py:16
+  - `(tmp_path / "curated_dataset_registry.tsv").write_text("dataset_id\ttitle\tdataset_action\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_sync_file_whitelist.py:12
+  - `path.write_text("x", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_sync_file_whitelist.py:18
+  - `path.write_text("a\tb\n", encoding="utf-8")`
+
+## Files needing manual review
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\check_disk_usage.py:46
+  - `log_path.write_text(text, encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\generate_final_execution_report.py:118
+  - `report.write_text("\n".join(lines), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\run_phase0_precheck.py:67
+  - `(outdir / "environment_precheck.json").write_text(json.dumps(checks, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\sync_results_to_github.py:121
+  - `with (manifest_dir / filename).open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\sync_results_to_github.py:125
+  - `(manifest_dir / "sync_manifest.json").write_text(json.dumps({"synced": synced, "excluded": excluded}, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\sync_results_to_github.py:132
+  - `(manifest_dir / "git_sync_status.json").write_text(json.dumps(git_results, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:124
+  - `with (out_dir / "disease_group_counts.tsv").open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:128
+  - `with (out_dir / "donor_manifest.tsv").open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:131
+  - `(out_dir / "analysis_feasibility.md").write_text(`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:163
+  - `(out_dir / "GSE338829_metadata_summary.md").write_text(`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:167
+  - `with (out_dir / "GSE338829_sample_design.tsv").open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:170
+  - `(out_dir / "GSE338829_download_decision.json").write_text(json.dumps(decision, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\02_dataset_feasibility\geo_feasibility_check.py:193
+  - `with (out_dir / "supplementary_file_inventory.tsv").open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\03_target_factory\build_candidate_target_table.py:27
+  - `with out_path.open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733_analysis.py:60
+  - `with urllib.request.urlopen(req, timeout=30) as response, path.open("wb") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733_analysis.py:123
+  - `with gzip.open(path, "rt", encoding="utf-8", errors="replace") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733_analysis.py:131
+  - `with gzip.open(path, "rt", encoding="utf-8", errors="replace") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733_analysis.py:342
+  - `(out_dir / "NOT_RUN_reason.txt").write_text(`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733_analysis.py:360
+  - `(out_dir / "candidate_axis_summary.md").write_text(`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733_analysis.py:390
+  - `(out_dir / "GSE319733_initial_summary.md").write_text("\n".join(summary) + "\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\scripts\05_validation\gse319733\03_prepare_gex_files.py:24
+  - `(out_dir / "NOT_RUN_reason.txt").write_text(`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\datasets\dataset_watcher.py:275
+  - `with history_path.open("r", encoding="utf-8", newline="") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\datasets\dataset_watcher.py:319
+  - `path.write_text("\n".join(lines), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\datasets\dataset_watcher.py:351
+  - `with history_path.open("r", encoding="utf-8", newline="") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\datasets\dataset_watcher.py:375
+  - `with path.open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\datasets\dataset_watcher.py:379
+  - `with refined_path.open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\datasets\dataset_watcher.py:383
+  - `with history_path.open("w", newline="", encoding="utf-8") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\literature\literature_watcher.py:394
+  - `path.write_text("\n".join(lines), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\literature\literature_watcher.py:485
+  - `path.write_text("\n".join(lines), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\literature\literature_watcher.py:517
+  - `json_path.write_text(json.dumps(records, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\literature\literature_watcher.py:518
+  - `refined_path.write_text(json.dumps(refined_records, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\report\report_generator.py:43
+  - `with path.open("r", encoding="utf-8", newline="") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\report\report_generator.py:260
+  - `(report_dir / f"Daily_Ovarian_AI_Target_Report_{suffix}.md").write_text(report, encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\report\report_generator.py:266
+  - `(report_dir / f"Next_Action_Report_{suffix}.md").write_text(next_action_report, encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\report\report_generator.py:267
+  - `(report_dir / "codex_next_tasks.md").write_text(`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\utils\run_status.py:35
+  - `with path.open("rb") as handle:`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\src\ovarian_ai\utils\run_status.py:51
+  - `path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_empty_high_value_section_is_explicit.py:12
+  - `(tmp_path / f"refined_literature_digest_{suffix}.json").write_text("[]", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_empty_high_value_section_is_explicit.py:13
+  - `(tmp_path / f"daily_newly_detected_datasets_{suffix}.tsv").write_text("dataset_id\ttitle\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_empty_high_value_section_is_explicit.py:14
+  - `(tmp_path / "curated_dataset_registry.tsv").write_text("dataset_id\ttitle\tdataset_action\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_no_downgraded_paper_in_high_value_section.py:14
+  - `(tmp_path / f"refined_literature_digest_{suffix}.json").write_text(json.dumps(records), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_no_downgraded_paper_in_high_value_section.py:15
+  - `(tmp_path / f"daily_newly_detected_datasets_{suffix}.tsv").write_text("dataset_id\ttitle\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_no_downgraded_paper_in_high_value_section.py:16
+  - `(tmp_path / "curated_dataset_registry.tsv").write_text("dataset_id\ttitle\tdataset_action\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_pipeline_rules.py:35
+  - `reason.write_text("No matrix parsed", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_report_uses_refined_literature.py:13
+  - `(tmp_path / f"literature_digest_{suffix}.json").write_text(json.dumps([{"title": "unrefined high", "priority": "high"}]), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_report_uses_refined_literature.py:14
+  - `(tmp_path / f"refined_literature_digest_{suffix}.json").write_text(json.dumps([{"title": "refined low", "priority": "low"}]), encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_report_uses_refined_literature.py:15
+  - `(tmp_path / f"daily_newly_detected_datasets_{suffix}.tsv").write_text("dataset_id\ttitle\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_report_uses_refined_literature.py:16
+  - `(tmp_path / "curated_dataset_registry.tsv").write_text("dataset_id\ttitle\tdataset_action\n", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_sync_file_whitelist.py:12
+  - `path.write_text("x", encoding="utf-8")`
+- current-directory output write: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\tests\test_sync_file_whitelist.py:18
+  - `path.write_text("a\tb\n", encoding="utf-8")`
+
+## Recommended fixes
+- Route all raw data, processed data, results, cache, and logs through `config/paths.yaml` and `ovarian_ai.utils.paths`.
+- Keep network downloads pointed to D-drive raw/cache directories.
+- Keep logs under `D:/Ovarian_AI_Target_Factory/results/logs` or another configured D-drive result subdirectory.
+- If temporary files become necessary, create them under the configured cache directory.

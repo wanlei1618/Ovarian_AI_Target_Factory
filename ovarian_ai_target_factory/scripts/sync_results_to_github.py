@@ -42,6 +42,16 @@ def is_relevant_daily_report_file(path: Path, source: Path, date_token: str) -> 
     return path.name in keep_exact or date_token in path.name
 
 
+def exclusion_reason(path: Path, max_bytes: int) -> str:
+    if path.suffix.lower() not in ALLOWED_SUFFIXES or path.name.endswith((".fastq.gz", ".fq.gz")) or path.suffix.lower() in {suffix.lower() for suffix in BLOCKED_SUFFIXES}:
+        return "suffix not allowed"
+    if path.stat().st_size > max_bytes:
+        return "file exceeds max-file-mb"
+    if is_secret(path):
+        return "secret/token pattern detected"
+    return ""
+
+
 def copy_group(source: Path, dest: Path, max_bytes: int, date_token: str | None = None) -> tuple[list[dict], list[dict]]:
     synced, excluded = [], []
     if not source.exists():
@@ -53,13 +63,7 @@ def copy_group(source: Path, dest: Path, max_bytes: int, date_token: str | None 
             excluded.append({"source": str(path), "size_bytes": path.stat().st_size, "reason": "not part of requested run/date"})
             continue
         rel = path.relative_to(source)
-        reason = ""
-        if path.suffix.lower() not in ALLOWED_SUFFIXES or path.name.endswith((".fastq.gz", ".fq.gz")) or path.suffix in BLOCKED_SUFFIXES:
-            reason = "suffix not allowed"
-        elif path.stat().st_size > max_bytes:
-            reason = "file exceeds max-file-mb"
-        elif is_secret(path):
-            reason = "secret/token pattern detected"
+        reason = exclusion_reason(path, max_bytes)
         if reason:
             excluded.append({"source": str(path), "size_bytes": path.stat().st_size, "reason": reason})
             continue
@@ -85,7 +89,7 @@ def main() -> None:
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--source-results-root", type=Path, default=REPO_ROOT_DEFAULT / "results")
     parser.add_argument("--repo-root", type=Path, default=REPO_ROOT_DEFAULT)
-    parser.add_argument("--branch", default="codex/next-analysis")
+    parser.add_argument("--branch", default="codex/improve-after-20260724")
     parser.add_argument("--max-file-mb", type=float, default=10)
     parser.add_argument("--commit", action="store_true")
     parser.add_argument("--push", action="store_true")
@@ -97,6 +101,7 @@ def main() -> None:
         (args.source_results_root / "pipeline_qc" / args.run_id, sync_root / "pipeline_qc" / args.run_id),
         (args.source_results_root / "daily_reports", sync_root / "daily_reports" / args.run_id, date_token),
         (args.source_results_root / "scrna" / "GSE319733" / args.run_id, sync_root / "scrna" / "GSE319733" / args.run_id),
+        (args.source_results_root / "dataset_feasibility" / args.run_id, sync_root / "dataset_feasibility" / args.run_id),
         (args.source_results_root / "target_factory" / args.run_id, sync_root / "target_factory" / args.run_id),
         (args.source_results_root / "final_reports" / args.run_id, sync_root / "final_reports" / args.run_id),
     ]
