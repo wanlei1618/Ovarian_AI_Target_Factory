@@ -1,0 +1,74 @@
+{
+  "git_status": {
+    "cmd": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "returncode": 0,
+    "stdout": "M ovarian_ai_target_factory/scripts/03_target_factory/build_candidate_target_table.py\n M ovarian_ai_target_factory/scripts/05_validation/gse319733_analysis.py\n M ovarian_ai_target_factory/scripts/sync_results_to_github.py\n M ovarian_ai_target_factory/src/ovarian_ai/datasets/dataset_watcher.py\n M ovarian_ai_target_factory/src/ovarian_ai/literature/literature_watcher.py\n M ovarian_ai_target_factory/src/ovarian_ai/report/report_generator.py\n M ovarian_ai_target_factory/tests/test_pipeline_rules.py\n?? ovarian_ai_target_factory/config/curated_datasets.yaml\n?? ovarian_ai_target_factory/results_synced/daily_reports/20260724_230939_a6b57d7/2026-07-12/\n?? ovarian_ai_target_factory/results_synced/daily_reports/20260724_230939_a6b57d7/Daily_Ovarian_AI_Target_Report_20260712.md\n?? ovarian_ai_target_factory/results_synced/daily_reports/20260724_230939_a6b57d7/Next_Action_Report_20260712.md\n?? ovarian_ai_target_factory/results_synced/daily_reports/20260724_230939_a6b57d7/dataset_action_audit_20260712.md\n?? ovarian_ai_target_factory/results_synced/daily_reports/20260724_230939_a6b57d7/literature_digest_20260712.json\n?? ovarian_ai_target_factory/results_synced/daily_reports/20260724_230939_a6b57d7/literature_digest_20260712.md\n?? ovarian_ai_target_factory/results_synced/daily_reports/20260724_230939_a6b57d7/literature_filtering_audit_20260712.md\n?? ovarian_ai_target_factory/results_synced/daily_reports/20260724_230939_a6b57d7/new_dataset_registry_20260712.tsv\n?? ovarian_ai_target_factory/results_synced/daily_reports/20260724_230939_a6b57d7/refined_dataset_registry_20260712.tsv\n?? ovarian_ai_target_factory/results_synced/daily_reports/20260724_230939_a6b57d7/refined_literature_digest_20260712.json\n?? ovarian_ai_target_factory/scripts/02_dataset_feasibility/\n?? ovarian_ai_target_factory/scripts/05_validation/gse319733/\n?? ovarian_ai_target_factory/src/ovarian_ai/scoring/\n?? ovarian_ai_target_factory/tests/test_accession_regex.py\n?? ovarian_ai_target_factory/tests/test_candidate_evidence_missing_states.py\n?? ovarian_ai_target_factory/tests/test_curated_not_injected_into_daily_hits.py\n?? ovarian_ai_target_factory/tests/test_daily_new_dataset_history.py\n?? ovarian_ai_target_factory/tests/test_empty_high_value_section_is_explicit.py\n?? ovarian_ai_target_factory/tests/test_gse319733_status_schema.py\n?? ovarian_ai_target_factory/tests/test_gse337706_ovarian_subgroup_classification.py\n?? ovarian_ai_target_factory/tests/test_no_downgraded_paper_in_high_value_section.py\n?? ovarian_ai_target_factory/tests/test_no_placeholder_expression_pdf.py\n?? ovarian_ai_target_factory/tests/test_pdb_id_not_geo_accession.py\n?? ovarian_ai_target_factory/tests/test_public_data_requires_verified_accession.py\n?? ovarian_ai_target_factory/tests/test_report_uses_refined_literature.py\n?? ovarian_ai_target_factory/tests/test_sync_file_whitelist.py\n?? ovarian_ai_target_factory/tests/test_sync_max_size.py",
+    "stderr": ""
+  },
+  "git_remote": {
+    "cmd": [
+      "git",
+      "remote",
+      "-v"
+    ],
+    "returncode": 0,
+    "stdout": "origin\thttps://github.com/wanlei1618/Ovarian_AI_Target_Factory.git (fetch)\norigin\thttps://github.com/wanlei1618/Ovarian_AI_Target_Factory.git (push)",
+    "stderr": ""
+  },
+  "git_branch": {
+    "cmd": [
+      "git",
+      "branch",
+      "--show-current"
+    ],
+    "returncode": 0,
+    "stdout": "codex/improve-after-20260724",
+    "stderr": ""
+  },
+  "python_version": {
+    "cmd": [
+      "python",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "Python 3.7.4",
+    "stderr": ""
+  },
+  "rscript_path": "D:\\R\\R-4.6.1\\bin\\Rscript.exe",
+  "rscript_version": {
+    "cmd": [
+      "D:\\R\\R-4.6.1\\bin\\Rscript.exe",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "Rscript (R) version 4.6.1 (2026-06-24)",
+    "stderr": ""
+  },
+  "git_version": {
+    "cmd": [
+      "git",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "git version 2.40.0.windows.1",
+    "stderr": ""
+  },
+  "gh_version": {
+    "cmd": [
+      "D:/Tools/gh/gh.exe",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "gh version 2.96.0 (2026-07-02)\nhttps://github.com/cli/cli/releases/tag/v2.96.0",
+    "stderr": ""
+  },
+  "disk_usage": {
+    "data_root": "D:\\Ovarian_AI_Target_Factory",
+    "data_root_free_gb": 61.98,
+    "c_drive_free_gb": 9.76
+  }
+}
