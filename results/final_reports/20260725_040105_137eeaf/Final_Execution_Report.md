@@ -2,8 +2,9 @@
 
 - run_id: 20260725_040105_137eeaf
 - git_branch: codex/improve-after-20260724
-- local_git_sha: 137eeaf4a48388c7e35150dfac271faf0525806f
+- local_git_sha: 73c727c
 - remote_branch: codex/improve-after-20260724
+- pr_status: pending_token_permission_check
 - remote_main_note: GitHub sync is performed with lightweight result copies; no force push is used.
 
 ## Module Status
