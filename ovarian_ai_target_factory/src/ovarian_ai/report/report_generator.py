@@ -42,16 +42,22 @@ def _read_tsv(path: Path) -> list[dict]:
 
 def build_daily_report(run_date: str, report_dir: Path) -> str:
     suffix = yyyymmdd(run_date)
-    literature = _read_json(report_dir / f"literature_digest_{suffix}.json")
-    datasets = _read_tsv(report_dir / f"new_dataset_registry_{suffix}.tsv")
+    literature = _read_json(report_dir / f"refined_literature_digest_{suffix}.json")
+    datasets = _read_tsv(report_dir / f"refined_dataset_registry_{suffix}.tsv")
+    high_lit = [item for item in literature if item.get("priority") in {"high", "medium-high"} and item.get("exclusion_status") not in {"exclude"}]
+    background_lit = [item for item in literature if item.get("priority") in {"medium", "medium-low"} and item.get("exclusion_status") not in {"exclude"}]
+    low_lit = [item for item in literature if item.get("priority") == "low"]
+    approved = [item for item in datasets if item.get("dataset_action") == "approve_download"]
+    metadata_only = [item for item in datasets if item.get("dataset_action") == "metadata_only"]
+    deferred = [item for item in datasets if item.get("dataset_action") in {"defer", "needs_manual_review"}]
 
     lines = [
         f"# Daily Ovarian AI Target Report: {run_date}",
         "",
         "## 1. New high-value papers",
     ]
-    if literature:
-        for item in literature:
+    if high_lit:
+        for item in high_lit:
             lines.extend(
                 [
                     f"- {item['title']}",
@@ -59,48 +65,80 @@ def build_daily_report(run_date: str, report_dir: Path) -> str:
                     f"  - publication date: {item['date']}",
                     f"  - modality: {', '.join(item.get('modality') or [])}",
                     f"  - available data/code: {item['data_availability']} / {item['code_availability']}",
-                    f"  - relevance: {item['reason']}",
+                    f"  - evidence_level: {item.get('evidence_level', '')}",
                     f"  - priority: {item['priority']}",
                 ]
             )
     else:
-        lines.append("- No literature records found for this MVP run.")
+        lines.append("- None after refined filtering.")
 
-    lines.extend(["", "## 2. New datasets"])
-    if datasets:
-        for item in datasets:
+    lines.extend(["", "## 2. Background or method papers"])
+    if background_lit:
+        for item in background_lit:
+            lines.extend(
+                [
+                    f"- {item.get('title')}",
+                    f"  - priority: {item.get('priority')}",
+                    f"  - downgrade/status: {item.get('downgrade_reason') or item.get('exclusion_status')}",
+                ]
+            )
+    else:
+        lines.append("- None.")
+
+    lines.extend(["", "## 3. Low-priority literature archive"])
+    if low_lit:
+        for item in low_lit:
+            lines.append(f"- {item.get('title')}")
+    else:
+        lines.append("- None.")
+
+    lines.extend(["", "## 4. Approved datasets"])
+    if approved:
+        for item in approved:
             lines.extend(
                 [
                     f"- {item['dataset_id']}: {item['title']}",
                     f"  - sample count: {item['sample_count']}",
                     f"  - modality: {item['modality']}",
                     f"  - download URL: {item['download_url']}",
-                    f"  - priority score: {item['priority_score']}",
-                    f"  - recommended action: {item['recommended_action']}",
+                    f"  - dataset_action: {item.get('dataset_action')}",
+                    f"  - action_reason: {item.get('action_reason')}",
                 ]
             )
     else:
-        lines.append("- No dataset records found for this MVP run.")
+        lines.append("- None.")
+
+    lines.extend(["", "## 5. Metadata-only / deferred datasets"])
+    for item in metadata_only + deferred:
+        lines.extend(
+            [
+                f"- {item.get('dataset_id')}: {item.get('title')}",
+                f"  - action: {item.get('dataset_action')}",
+                f"  - reason: {item.get('action_reason')}",
+            ]
+        )
+    if not metadata_only and not deferred:
+        lines.append("- None.")
 
     lines.extend(
         [
             "",
-            "## 3. New strategies worth learning",
+            "## 6. New strategies worth learning",
             "- PubMed metadata triage: prioritize papers with ovarian cancer plus single-cell, spatial, multi-omics, dependency, or resistance terms.",
-            "- GEO metadata triage: review high-score GSE records first, then approve only small metadata-safe downloads in the next phase.",
+            "- GEO triage now separates raw automatic hits from curated manual records.",
             "",
-            "## 4. Candidate target changes",
+            "## 7. Candidate target changes",
             "- New candidates: none yet; MVP v0.1 is metadata-only.",
             "- Evidence strengthened: none yet.",
             "- Evidence weakened: none yet.",
             "- Suggested removals: none yet.",
             "",
-            "## 5. Questions for ChatGPT judgment",
+            "## 8. Questions for ChatGPT judgment",
             "- Which PubMed/GEO hits should be promoted to manual review?",
             "- Which evidence type is most publishable for a short-term ovarian cancer project?",
             "- Which GEO datasets should be approved for metadata-only or small-sample download next?",
             "",
-            "## 6. Next Codex tasks",
+            "## 9. Next Codex tasks",
             "- script: refine PubMed and GEO ranking heuristics.",
             "- input: reviewed search terms and manual inclusion/exclusion feedback.",
             "- output: cleaner literature digest and dataset registry.",

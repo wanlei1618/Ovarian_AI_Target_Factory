@@ -1,0 +1,1 @@
+patient_id	sample_id	tissue_type	tumor_or_tdln	platform	estimated_cells	detected_gene_count	nFeature_median	nCount_median	percent_mt_median	doublet_estimate	low_quality_cell_fraction	source_file
