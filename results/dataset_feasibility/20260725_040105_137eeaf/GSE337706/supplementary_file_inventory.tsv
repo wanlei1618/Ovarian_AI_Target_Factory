@@ -1,0 +1,4 @@
+filename	url	size_bytes	file_type	download_decision	decision_reason
+GSE337706_RAW.tar	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE337nnn/GSE337706/suppl/GSE337706_RAW.tar	274145280	tar	skip	raw sequencing/archive file is not downloaded by default
+filelist.txt	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE337nnn/GSE337706/suppl/filelist.txt	3061	txt	inspect_processed_files	processed or metadata-sized file can be inspected if needed
+https://www.hhs.gov/vulnerability-disclosure-policy/index.html	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE337nnn/GSE337706/suppl/https://www.hhs.gov/vulnerability-disclosure-policy/index.html	0	html	metadata_only	HTTP Error 404: Not Found
