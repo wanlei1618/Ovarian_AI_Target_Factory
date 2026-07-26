@@ -4,7 +4,7 @@
 - analysis_code_sha: ecbcea14cf30f79eed3109b834346cce36570df0
 - results_commit_sha: eed8ab89540e467836773aac98fae0a5fbefbf0f
 - branch: codex/after-244c94d
-- PR URL: pending
+- PR URL: https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/3
 
 ## Python/R Environment
 - Python: D:/Ovarian_AI_Target_Factory/envs/py313 ({
@@ -58,3 +58,7 @@
 - synced root: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced
 - large/raw unsynced: GSE319733_RAW.tar, MTX/barcodes/features, cell-level annotation table, RDS, FASTQ/BAM, cache/logs/secrets
 - GitHub only receives lightweight reports/tables/PDFs under ovarian_ai_target_factory/results_synced.
+
+## GitHub Provenance
+- remote_commit_sha: 1381c77e7028a0d6c809cfbee7df207612415168
+- pr_url: https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/3
