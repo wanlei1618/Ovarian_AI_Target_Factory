@@ -1,0 +1,7 @@
+broad_celltype	paired_patient_count	consistent_direction_count	dominant_direction
+B_cell	4	1	LN_ge_PT
+plasma_cell	4	1	PT_gt_LN
+endothelial	4	1	PT_gt_LN
+other	4	1	PT_gt_LN
+T_NK	4	1	PT_gt_LN
+epithelial	4	1	PT_gt_LN

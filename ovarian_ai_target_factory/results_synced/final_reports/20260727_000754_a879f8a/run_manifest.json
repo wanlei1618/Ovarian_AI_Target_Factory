@@ -1,0 +1,17 @@
+{
+  "run_id": "20260727_000754_a879f8a",
+  "analysis_code_sha": "ecbcea14cf30f79eed3109b834346cce36570df0",
+  "results_commit_sha": "PENDING",
+  "branch": "codex/after-244c94d",
+  "raw_archive": {
+    "downloaded": false,
+    "size_bytes": 352532480,
+    "sha256": "aea75da36ee401f9cd80fdfb0e13158969322bc3868b3cda95444194bdc1d589",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE319nnn/GSE319733/suppl/GSE319733_RAW.tar",
+    "path": "D:\\Ovarian_AI_Target_Factory\\data_raw\\single_cell\\GSE319733\\archives\\GSE319733_RAW.tar",
+    "timestamp": "2026-07-27T00:08:14"
+  },
+  "gse319733_samples": 10,
+  "paired_patients": "P1,P2,P3,P4",
+  "pytest_xml": "D:\\Ovarian_AI_Target_Factory\\results\\pipeline_qc\\20260727_000754_a879f8a\\pytest.xml"
+}
