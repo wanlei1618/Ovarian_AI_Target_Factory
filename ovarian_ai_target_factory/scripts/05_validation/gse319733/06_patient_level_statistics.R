@@ -53,7 +53,12 @@ pseudobulk_one <- function(cell_filter, outfile) {
       res <- rbind(res, data.table(gene = g, cell_type_group = paste(cell_filter, collapse = ";"), paired_patient_count = nrow(wide), mean_LN = mean(wide$LN, na.rm = TRUE), mean_PT = mean(wide$PT, na.rm = TRUE), effect_size_LN_minus_PT = mean(delta, na.rm = TRUE), p_value = p), fill = TRUE)
     }
   }
-  if (nrow(res)) res[, fdr := p.adjust(p_value, method = "BH")]
+  if (nrow(res)) {
+    res[, fdr := p.adjust(p_value, method = "BH")]
+    res[, evidence_status := ifelse(is.na(p_value), "INSUFFICIENT_DATA", "SUPPORTED")]
+  } else {
+    res <- data.table(gene = character(), cell_type_group = character(), paired_patient_count = integer(), mean_LN = numeric(), mean_PT = numeric(), effect_size_LN_minus_PT = numeric(), p_value = numeric(), fdr = numeric(), evidence_status = character())
+  }
   fwrite(res, file.path(out_dir, outfile), sep = "\t")
   res
 }

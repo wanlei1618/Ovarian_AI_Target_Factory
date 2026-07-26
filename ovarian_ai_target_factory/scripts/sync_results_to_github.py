@@ -19,6 +19,9 @@ from ovarian_ai.utils.run_status import sha256_file
 ALLOWED_SUFFIXES = {".md", ".txt", ".tsv", ".csv", ".json", ".yaml", ".yml", ".png", ".svg", ".pdf", ".html"}
 BLOCKED_SUFFIXES = {".fastq", ".fq", ".bam", ".h5ad", ".h5", ".loom", ".rds", ".RDS", ".tar", ".gz", ".zip", ".7z"}
 SECRET_PATTERNS = [re.compile(r"github_pat_[A-Za-z0-9_]+"), re.compile(r"(?i)(api[_-]?key|secret|token)\s*[:=]\s*[A-Za-z0-9_\-]{16,}")]
+BLOCKED_FILENAMES = {
+    "celltype_annotation.tsv",
+}
 
 
 def is_secret(path: Path) -> bool:
@@ -43,6 +46,8 @@ def is_relevant_daily_report_file(path: Path, source: Path, date_token: str) -> 
 
 
 def exclusion_reason(path: Path, max_bytes: int) -> str:
+    if path.name in BLOCKED_FILENAMES:
+        return "cell-level table excluded from GitHub sync"
     if path.suffix.lower() not in ALLOWED_SUFFIXES or path.name.endswith((".fastq.gz", ".fq.gz")) or path.suffix.lower() in {suffix.lower() for suffix in BLOCKED_SUFFIXES}:
         return "suffix not allowed"
     if path.stat().st_size > max_bytes:
