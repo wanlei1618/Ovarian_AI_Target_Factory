@@ -15,6 +15,10 @@ suppressPackageStartupMessages({
 })
 root <- "D:/Ovarian_AI_Target_Factory"
 out_dir <- file.path(root, "results", "scrna", "GSE319733", run_id)
+if (!file.exists(file.path(out_dir, "celltype_annotation.tsv")) || !file.exists(file.path(out_dir, "key_gene_expression_by_patient.tsv"))) {
+  writeLines(sprintf('{\n  "module": "GSE319733_patient_statistics_R",\n  "analysis_status": "BLOCKED",\n  "quality_gate_passed": false,\n  "row_counts": {},\n  "paired_patients": "",\n  "timestamp": "%s",\n  "blocking_reason": "GEX annotation outputs are unavailable; patient-level analysis not run"\n}\n', as.character(Sys.time())), file.path(out_dir, "patient_statistics_status.json"))
+  quit(status = 0)
+}
 cells <- fread(file.path(out_dir, "celltype_annotation.tsv"))
 keys <- fread(file.path(out_dir, "key_gene_expression_by_patient.tsv"))
 
