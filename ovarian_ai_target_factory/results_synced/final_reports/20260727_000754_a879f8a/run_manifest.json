@@ -1,7 +1,7 @@
 {
   "run_id": "20260727_000754_a879f8a",
   "analysis_code_sha": "ecbcea14cf30f79eed3109b834346cce36570df0",
-  "results_commit_sha": "PENDING",
+  "results_commit_sha": "eed8ab89540e467836773aac98fae0a5fbefbf0f",
   "branch": "codex/after-244c94d",
   "raw_archive": {
     "downloaded": false,
@@ -13,5 +13,6 @@
   },
   "gse319733_samples": 10,
   "paired_patients": "P1,P2,P3,P4",
-  "pytest_xml": "D:\\Ovarian_AI_Target_Factory\\results\\pipeline_qc\\20260727_000754_a879f8a\\pytest.xml"
+  "pytest_xml": "D:\\Ovarian_AI_Target_Factory\\results\\pipeline_qc\\20260727_000754_a879f8a\\pytest.xml",
+  "pr_url": "pending"
 }
