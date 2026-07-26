@@ -57,5 +57,5 @@
 - GitHub only receives lightweight reports/tables/PDFs under ovarian_ai_target_factory/results_synced.
 
 ## GitHub Provenance
-- remote_commit_sha: fb8dc5426a4715efb05817907a81437ce1b24245
+- last_verified_remote_commit_before_report_cleanup: fb8dc5426a4715efb05817907a81437ce1b24245
 - pr_url: https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/3
