@@ -19,6 +19,9 @@ from ovarian_ai.utils.run_status import sha256_file
 ALLOWED_SUFFIXES = {".md", ".txt", ".tsv", ".csv", ".json", ".yaml", ".yml", ".png", ".svg", ".pdf", ".html"}
 BLOCKED_SUFFIXES = {".fastq", ".fq", ".bam", ".h5ad", ".h5", ".loom", ".rds", ".RDS", ".tar", ".gz", ".zip", ".7z"}
 SECRET_PATTERNS = [re.compile(r"github_pat_[A-Za-z0-9_]+"), re.compile(r"(?i)(api[_-]?key|secret|token)\s*[:=]\s*[A-Za-z0-9_\-]{16,}")]
+BLOCKED_FILENAMES = {
+    "celltype_annotation.tsv",
+}
 
 
 def is_secret(path: Path) -> bool:
@@ -42,6 +45,18 @@ def is_relevant_daily_report_file(path: Path, source: Path, date_token: str) -> 
     return path.name in keep_exact or date_token in path.name
 
 
+def exclusion_reason(path: Path, max_bytes: int) -> str:
+    if path.name in BLOCKED_FILENAMES:
+        return "cell-level table excluded from GitHub sync"
+    if path.suffix.lower() not in ALLOWED_SUFFIXES or path.name.endswith((".fastq.gz", ".fq.gz")) or path.suffix.lower() in {suffix.lower() for suffix in BLOCKED_SUFFIXES}:
+        return "suffix not allowed"
+    if path.stat().st_size > max_bytes:
+        return "file exceeds max-file-mb"
+    if is_secret(path):
+        return "secret/token pattern detected"
+    return ""
+
+
 def copy_group(source: Path, dest: Path, max_bytes: int, date_token: str | None = None) -> tuple[list[dict], list[dict]]:
     synced, excluded = [], []
     if not source.exists():
@@ -53,13 +68,7 @@ def copy_group(source: Path, dest: Path, max_bytes: int, date_token: str | None 
             excluded.append({"source": str(path), "size_bytes": path.stat().st_size, "reason": "not part of requested run/date"})
             continue
         rel = path.relative_to(source)
-        reason = ""
-        if path.suffix.lower() not in ALLOWED_SUFFIXES or path.name.endswith((".fastq.gz", ".fq.gz")) or path.suffix in BLOCKED_SUFFIXES:
-            reason = "suffix not allowed"
-        elif path.stat().st_size > max_bytes:
-            reason = "file exceeds max-file-mb"
-        elif is_secret(path):
-            reason = "secret/token pattern detected"
+        reason = exclusion_reason(path, max_bytes)
         if reason:
             excluded.append({"source": str(path), "size_bytes": path.stat().st_size, "reason": reason})
             continue
@@ -97,6 +106,7 @@ def main() -> None:
         (args.source_results_root / "pipeline_qc" / args.run_id, sync_root / "pipeline_qc" / args.run_id),
         (args.source_results_root / "daily_reports", sync_root / "daily_reports" / args.run_id, date_token),
         (args.source_results_root / "scrna" / "GSE319733" / args.run_id, sync_root / "scrna" / "GSE319733" / args.run_id),
+        (args.source_results_root / "dataset_feasibility" / args.run_id, sync_root / "dataset_feasibility" / args.run_id),
         (args.source_results_root / "target_factory" / args.run_id, sync_root / "target_factory" / args.run_id),
         (args.source_results_root / "final_reports" / args.run_id, sync_root / "final_reports" / args.run_id),
     ]
@@ -120,7 +130,7 @@ def main() -> None:
     (manifest_dir / "sync_manifest.json").write_text(json.dumps({"synced": synced, "excluded": excluded}, indent=2, ensure_ascii=False), encoding="utf-8")
     git_results = []
     if args.commit:
-        git_results.append(run_git(args.repo_root, ["add", "ovarian_ai_target_factory/results_synced", "results"]))
+        git_results.append(run_git(args.repo_root, ["add", "ovarian_ai_target_factory/results_synced"]))
         git_results.append(run_git(args.repo_root, ["commit", "-m", f"chore: sync analysis outputs {args.run_id}"]))
     if args.push:
         git_results.append(run_git(args.repo_root, ["push", "-u", "origin", args.branch]))

@@ -1,0 +1,37 @@
+{
+  "module": "GSE319733_analysis",
+  "analysis_status": "BLOCKED",
+  "timestamp": "2026-07-26T23:52:46",
+  "run_id": "20260726_234947_501c5dd",
+  "warnings": [],
+  "errors": [
+    "metadata download failed: HTTP Error 403: Forbidden"
+  ],
+  "outputs": [
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\analysis_status.json",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\bcr_basic_summary.tsv",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\candidate_axis_patient_support.tsv",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\candidate_axis_summary.md",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\celltype_marker_summary.tsv",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\GSE319733_initial_summary.md",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\key_gene_expression_by_celltype.tsv",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\key_gene_expression_by_patient.tsv",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\key_gene_expression_by_tissue.tsv",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\NOT_RUN_reason.txt",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\sample_manifest.tsv",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\sample_qc_summary.tsv",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\status.json",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\supplementary_file_inventory.tsv"
+  ],
+  "archive_only_layout_detected": true,
+  "direct_member_download_attempts": 0,
+  "quality_gate_passed": true,
+  "required_outputs": [
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\supplementary_file_inventory.tsv",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\sample_manifest.tsv",
+    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260726_234947_501c5dd\\NOT_RUN_reason.txt"
+  ],
+  "required_nonempty_outputs": [],
+  "row_counts": {},
+  "blocking_reason": ""
+}

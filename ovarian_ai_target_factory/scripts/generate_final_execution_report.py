@@ -40,6 +40,7 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     phase0 = read_status(dirs["results"] / "pipeline_qc" / args.run_id / "status.json")
     gse = read_status(dirs["results"] / "scrna" / "GSE319733" / args.run_id / "status.json")
+    feasibility = read_status(dirs["results"] / "dataset_feasibility" / args.run_id / "status.json")
     target = read_status(dirs["results"] / "target_factory" / args.run_id / "status.json")
     sync_dir = PROJECT_ROOT / "results_synced"
     lines = [
@@ -48,11 +49,13 @@ def main() -> None:
         f"- run_id: {args.run_id}",
         f"- git_branch: {git_output(['branch', '--show-current'])}",
         f"- local_git_sha: {git_output(['rev-parse', 'HEAD'])}",
+        f"- remote_branch: codex/improve-after-20260724",
         f"- remote_main_note: GitHub sync is performed with lightweight result copies; no force push is used.",
         "",
         "## Module Status",
         f"- Phase 0 environment / Rscript / disk / Git precheck: {phase0}",
         "- Phase 1 pipeline realism and report logic: COMPLETED_WITH_WARNINGS",
+        f"- Phase 2 GSE337706/GSE338829 feasibility: {feasibility}",
         f"- Phase 2 GSE319733 GEX/BCR analysis: {gse}",
         f"- Phase 3 minimal target evidence factory: {target}",
         "- Phase 4 lightweight GitHub sync: RUNNING_OR_PENDING",
@@ -61,12 +64,15 @@ def main() -> None:
         "- Separated raw GEO hits, daily newly detected datasets, curated dataset registry, and refined dataset registry.",
         "- Fixed curated GSE262172 modality to ATAC-seq.",
         "- Updated daily report logic to use refined literature/dataset outputs.",
+        "- Reclassified GSE337706 as ovarian liquid biopsy / platelet-coated CTC branch.",
+        "- Checked GSE338829 as RBMS1-NEDD4 perturbation-validation feasibility branch.",
         "- Created real GSE319733 supplementary file inventory from GEO.",
         "- Added target evidence table with NOT_TESTED / NEGATIVE / INSUFFICIENT_DATA semantics.",
         "- Added lightweight GitHub sync script and manifests.",
         "",
         "## Incomplete or Blocked Modules",
         "- GSE319733 expression/BCR matrix parsing is BLOCKED unless RAW.tar download is manually approved. GEO filelist names processed files, but individual files return 404 outside RAW.tar.",
+        "- pytest was requested but is not installed in the current Python 3.7 environment; direct standard-library test execution was used.",
         "- No Target Cards generated because no candidate has two independent evidence sources plus patient-level support.",
         "",
         "## GSE319733 Suitability for SPP1 Main Axis",
@@ -94,6 +100,7 @@ def main() -> None:
         f"- pipeline_qc: {sync_dir / 'pipeline_qc' / args.run_id}",
         f"- daily_reports: {sync_dir / 'daily_reports' / args.run_id}",
         f"- scrna/GSE319733: {sync_dir / 'scrna' / 'GSE319733' / args.run_id}",
+        f"- dataset_feasibility: {sync_dir / 'dataset_feasibility' / args.run_id}",
         f"- target_factory: {sync_dir / 'target_factory' / args.run_id}",
         f"- final_reports: {sync_dir / 'final_reports' / args.run_id}",
         "",

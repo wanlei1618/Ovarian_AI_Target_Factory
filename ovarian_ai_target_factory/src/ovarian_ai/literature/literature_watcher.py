@@ -79,14 +79,14 @@ UPGRADE_TERMS = (
     "ligand-receptor",
     "therapeutic vulnerability",
 )
-PUBLIC_DATA_PATTERNS = (
-    r"\bGSE\d+\b",
-    r"\bGSM\d+\b",
-    r"\bSRP\d+\b",
-    r"\bSRA\d+\b",
-    r"\bPRJNA\d+\b",
-    r"\bE-MTAB-\d+\b",
-)
+ACCESSION_PATTERNS = {
+    "GEO": re.compile(r"\bGSE\d{3,}\b", re.I),
+    "GSM": re.compile(r"\bGSM\d{3,}\b", re.I),
+    "SRA": re.compile(r"\b(?:SRP|SRR|SRS|SRX)\d{3,}\b", re.I),
+    "BioProject": re.compile(r"\bPRJ(?:NA|EB|DB)\d{3,}\b", re.I),
+    "ArrayExpress": re.compile(r"\bE-[A-Z]+-\d+\b", re.I),
+    "ClinicalTrials": re.compile(r"\bNCT\d{8}\b", re.I),
+}
 
 
 def yyyymmdd(value: str) -> str:
@@ -180,20 +180,25 @@ def priority_from_tags(modality: list[str], method_tags: list[str], disease: lis
     return score, "low"
 
 
-def detect_availability(text: str, kind: str) -> str:
+def detect_availability(text: str, kind: str, accessions: list[dict] | None = None, code_url: str = "") -> str:
     lowered = text.lower()
-    if kind == "data" and any(token in lowered for token in ("gse", "geo", "sra", "arrayexpress", "zenodo", "figshare", "tcga")):
-        return "Likely public data/accession mentioned in metadata"
-    if kind == "code" and any(token in lowered for token in ("github", "gitlab", "code availability", "source code")):
+    if kind == "data" and accessions:
+        return "Public analysis-data accession detected in metadata"
+    if kind == "code" and (code_url or any(token in lowered for token in ("github", "gitlab", "code availability", "source code"))):
         return "Likely public code mentioned in metadata"
     return "Unknown from PubMed metadata"
 
 
-def extract_public_data_accessions(text: str) -> list[str]:
+def extract_accessions(text: str) -> list[dict]:
     hits = []
-    for pattern in PUBLIC_DATA_PATTERNS:
-        hits.extend(re.findall(pattern, text, flags=re.IGNORECASE))
-    return sorted({hit.upper() for hit in hits})
+    for source, pattern in ACCESSION_PATTERNS.items():
+        for match in pattern.findall(text or ""):
+            hits.append({"source": source, "accession": match.upper()})
+    return list({(x["source"], x["accession"]): x for x in hits}.values())
+
+
+def accession_string(accessions: list[dict]) -> str:
+    return ";".join(f"{item['source']}:{item['accession']}" for item in accessions)
 
 
 def extract_public_code_url(text: str) -> str:
@@ -206,7 +211,7 @@ def bool_tag(text: str, tokens: tuple[str, ...]) -> bool:
     return any(token in lowered for token in tokens)
 
 
-def evidence_level_from_record(final_score: int, accessions: list[str], text: str) -> str:
+def evidence_level_from_record(final_score: int, accessions: list[dict], text: str) -> str:
     validation_count = sum(
         [
             bool(accessions),
@@ -278,7 +283,7 @@ def refine_literature_record(record: dict) -> dict:
     title_lower = title.lower()
 
     evidence_tags = [term for term in UPGRADE_TERMS if term in lowered]
-    public_data_accession = extract_public_data_accessions(text)
+    public_data_accessions = extract_accessions(text)
     public_code_url = extract_public_code_url(text)
     disease_score = score_specificity(text)
     omics_score = score_omics(text)
@@ -328,19 +333,23 @@ def refine_literature_record(record: dict) -> dict:
             "downgrade_reason": downgrade_reason,
             "false_positive_reason": false_positive_reason,
             "evidence_tags": evidence_tags,
-            "data_availability": detect_availability(text, "data"),
-            "code_availability": detect_availability(text, "code"),
+            "data_availability": detect_availability(text, "data", public_data_accessions, public_code_url),
+            "code_availability": detect_availability(text, "code", public_data_accessions, public_code_url),
             "disease_specificity_score": disease_score,
             "omics_relevance_score": omics_score,
             "translational_relevance_score": translational_score,
             "final_literature_score": final_score,
             "priority": score_to_priority(final_score, exclusion_status),
             "analysis_status": "METADATA_ONLY",
-            "evidence_level": evidence_level_from_record(final_score, public_data_accession, text),
+            "evidence_level": evidence_level_from_record(final_score, public_data_accessions, text),
             "ovarian_data_used": bool_tag(text, ("ovarian cancer", "ovarian carcinoma", "hgsoc", "high-grade serous ovarian")),
             "hgsoc_specific": bool_tag(text, ("hgsoc", "high-grade serous ovarian")),
-            "public_data_accession": ";".join(public_data_accession),
-            "public_data_verified": bool(public_data_accession),
+            "public_data_accessions": public_data_accessions,
+            "public_data_accession": accession_string(public_data_accessions),
+            "public_data_claimed": bool(public_data_accessions),
+            "public_data_verified": bool(public_data_accessions),
+            "public_data_verification_status": "verified_accession_pattern" if public_data_accessions else "no_valid_public_analysis_accession_detected",
+            "public_code_urls": [public_code_url] if public_code_url else [],
             "public_code_url": public_code_url,
             "public_code_verified": bool(public_code_url),
             "independent_validation": bool_tag(text, ("external validation", "validation cohort", "independent cohort")),

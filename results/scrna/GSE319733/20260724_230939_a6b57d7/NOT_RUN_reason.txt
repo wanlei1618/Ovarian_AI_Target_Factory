@@ -1,1 +1,0 @@
-No complete processed matrix/barcode/features groups were parsed. GEO lists processed files in filelist.txt, but individual file URLs returned 404; available public directory exposes RAW.tar plus filelist.txt. RAW.tar was not downloaded because default RAW.tar download is forbidden by project rule. No formal expression plots were generated.
