@@ -1,0 +1,1 @@
+No complete processed matrix/barcode/features groups were parsed. GEO exposes an archive-only layout: processed members are listed in filelist.txt but require RAW.tar extraction. RAW.tar was not downloaded because this run does not approve default RAW.tar download. No formal expression plots were generated.

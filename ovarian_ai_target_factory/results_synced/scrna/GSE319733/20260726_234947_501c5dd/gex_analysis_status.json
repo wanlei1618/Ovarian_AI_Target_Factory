@@ -1,0 +1,9 @@
+{
+  "module": "GSE319733_GEX_R",
+  "analysis_status": "BLOCKED",
+  "quality_gate_passed": false,
+  "row_counts": {},
+  "timestamp": "2026-07-27 00:01:20.280484",
+  "blocking_reason": "sample_manifest lacks extracted GEX matrix/features/barcodes paths; RAW.tar extraction not approved in this run"
+}
+

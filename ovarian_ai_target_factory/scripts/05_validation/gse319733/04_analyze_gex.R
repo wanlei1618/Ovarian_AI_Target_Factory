@@ -33,7 +33,7 @@ if (!all(required_cols %in% names(manifest))) {
   writeLines(sprintf('{\n  "module": "GSE319733_GEX_R",\n  "analysis_status": "BLOCKED",\n  "quality_gate_passed": false,\n  "row_counts": {},\n  "timestamp": "%s",\n  "blocking_reason": "sample_manifest lacks extracted GEX matrix/features/barcodes paths; RAW.tar extraction not approved in this run"\n}\n', as.character(Sys.time())), file.path(out_dir, "gex_analysis_status.json"))
   quit(status = 0)
 }
-manifest <- manifest[has_gex == "true"]
+manifest <- manifest[tolower(as.character(has_gex)) == "true"]
 if (nrow(manifest) < 1) {
   writeLines(sprintf('{\n  "module": "GSE319733_GEX_R",\n  "analysis_status": "BLOCKED",\n  "quality_gate_passed": false,\n  "row_counts": {"sample_manifest_gex_rows": 0},\n  "timestamp": "%s",\n  "blocking_reason": "No GEX samples available for analysis"\n}\n', as.character(Sys.time())), file.path(out_dir, "gex_analysis_status.json"))
   quit(status = 0)
