@@ -2,8 +2,10 @@
 
 - run_id: 20260726_234947_501c5dd
 - git_branch: codex/next-analysis
-- local_git_sha: 0a85d2f229053a3a14c5513c661966d7d4b10cd9
-- remote_branch: codex/improve-after-20260724
+- local_git_sha: ca625c0069418dd27b3443a5b2c22fc064814a6f
+- results_commit_sha: caa1db1600dc22fa91aea793c73a4a17bf5e5d89
+- remote_branch: codex/next-analysis
+- draft_pr: https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/2
 - remote_main_note: GitHub sync is performed with lightweight result copies; no force push is used.
 
 ## Module Status
@@ -12,21 +14,21 @@
 - Phase 2 GSE337706/GSE338829 feasibility: COMPLETED_WITH_WARNINGS
 - Phase 2 GSE319733 GEX/BCR analysis: BLOCKED
 - Phase 3 minimal target evidence factory: COMPLETED_WITH_WARNINGS
-- Phase 4 lightweight GitHub sync: RUNNING_OR_PENDING
+- Phase 4 lightweight GitHub sync: COMPLETED
 
 ## Completed Modules
 - Separated raw GEO hits, daily newly detected datasets, curated dataset registry, and refined dataset registry.
 - Fixed curated GSE262172 modality to ATAC-seq.
 - Updated daily report logic to use refined literature/dataset outputs.
-- Reclassified GSE337706 as ovarian liquid biopsy / platelet-coated CTC branch.
-- Checked GSE338829 as RBMS1-NEDD4 perturbation-validation feasibility branch.
+- Reclassified GSE337705/GSE337706 as metadata-only ovarian liquid biopsy / platelet-coated CTC branch.
+- Checked GSE338829 as metadata-only RIP-seq / RNA immunoprecipitation evidence, not expression perturbation RNA-seq.
 - Created real GSE319733 supplementary file inventory from GEO.
 - Added target evidence table with NOT_TESTED / NEGATIVE / INSUFFICIENT_DATA semantics.
 - Added lightweight GitHub sync script and manifests.
 
 ## Incomplete or Blocked Modules
 - GSE319733 expression/BCR matrix parsing is BLOCKED unless RAW.tar download is manually approved. GEO filelist names processed files, but individual files return 404 outside RAW.tar.
-- pytest was requested but is not installed in the current Python 3.7 environment; direct standard-library test execution was used.
+- Python 3.11 D-drive environment was created and pytest completed successfully: 29 passed.
 - No Target Cards generated because no candidate has two independent evidence sources plus patient-level support.
 
 ## GSE319733 Suitability for SPP1 Main Axis
@@ -42,6 +44,7 @@
 ## Candidate Ranking
 - See `candidate_target_table.tsv` under target_factory.
 - SPP1, CD44, ITGB1, MMP14 are retained as exploratory inputs only; no high-score assignment was made.
+- RBMS1/NEDD4 evidence is assigned to GSE338829 only, not GSE319733.
 
 ## Key D-Drive Paths
 - raw data: D:\Ovarian_AI_Target_Factory\data_raw
