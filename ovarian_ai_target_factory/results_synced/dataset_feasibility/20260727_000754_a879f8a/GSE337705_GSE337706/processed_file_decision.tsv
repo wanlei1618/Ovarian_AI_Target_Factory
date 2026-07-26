@@ -1,0 +1,5 @@
+accession	filename	download_decision	decision_reason
+GSE337705	GSE337705_RAW.tar	skip	raw sequencing/archive file is not downloaded by default
+GSE337705	filelist.txt	metadata_only	HTTP Error 403: Forbidden
+GSE337705	https://www.hhs.gov/vulnerability-disclosure-policy/index.html	metadata_only	HTTP Error 404: Not Found
+GSE337706		metadata_only	HTTP Error 403: Forbidden

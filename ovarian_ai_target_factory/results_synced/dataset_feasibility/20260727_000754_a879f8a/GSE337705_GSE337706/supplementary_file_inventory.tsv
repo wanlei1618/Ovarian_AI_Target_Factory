@@ -1,0 +1,5 @@
+accession	filename	url	size_bytes	file_type	download_decision	decision_reason
+GSE337705	GSE337705_RAW.tar	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE337nnn/GSE337705/suppl/GSE337705_RAW.tar	0	tar	skip	raw sequencing/archive file is not downloaded by default
+GSE337705	filelist.txt	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE337nnn/GSE337705/suppl/filelist.txt	0	txt	metadata_only	HTTP Error 403: Forbidden
+GSE337705	https://www.hhs.gov/vulnerability-disclosure-policy/index.html	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE337nnn/GSE337705/suppl/https://www.hhs.gov/vulnerability-disclosure-policy/index.html	0	html	metadata_only	HTTP Error 404: Not Found
+GSE337706		https://ftp.ncbi.nlm.nih.gov/geo/series/GSE337nnn/GSE337706/suppl/	0	listing_error	metadata_only	HTTP Error 403: Forbidden

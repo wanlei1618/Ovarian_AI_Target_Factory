@@ -1,0 +1,21 @@
+patient_id	sample_id	tissue_type	tumor_or_tdln	gex_library	vdj_library	platform	paired_status	estimated_cells	source_file
+	GSM9524771	unknown		yes	no	10x Genomics	inferred_from_filename_pending_metadata		GSM9524771_GEO_Metadata_LN1.csv.gz;GSM9524771_P1_LN_barcodes.tsv.gz;GSM9524771_P1_LN_features.tsv.gz;GSM9524771_P1_LN_matrix.mtx.gz
+	GSM9524772	unknown		yes	no	10x Genomics	inferred_from_filename_pending_metadata		GSM9524772_GEO_Metadata_LN2.csv.gz;GSM9524772_P2_LN_barcodes.tsv.gz;GSM9524772_P2_LN_features.tsv.gz;GSM9524772_P2_LN_matrix.mtx.gz
+	GSM9524773	unknown		yes	no	10x Genomics	inferred_from_filename_pending_metadata		GSM9524773_GEO_Metadata_LN3.csv.gz;GSM9524773_P3_LN_barcodes.tsv.gz;GSM9524773_P3_LN_features.tsv.gz;GSM9524773_P3_LN_matrix.mtx.gz
+	GSM9524774	unknown		yes	no	10x Genomics	inferred_from_filename_pending_metadata		GSM9524774_GEO_Metadata_LN4.csv.gz;GSM9524774_P4_LN_barcodes.tsv.gz;GSM9524774_P4_LN_features.tsv.gz;GSM9524774_P4_LN_matrix.mtx.gz
+	GSM9524775	unknown		yes	no	10x Genomics	inferred_from_filename_pending_metadata		GSM9524775_GEO_Metadata_LN5.csv.gz;GSM9524775_P5_LN_barcodes.tsv.gz;GSM9524775_P5_LN_features.tsv.gz;GSM9524775_P5_LN_matrix.mtx.gz
+	GSM9524776	unknown		yes	no	10x Genomics	inferred_from_filename_pending_metadata		GSM9524776_GEO_Metadata_LN6.csv.gz;GSM9524776_P6_LN_barcodes.tsv.gz;GSM9524776_P6_LN_features.tsv.gz;GSM9524776_P6_LN_matrix.mtx.gz
+P1	GSM9524777	tumor-draining lymph node	LN	no	yes	10x Genomics	inferred_from_filename_pending_metadata		GSM9524777_P1_LN_all_contig_annotations.csv.gz
+P2	GSM9524778	tumor-draining lymph node	LN	no	yes	10x Genomics	inferred_from_filename_pending_metadata		GSM9524778_P2_LN_all_contig_annotations.csv.gz
+P3	GSM9524779	tumor-draining lymph node	LN	no	yes	10x Genomics	inferred_from_filename_pending_metadata		GSM9524779_P3_LN_all_contig_annotations.csv.gz
+P4	GSM9524780	tumor-draining lymph node	LN	no	yes	10x Genomics	inferred_from_filename_pending_metadata		GSM9524780_P4_LN_all_contig_annotations.csv.gz
+P5	GSM9524781	tumor-draining lymph node	LN	no	yes	10x Genomics	inferred_from_filename_pending_metadata		GSM9524781_P5_LN_all_contig_annotations.csv.gz
+P6	GSM9524782	tumor-draining lymph node	LN	no	yes	10x Genomics	inferred_from_filename_pending_metadata		GSM9524782_P6_LN_all_contig_annotations.csv.gz
+	GSM9524783	unknown		yes	no	10x Genomics	inferred_from_filename_pending_metadata		GSM9524783_GEO_Metadata_PT1.csv.gz;GSM9524783_P1_PT_barcodes.tsv.gz;GSM9524783_P1_PT_features.tsv.gz;GSM9524783_P1_PT_matrix.mtx.gz
+	GSM9524784	unknown		yes	no	10x Genomics	inferred_from_filename_pending_metadata		GSM9524784_GEO_Metadata_PT2.csv.gz;GSM9524784_P2_PT_barcodes.tsv.gz;GSM9524784_P2_PT_features.tsv.gz;GSM9524784_P2_PT_matrix.mtx.gz
+	GSM9524785	unknown		yes	no	10x Genomics	inferred_from_filename_pending_metadata		GSM9524785_GEO_Metadata_PT3.csv.gz;GSM9524785_P3_PT_barcodes.tsv.gz;GSM9524785_P3_PT_features.tsv.gz;GSM9524785_P3_PT_matrix.mtx.gz
+	GSM9524786	unknown		yes	no	10x Genomics	inferred_from_filename_pending_metadata		GSM9524786_GEO_Metadata_PT4.csv.gz;GSM9524786_P4_PT_barcodes.tsv.gz;GSM9524786_P4_PT_features.tsv.gz;GSM9524786_P4_PT_matrix.mtx.gz
+P1	GSM9524787	primary tumor	PT	no	yes	10x Genomics	inferred_from_filename_pending_metadata		GSM9524787_P1_PT_all_contig_annotations.csv.gz
+P2	GSM9524788	primary tumor	PT	no	yes	10x Genomics	inferred_from_filename_pending_metadata		GSM9524788_P2_PT_all_contig_annotations.csv.gz
+P3	GSM9524789	primary tumor	PT	no	yes	10x Genomics	inferred_from_filename_pending_metadata		GSM9524789_P3_PT_all_contig_annotations.csv.gz
+P4	GSM9524790	primary tumor	PT	no	yes	10x Genomics	inferred_from_filename_pending_metadata		GSM9524790_P4_PT_all_contig_annotations.csv.gz

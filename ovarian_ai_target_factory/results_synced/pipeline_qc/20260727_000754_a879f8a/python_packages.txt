@@ -1,0 +1,14 @@
+colorama==0.4.6
+iniconfig==2.3.0
+numpy==2.5.1
+-e git+https://github.com/wanlei1618/Ovarian_AI_Target_Factory.git@a879f8aa0f88a1a1b05f286d3bf7d6281fff2725#egg=ovarian_ai_target_factory&subdirectory=ovarian_ai_target_factory
+packaging==26.2
+pandas==3.0.5
+pluggy==1.6.0
+Pygments==2.20.0
+pytest==9.1.1
+python-dateutil==2.9.0.post0
+PyYAML==6.0.3
+scipy==1.18.0
+six==1.17.0
+tzdata==2026.3

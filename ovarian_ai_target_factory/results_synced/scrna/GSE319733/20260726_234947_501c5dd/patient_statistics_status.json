@@ -1,0 +1,10 @@
+{
+  "module": "GSE319733_patient_statistics_R",
+  "analysis_status": "BLOCKED",
+  "quality_gate_passed": false,
+  "row_counts": {},
+  "paired_patients": "",
+  "timestamp": "2026-07-27 00:01:25.334179",
+  "blocking_reason": "GEX annotation outputs are unavailable; patient-level analysis not run"
+}
+

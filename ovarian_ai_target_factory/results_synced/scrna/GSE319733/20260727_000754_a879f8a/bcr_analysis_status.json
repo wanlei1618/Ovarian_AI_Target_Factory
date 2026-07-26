@@ -1,0 +1,9 @@
+{
+  "module": "GSE319733_BCR_R",
+  "analysis_status": "COMPLETED",
+  "quality_gate_passed": true,
+  "row_counts": {"bcr_qc_summary": 10, "shared_clonotypes_LN_PT": 5413},
+  "timestamp": "2026-07-27 00:15:03.867652",
+  "blocking_reason": ""
+}
+

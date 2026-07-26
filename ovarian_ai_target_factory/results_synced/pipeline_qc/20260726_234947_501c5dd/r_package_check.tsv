@@ -1,0 +1,7 @@
+package	installed	version
+Matrix	TRUE	1.7-5
+data.table	TRUE	1.18.4
+ggplot2	TRUE	4.0.3
+Seurat	TRUE	5.5.1
+dplyr	TRUE	1.2.1
+tidyr	TRUE	1.3.2

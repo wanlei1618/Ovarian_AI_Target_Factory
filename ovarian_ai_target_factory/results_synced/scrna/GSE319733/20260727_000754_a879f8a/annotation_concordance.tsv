@@ -1,0 +1,2 @@
+method	concordance_status	reason
+published_cell_type_unavailable	NOT_TESTED	GEO metadata did not provide reliable published cell-type labels in this lightweight run.

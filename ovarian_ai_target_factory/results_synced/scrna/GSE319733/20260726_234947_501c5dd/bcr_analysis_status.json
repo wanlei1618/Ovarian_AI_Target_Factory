@@ -1,0 +1,9 @@
+{
+  "module": "GSE319733_BCR_R",
+  "analysis_status": "BLOCKED",
+  "quality_gate_passed": false,
+  "row_counts": {},
+  "timestamp": "2026-07-27 00:01:23.233022",
+  "blocking_reason": "sample_manifest lacks VDJ contig paths; RAW.tar extraction not approved in this run"
+}
+

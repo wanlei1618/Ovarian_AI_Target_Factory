@@ -1,0 +1,53 @@
+patient_id	biological_sample_id	tissue_code	tissue_type	broad_celltype	N
+P1	P1_LN	LN	tumor-draining lymph node	B_cell	2029
+P1	P1_LN	LN	tumor-draining lymph node	plasma_cell	2
+P1	P1_LN	LN	tumor-draining lymph node	endothelial	1
+P1	P1_PT	PT	primary tumor	B_cell	4521
+P1	P1_PT	PT	primary tumor	plasma_cell	1876
+P1	P1_PT	PT	primary tumor	myeloid	144
+P1	P1_PT	PT	primary tumor	other	35
+P1	P1_PT	PT	primary tumor	endothelial	34
+P1	P1_PT	PT	primary tumor	T_NK	22
+P1	P1_PT	PT	primary tumor	epithelial	11
+P2	P2_LN	LN	tumor-draining lymph node	B_cell	2113
+P2	P2_PT	PT	primary tumor	B_cell	720
+P2	P2_PT	PT	primary tumor	T_NK	19
+P2	P2_PT	PT	primary tumor	plasma_cell	319
+P2	P2_PT	PT	primary tumor	other	32
+P2	P2_PT	PT	primary tumor	myeloid	79
+P2	P2_PT	PT	primary tumor	endothelial	12
+P2	P2_PT	PT	primary tumor	epithelial	4
+P3	P3_LN	LN	tumor-draining lymph node	B_cell	1745
+P3	P3_LN	LN	tumor-draining lymph node	endothelial	1
+P3	P3_LN	LN	tumor-draining lymph node	plasma_cell	10
+P3	P3_PT	PT	primary tumor	plasma_cell	196
+P3	P3_PT	PT	primary tumor	B_cell	4758
+P3	P3_PT	PT	primary tumor	T_NK	135
+P3	P3_PT	PT	primary tumor	endothelial	14
+P3	P3_PT	PT	primary tumor	myeloid	23
+P3	P3_PT	PT	primary tumor	other	22
+P3	P3_PT	PT	primary tumor	epithelial	5
+P4	P4_LN	LN	tumor-draining lymph node	B_cell	4687
+P4	P4_LN	LN	tumor-draining lymph node	T_NK	3775
+P4	P4_LN	LN	tumor-draining lymph node	other	128
+P4	P4_LN	LN	tumor-draining lymph node	endothelial	56
+P4	P4_LN	LN	tumor-draining lymph node	plasma_cell	59
+P4	P4_LN	LN	tumor-draining lymph node	epithelial	7
+P4	P4_LN	LN	tumor-draining lymph node	fibroblast_CAF	1
+P4	P4_PT	PT	primary tumor	B_cell	4687
+P4	P4_PT	PT	primary tumor	T_NK	3775
+P4	P4_PT	PT	primary tumor	other	128
+P4	P4_PT	PT	primary tumor	endothelial	56
+P4	P4_PT	PT	primary tumor	plasma_cell	59
+P4	P4_PT	PT	primary tumor	epithelial	7
+P4	P4_PT	PT	primary tumor	fibroblast_CAF	1
+P5	P5_LN	LN	tumor-draining lymph node	T_NK	3392
+P5	P5_LN	LN	tumor-draining lymph node	B_cell	2120
+P5	P5_LN	LN	tumor-draining lymph node	other	155
+P5	P5_LN	LN	tumor-draining lymph node	endothelial	65
+P5	P5_LN	LN	tumor-draining lymph node	plasma_cell	35
+P5	P5_LN	LN	tumor-draining lymph node	myeloid	4
+P5	P5_LN	LN	tumor-draining lymph node	fibroblast_CAF	2
+P6	P6_LN	LN	tumor-draining lymph node	B_cell	1348
+P6	P6_LN	LN	tumor-draining lymph node	plasma_cell	2
+P6	P6_LN	LN	tumor-draining lymph node	endothelial	1

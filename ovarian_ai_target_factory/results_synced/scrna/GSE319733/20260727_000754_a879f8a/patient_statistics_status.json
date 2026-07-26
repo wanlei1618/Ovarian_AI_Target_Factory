@@ -1,0 +1,10 @@
+{
+  "module": "GSE319733_patient_statistics_R",
+  "analysis_status": "COMPLETED",
+  "quality_gate_passed": true,
+  "row_counts": {"celltype_proportions_by_patient": 52, "paired_celltype_comparison": 6},
+  "paired_patients": "P1,P2,P3,P4",
+  "timestamp": "2026-07-27 00:15:10.143454",
+  "blocking_reason": ""
+}
+

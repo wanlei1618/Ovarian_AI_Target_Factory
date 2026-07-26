@@ -1,0 +1,10 @@
+{
+  "module": "dataset_feasibility",
+  "analysis_status": "COMPLETED_WITH_WARNINGS",
+  "timestamp": "2026-07-27T00:18:25",
+  "run_id": "20260727_000754_a879f8a",
+  "dataset_status": {
+    "GSE337705_GSE337706": "METADATA_ONLY",
+    "GSE338829": "METADATA_ONLY"
+  }
+}
