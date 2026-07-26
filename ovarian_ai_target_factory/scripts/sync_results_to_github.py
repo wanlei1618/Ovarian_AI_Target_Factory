@@ -96,6 +96,9 @@ def main() -> None:
     parser.add_argument("--repo-root", type=Path, default=REPO_ROOT_DEFAULT)
     parser.add_argument("--branch", default="codex/next-analysis")
     parser.add_argument("--max-file-mb", type=float, default=10)
+    parser.add_argument("--analysis-code-sha", default="")
+    parser.add_argument("--results-commit-sha", default="")
+    parser.add_argument("--pr-url", default="")
     parser.add_argument("--commit", action="store_true")
     parser.add_argument("--push", action="store_true")
     args = parser.parse_args()
@@ -129,12 +132,25 @@ def main() -> None:
             writer.writerows(rows)
     (manifest_dir / "sync_manifest.json").write_text(json.dumps({"synced": synced, "excluded": excluded}, indent=2, ensure_ascii=False), encoding="utf-8")
     git_results = []
+    push_returncode = None
     if args.commit:
         git_results.append(run_git(args.repo_root, ["add", "ovarian_ai_target_factory/results_synced"]))
         git_results.append(run_git(args.repo_root, ["commit", "-m", f"chore: sync analysis outputs {args.run_id}"]))
     if args.push:
-        git_results.append(run_git(args.repo_root, ["push", "-u", "origin", args.branch]))
-    (manifest_dir / "git_sync_status.json").write_text(json.dumps(git_results, indent=2, ensure_ascii=False), encoding="utf-8")
+        push_result = run_git(args.repo_root, ["push", "-u", "origin", args.branch])
+        push_returncode = push_result["returncode"]
+        git_results.append(push_result)
+    status_payload = {
+        "branch": args.branch,
+        "analysis_code_sha": args.analysis_code_sha,
+        "results_commit_sha": args.results_commit_sha,
+        "push_returncode": push_returncode,
+        "remote": "origin",
+        "pr_url": args.pr_url,
+        "timestamp": __import__("datetime").datetime.now().isoformat(timespec="seconds"),
+        "git_commands": git_results,
+    }
+    (manifest_dir / "git_sync_status.json").write_text(json.dumps(status_payload, indent=2, ensure_ascii=False), encoding="utf-8")
     print(manifest_dir)
 
 
