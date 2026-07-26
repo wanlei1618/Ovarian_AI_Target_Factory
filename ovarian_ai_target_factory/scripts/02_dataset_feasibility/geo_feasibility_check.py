@@ -44,7 +44,14 @@ def geo_uid(accession: str) -> str:
     params = urllib.parse.urlencode({"db": "gds", "term": f"{accession}[ACCN]", "retmode": "json", "retmax": "1"})
     payload = json.loads(fetch_text(f"{NCBI_BASE}/esearch.fcgi?{params}"))
     ids = payload.get("esearchresult", {}).get("idlist", [])
-    return ids[0] if ids else ""
+    if not ids:
+        return ""
+    params = urllib.parse.urlencode({"db": "gds", "id": ",".join(ids), "retmode": "json"})
+    summary = json.loads(fetch_text(f"{NCBI_BASE}/esummary.fcgi?{params}")).get("result", {})
+    for uid in summary.get("uids", []):
+        if summary.get(uid, {}).get("accession") == accession:
+            return uid
+    return ids[0]
 
 
 def geo_summary(accession: str) -> dict:
@@ -81,7 +88,26 @@ def fetch_series_matrix(accession: str) -> dict[str, list[str]]:
 
 
 def samples_from_matrix(accession: str) -> list[dict]:
-    fields = fetch_series_matrix(accession)
+    try:
+        fields = fetch_series_matrix(accession)
+    except Exception:
+        fields = {}
+    if not fields:
+        params = urllib.parse.urlencode({"db": "gds", "term": f"{accession}[ACCN]", "retmode": "json", "retmax": "100"})
+        payload = json.loads(fetch_text(f"{NCBI_BASE}/esearch.fcgi?{params}"))
+        ids = payload.get("esearchresult", {}).get("idlist", [])
+        if not ids:
+            return []
+        params = urllib.parse.urlencode({"db": "gds", "id": ",".join(ids), "retmode": "json"})
+        summary = json.loads(fetch_text(f"{NCBI_BASE}/esummary.fcgi?{params}")).get("result", {})
+        rows = []
+        for uid in summary.get("uids", []):
+            item = summary.get(uid, {})
+            acc = item.get("accession", "")
+            if not acc.startswith("GSM"):
+                continue
+            rows.append({"accession": accession, "sample_id": acc, "title": item.get("title", ""), "source_name": item.get("summary", ""), "characteristics": "", "donor_id": acc})
+        return rows
     gsm = fields.get("!Sample_geo_accession", [])
     titles = fields.get("!Sample_title", [])
     source = fields.get("!Sample_source_name_ch1", [])
