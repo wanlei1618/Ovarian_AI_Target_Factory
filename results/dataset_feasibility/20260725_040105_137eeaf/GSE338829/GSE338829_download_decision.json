@@ -1,9 +1,0 @@
-{
-  "accession": "GSE338829",
-  "branch_project": "RBMS1-NEDD4 perturbation validation",
-  "main_project_relevance": "low",
-  "dataset_action": "download_processed_counts_only",
-  "evidence_type": "functional_perturbation",
-  "raw_download_allowed": false,
-  "decision_reason": "Metadata supports perturbation RNA-seq review."
-}

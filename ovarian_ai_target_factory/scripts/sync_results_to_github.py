@@ -89,7 +89,7 @@ def main() -> None:
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--source-results-root", type=Path, default=REPO_ROOT_DEFAULT / "results")
     parser.add_argument("--repo-root", type=Path, default=REPO_ROOT_DEFAULT)
-    parser.add_argument("--branch", default="codex/improve-after-20260724")
+    parser.add_argument("--branch", default="codex/next-analysis")
     parser.add_argument("--max-file-mb", type=float, default=10)
     parser.add_argument("--commit", action="store_true")
     parser.add_argument("--push", action="store_true")
@@ -125,7 +125,7 @@ def main() -> None:
     (manifest_dir / "sync_manifest.json").write_text(json.dumps({"synced": synced, "excluded": excluded}, indent=2, ensure_ascii=False), encoding="utf-8")
     git_results = []
     if args.commit:
-        git_results.append(run_git(args.repo_root, ["add", "ovarian_ai_target_factory/results_synced", "results"]))
+        git_results.append(run_git(args.repo_root, ["add", "ovarian_ai_target_factory/results_synced"]))
         git_results.append(run_git(args.repo_root, ["commit", "-m", f"chore: sync analysis outputs {args.run_id}"]))
     if args.push:
         git_results.append(run_git(args.repo_root, ["push", "-u", "origin", args.branch]))

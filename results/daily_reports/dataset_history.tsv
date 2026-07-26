@@ -1,7 +1,0 @@
-dataset_id	first_seen_date	last_seen_date	times_seen	source	latest_title	latest_modality	latest_action
-GSE262172	2026-07-25	2026-07-25	1	curated_manual	GSK-J4 treatment in ovarian cancer cell lines (ATAC-Seq)	ATAC-seq	metadata_only
-GSE310580	2026-07-25	2026-07-25	1	curated_manual	DNA Methylation Profiling Enables Subclassification of Mucinous Ovarian Carcinoma and Distinguishes It from Extraovarian Mucinous Metastases	methylation	metadata_only
-GSE319733	2026-07-25	2026-07-25	1	curated_manual	Tumor-draining lymph nodes in ovarian cancer lack germinal centers but harbor tumor-reactive memory B cells clonally linked to intra-tumoral B cells	single-cell RNA-seq / BCR	inspect_processed_files
-GSE337705	2026-07-25	2026-07-25	1	auto_geo_search	Exploring Platelet-Covered and Naked Circulating Tumor Cells: A Single-Cell Transcriptomic Perspective [scRNA-seq 10x_Poznan]	single-cell RNA-seq	defer
-GSE337706	2026-07-25	2026-07-25	1	auto_geo_search	Exploring Platelet-Covered and Naked Circulating Tumor Cells: A Single-Cell Transcriptomic Perspective [scRNA-seq Singleron]	single-cell RNA-seq	defer
-GSE338829	2026-07-25	2026-07-25	1	auto_geo_search	RBMS1 Suppresses Ovarian Cancer Malignant Progression Through Post-transcriptional regulation expression of NEDD4	bulk transcriptomics	needs_manual_review

@@ -12,6 +12,7 @@ VALID_STATUSES = {
     "NOT_STARTED",
     "RUNNING",
     "METADATA_ONLY",
+    "INSUFFICIENT_DATA",
     "COMPLETED",
     "COMPLETED_WITH_WARNINGS",
     "FAILED",
@@ -36,6 +37,35 @@ def sha256_file(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def tsv_data_row_count(path: Path) -> int:
+    if not path.exists() or path.stat().st_size == 0:
+        return 0
+    with path.open("r", encoding="utf-8", errors="replace") as handle:
+        lines = [line for line in handle if line.strip()]
+    return max(len(lines) - 1, 0)
+
+
+def evaluate_quality_gate(required_outputs: list[str] | None = None, required_nonempty_outputs: list[str] | None = None) -> dict:
+    required_outputs = required_outputs or []
+    required_nonempty_outputs = required_nonempty_outputs or []
+    missing = [path for path in required_outputs if not Path(path).exists()]
+    row_counts = {path: tsv_data_row_count(Path(path)) for path in required_nonempty_outputs}
+    empty = [path for path, count in row_counts.items() if count < 1]
+    passed = not missing and not empty
+    reason = ""
+    if missing:
+        reason = "missing required outputs: " + "; ".join(missing)
+    elif empty:
+        reason = "required tables have no data rows: " + "; ".join(empty)
+    return {
+        "quality_gate_passed": passed,
+        "required_outputs": required_outputs,
+        "required_nonempty_outputs": required_nonempty_outputs,
+        "row_counts": row_counts,
+        "blocking_reason": reason,
+    }
 
 
 def write_status(path: Path, module: str, status: str, **kwargs: Any) -> None:

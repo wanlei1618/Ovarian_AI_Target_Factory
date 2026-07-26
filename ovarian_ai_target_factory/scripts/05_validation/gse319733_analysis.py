@@ -20,7 +20,7 @@ REPO_ROOT = PROJECT_ROOT.parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from ovarian_ai.utils.paths import ensure_subdirs
-from ovarian_ai.utils.run_status import sha256_file, write_status
+from ovarian_ai.utils.run_status import evaluate_quality_gate, sha256_file, write_status
 
 
 BASE_URL = "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE319nnn/GSE319733/suppl"
@@ -100,6 +100,7 @@ def parse_filelist(text: str) -> list[dict]:
                 "download_decision": decision,
                 "decision_reason": reason,
                 "local_path": "",
+                "source_container": "GSE319733_RAW.tar" if file_type != "raw_archive" else "",
                 "sha256": "",
             }
         )
@@ -249,9 +250,22 @@ def main() -> None:
         errors.append(f"metadata download failed: {exc}")
 
     inventory = parse_filelist(filelist_path.read_text(encoding="utf-8", errors="replace")) if filelist_path.exists() else []
+    extracted_dir = raw_dir / "processed_from_RAW"
+    archive_only_layout = any(row["file_type"] == "raw_archive" for row in inventory)
     for row in inventory:
         if row["download_decision"] == "download":
             try:
+                extracted = extracted_dir / row["filename"]
+                if extracted.exists():
+                    row["local_path"] = str(extracted)
+                    row["sha256"] = sha256_file(extracted)
+                    row["download_decision"] = "available_extracted"
+                    row["decision_reason"] = "processed file already available from approved safe extraction"
+                    continue
+                if archive_only_layout:
+                    row["download_decision"] = "blocked"
+                    row["decision_reason"] = "archive-only GEO layout; processed member requires RAW.tar extraction approval"
+                    continue
                 ok, reason = url_exists(row["url"])
                 if not ok:
                     raise RuntimeError(reason)
@@ -269,26 +283,28 @@ def main() -> None:
         name = row["filename"]
         sample_key = re.sub(r"_(barcodes|features|matrix).*", "", name)
         if "matrix.mtx" in name:
-            groups[sample_key]["matrix"] = name
+            groups[sample_key]["matrix"] = row.get("local_path") or str(raw_dir / name)
         elif "barcodes.tsv" in name:
-            groups[sample_key]["barcodes"] = name
+            groups[sample_key]["barcodes"] = row.get("local_path") or str(raw_dir / name)
         elif "features.tsv" in name:
-            groups[sample_key]["features"] = name
+            groups[sample_key]["features"] = row.get("local_path") or str(raw_dir / name)
         elif "GEO_Metadata" in name:
             groups[sample_key]["metadata"] = name
 
     qc_rows, marker_rows, key_rows = [], [], []
     for group in groups.values():
-        if {"matrix", "barcodes", "features"}.issubset(group) and all((raw_dir / group[k]).exists() for k in ("matrix", "barcodes", "features")):
+        if {"matrix", "barcodes", "features"}.issubset(group) and all(Path(group[k]).exists() for k in ("matrix", "barcodes", "features")):
             try:
-                qc, markers, key = analyze_sample(group, raw_dir)
+                local_group = {key: Path(value).name for key, value in group.items()}
+                local_raw_dir = Path(group["matrix"]).parent
+                qc, markers, key = analyze_sample(local_group, local_raw_dir)
                 qc_rows.append(qc)
                 marker_rows.extend(markers)
                 key_rows.extend(key)
             except Exception as exc:
                 warnings.append(f"sample analysis failed for {group.get('matrix')}: {exc}")
 
-    bcr_rows = [analyze_bcr(raw_dir / row["filename"]) for row in inventory if row["file_type"] == "vdj_contig" and (raw_dir / row["filename"]).exists()]
+    bcr_rows = [analyze_bcr(Path(row["local_path"])) for row in inventory if row["file_type"] == "vdj_contig" and row.get("local_path") and Path(row["local_path"]).exists()]
     pd.DataFrame(qc_rows, columns=["patient_id", "sample_id", "tissue_type", "tumor_or_tdln", "platform", "estimated_cells", "detected_gene_count", "nFeature_median", "nCount_median", "percent_mt_median", "doublet_estimate", "low_quality_cell_fraction", "source_file"]).to_csv(out_dir / "sample_qc_summary.tsv", sep="\t", index=False)
     pd.DataFrame(marker_rows, columns=["patient_id", "sample_id", "tissue_type", "tumor_or_tdln", "celltype_or_marker_group", "mean_marker_score", "cell_count_assigned"]).to_csv(out_dir / "celltype_marker_summary.tsv", sep="\t", index=False)
     pd.DataFrame(key_rows, columns=["patient_id", "sample_id", "tissue_type", "tumor_or_tdln", "celltype", "gene", "mean_expression", "detection_rate"]).to_csv(out_dir / "key_gene_expression_by_tissue.tsv", sep="\t", index=False)
@@ -309,38 +325,49 @@ def main() -> None:
                 "platform": row["platform"],
                 "paired_status": "patient-level inferred",
                 "source_file": row["source_file"],
-                "metadata_confidence": "medium",
+                "estimated_cells": row["estimated_cells"],
             }
         )
     if not manifest_rows:
+        by_sample = {}
         for row in inventory:
             parsed = sample_from_name(row["filename"])
             if parsed["sample_id"]:
-                manifest_rows.append(
+                item = by_sample.setdefault(
+                    parsed["sample_id"],
                     {
                         "patient_id": parsed["patient_id"],
                         "sample_id": parsed["sample_id"],
                         "tissue_type": parsed["tissue_type"],
-                        "tdln_or_tumor": parsed["tumor_or_tdln"],
-                        "gex_library": "yes" if row["required_for_gex"] else "no",
-                        "vdj_library": "yes" if row["required_for_bcr"] else "unknown",
+                        "tumor_or_tdln": parsed["tumor_or_tdln"],
+                        "gex_library": "no",
+                        "vdj_library": "no",
                         "platform": "10x Genomics",
                         "paired_status": "inferred_from_filename_pending_metadata",
-                        "source_file": row["filename"],
-                        "metadata_confidence": "low",
-                    }
+                        "estimated_cells": "",
+                        "source_file": [],
+                    },
                 )
+                if row["required_for_gex"]:
+                    item["gex_library"] = "yes"
+                if row["required_for_bcr"]:
+                    item["vdj_library"] = "yes"
+                item["source_file"].append(row["filename"])
+        for item in by_sample.values():
+            item["source_file"] = ";".join(sorted(set(item["source_file"])))
+            manifest_rows.append(item)
     else:
         for row in manifest_rows:
-            row["tdln_or_tumor"] = row.pop("tumor_or_tdln")
-    manifest_rows = list({(row["sample_id"], row["source_file"]): row for row in manifest_rows}.values())
-    pd.DataFrame(manifest_rows, columns=["patient_id", "sample_id", "tissue_type", "tdln_or_tumor", "gex_library", "vdj_library", "platform", "paired_status", "source_file", "metadata_confidence"]).to_csv(out_dir / "sample_manifest.tsv", sep="\t", index=False)
+            row["tumor_or_tdln"] = row.pop("tumor_or_tdln")
+    manifest_rows = list({row["sample_id"]: row for row in manifest_rows}.values())
+    pd.DataFrame(manifest_rows, columns=["patient_id", "sample_id", "tissue_type", "tumor_or_tdln", "gex_library", "vdj_library", "platform", "paired_status", "estimated_cells", "source_file"]).to_csv(out_dir / "sample_manifest.tsv", sep="\t", index=False)
 
     attempted_downloads = [row for row in inventory if row["decision_reason"].startswith("download failed")]
-    status = "COMPLETED" if qc_rows else "BLOCKED" if attempted_downloads else "METADATA_ONLY"
+    blocked_members = [row for row in inventory if row["download_decision"] == "blocked"]
+    status = "COMPLETED" if qc_rows else "BLOCKED" if attempted_downloads or blocked_members else "METADATA_ONLY"
     if not qc_rows:
         (out_dir / "NOT_RUN_reason.txt").write_text(
-            "No complete processed matrix/barcode/features groups were parsed. GEO lists processed files in filelist.txt, but individual file URLs returned 404; available public directory exposes RAW.tar plus filelist.txt. RAW.tar was not downloaded because default RAW.tar download is forbidden by project rule. No formal expression plots were generated.\n",
+            "No complete processed matrix/barcode/features groups were parsed. GEO exposes an archive-only layout: processed members are listed in filelist.txt but require RAW.tar extraction. RAW.tar was not downloaded because this run does not approve default RAW.tar download. No formal expression plots were generated.\n",
             encoding="utf-8",
         )
     main_axis = "NO"
@@ -378,7 +405,7 @@ def main() -> None:
         f"- samples_with_GEX_parsed: {len(qc_rows)}",
         f"- BCR_contig_files_parsed: {len(bcr_rows)}",
         "- RAW.tar downloaded: no",
-        "- blocking_reason: processed files are listed but not directly accessible outside RAW.tar",
+        "- blocking_reason: processed files require RAW.tar extraction, which is not approved in this run",
         f"- main_axis_eligibility: {main_axis}",
         f"- branch_value: {branch_value}",
         f"- warnings: {len(warnings)}",
@@ -388,8 +415,12 @@ def main() -> None:
         "Candidate axes remain exploratory and require patient-level/pseudobulk confirmation before use as primary target evidence.",
     ]
     (out_dir / "GSE319733_initial_summary.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
-    write_status(out_dir / "status.json", "GSE319733_analysis", status, run_id=args.run_id, warnings=warnings, errors=errors, outputs=[str(p) for p in out_dir.glob("*")])
-    write_status(out_dir / "analysis_status.json", "GSE319733_analysis", status, run_id=args.run_id, warnings=warnings, errors=errors, outputs=[str(p) for p in out_dir.glob("*")])
+    gate = evaluate_quality_gate(
+        required_outputs=[str(out_dir / "supplementary_file_inventory.tsv"), str(out_dir / "sample_manifest.tsv"), str(out_dir / "NOT_RUN_reason.txt") if not qc_rows else str(out_dir / "sample_qc_summary.tsv")],
+        required_nonempty_outputs=[str(out_dir / "sample_qc_summary.tsv")] if qc_rows else [],
+    )
+    write_status(out_dir / "status.json", "GSE319733_analysis", status, run_id=args.run_id, warnings=warnings, errors=errors, outputs=[str(p) for p in out_dir.glob("*")], archive_only_layout_detected=archive_only_layout, direct_member_download_attempts=0 if archive_only_layout else len(attempted_downloads), **gate)
+    write_status(out_dir / "analysis_status.json", "GSE319733_analysis", status, run_id=args.run_id, warnings=warnings, errors=errors, outputs=[str(p) for p in out_dir.glob("*")], archive_only_layout_detected=archive_only_layout, direct_member_download_attempts=0 if archive_only_layout else len(attempted_downloads), **gate)
     print(out_dir)
 
 

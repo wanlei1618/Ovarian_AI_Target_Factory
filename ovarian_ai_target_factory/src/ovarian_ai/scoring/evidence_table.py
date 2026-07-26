@@ -32,6 +32,29 @@ FIELDS = [
     "decision_reason",
 ]
 
+EVIDENCE_RECORD_FIELDS = [
+    "gene",
+    "axis",
+    "source_dataset",
+    "source_module",
+    "evidence_type",
+    "evidence_status",
+    "direction",
+    "effect_size",
+    "statistic",
+    "p_value",
+    "fdr",
+    "sample_count",
+    "patient_count",
+    "cell_type",
+    "tissue",
+    "evidence_level",
+    "negative_evidence",
+    "result_path",
+    "analysis_code_sha",
+    "run_id",
+]
+
 AXES = {
     "SPP1": "SPP1-CD44/ITGB1 myeloid-malignant interaction",
     "CD44": "SPP1-CD44 receptor arm",
@@ -80,6 +103,102 @@ def missing_evidence_row(gene: str, reason: str) -> dict:
         "decision": "INSUFFICIENT_DATA",
         "decision_reason": reason,
     }
+
+
+def build_evidence_records(gse319733_dir: Path, feasibility_dir: Path, analysis_code_sha: str, run_id: str) -> list[dict]:
+    records = []
+    axis_path = gse319733_dir / "candidate_axis_evidence.tsv"
+    if axis_path.exists():
+        df = pd.read_csv(axis_path, sep="\t")
+        for _, row in df.iterrows():
+            records.append(
+                {
+                    "gene": row.get("gene", ""),
+                    "axis": row.get("axis", ""),
+                    "source_dataset": "GSE319733",
+                    "source_module": "GSE319733_GEX_patient_axis",
+                    "evidence_type": "patient_level_expression",
+                    "evidence_status": row.get("evidence_status", "INSUFFICIENT_DATA"),
+                    "direction": row.get("direction", ""),
+                    "effect_size": row.get("effect_size", ""),
+                    "statistic": "",
+                    "p_value": row.get("p_value", ""),
+                    "fdr": row.get("fdr", ""),
+                    "sample_count": row.get("sample_count", ""),
+                    "patient_count": row.get("patient_count", ""),
+                    "cell_type": row.get("cell_type", ""),
+                    "tissue": row.get("tissue", ""),
+                    "evidence_level": row.get("evidence_level", "exploratory"),
+                    "negative_evidence": "" if row.get("evidence_status") != "NEGATIVE" else row.get("reason", ""),
+                    "result_path": row.get("result_path", str(axis_path)),
+                    "analysis_code_sha": analysis_code_sha,
+                    "run_id": run_id,
+                }
+            )
+    decision_path = feasibility_dir / "GSE338829" / "GSE338829_assay_classification.json"
+    if decision_path.exists():
+        import json
+
+        payload = json.loads(decision_path.read_text(encoding="utf-8"))
+        for gene in ("RBMS1", "NEDD4"):
+            records.append(
+                {
+                    "gene": gene,
+                    "axis": AXES[gene],
+                    "source_dataset": "GSE338829",
+                    "source_module": "GSE338829_assay_classification",
+                    "evidence_type": payload.get("evidence_type", "RNA-binding target evidence"),
+                    "evidence_status": "INSUFFICIENT_DATA",
+                    "direction": "",
+                    "effect_size": "",
+                    "statistic": "",
+                    "p_value": "",
+                    "fdr": "",
+                    "sample_count": payload.get("sample_count", ""),
+                    "patient_count": "",
+                    "cell_type": payload.get("cell_line", ""),
+                    "tissue": "",
+                    "evidence_level": "metadata_assay_scope",
+                    "negative_evidence": "",
+                    "result_path": str(decision_path),
+                    "analysis_code_sha": analysis_code_sha,
+                    "run_id": run_id,
+                }
+            )
+    return records
+
+
+def build_candidate_rows_from_records(records: list[dict]) -> list[dict]:
+    by_gene: dict[str, list[dict]] = {}
+    for record in records:
+        by_gene.setdefault(record["gene"], []).append(record)
+    rows = []
+    for gene, axis in AXES.items():
+        recs = by_gene.get(gene, [])
+        if not recs:
+            rows.append(missing_evidence_row(gene, "No evidence records available for this gene."))
+            continue
+        statuses = {record.get("evidence_status") for record in recs}
+        supported = sum(1 for record in recs if record.get("evidence_status") == "SUPPORTED")
+        negative = sum(1 for record in recs if record.get("evidence_status") == "NEGATIVE")
+        datasets = {record.get("source_dataset") for record in recs if record.get("source_dataset")}
+        row = missing_evidence_row(gene, "Evidence records are present but insufficient for promotion.")
+        row["source_dataset"] = ";".join(sorted(datasets))
+        row["evidence_type"] = ";".join(sorted({record.get("evidence_type", "") for record in recs if record.get("evidence_type")}))
+        row["independent_dataset_count"] = str(len(datasets))
+        row["evidence_coverage"] = f"{len([s for s in statuses if s in EVIDENCE_STATES and s != 'NOT_TESTED'])}/8"
+        row["tumor_expression"] = "SUPPORTED" if supported else "NEGATIVE" if negative else "INSUFFICIENT_DATA"
+        if negative and not supported:
+            row["decision"] = "NEGATIVE"
+            row["negative_evidence"] = "; ".join(record.get("negative_evidence", "") for record in recs if record.get("negative_evidence"))
+        elif supported >= 1 and len(datasets) >= 2:
+            row["decision"] = "KEEP_EXPLORATORY"
+            row["total_score"] = "40"
+        else:
+            row["decision"] = "INSUFFICIENT_DATA"
+        return_rows = row
+        rows.append(return_rows)
+    return rows
 
 
 def build_candidate_rows(gse319733_dir: Path, gse338829_decision: Path | None = None) -> list[dict]:
