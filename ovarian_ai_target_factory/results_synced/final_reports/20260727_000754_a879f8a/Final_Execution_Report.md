@@ -7,10 +7,7 @@
 - PR URL: https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/3
 
 ## Python/R Environment
-- Python: D:/Ovarian_AI_Target_Factory/envs/py313 ({
-    "python_version":  "Python 3.13.13",
-    "analysis_code_sha":  "a879f8aa0f88a1a1b05f286d3bf7d6281fff2725",
-    "en)
+- Python: D:/Ovarian_AI_Target_Factory/envs/py313; Python 3.13.13
 - pytest: 29 passed; junit saved to pipeline_qc/pytest.xml
 - R: D:/R/R-4.6.1/bin/Rscript.exe; sessionInfo and package check saved under pipeline_qc
 
@@ -60,5 +57,5 @@
 - GitHub only receives lightweight reports/tables/PDFs under ovarian_ai_target_factory/results_synced.
 
 ## GitHub Provenance
-- remote_commit_sha: 1381c77e7028a0d6c809cfbee7df207612415168
+- remote_commit_sha: fb8dc5426a4715efb05817907a81437ce1b24245
 - pr_url: https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/3
