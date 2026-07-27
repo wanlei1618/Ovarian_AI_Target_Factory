@@ -9,6 +9,10 @@ from pathlib import Path
 
 from ovarian_ai.utils.paths import assert_not_c_data_path, daily_reports_root
 
+HIGH_PRIORITIES = {"high", "medium-high"}
+BACKGROUND_PRIORITIES = {"medium", "medium-low"}
+LOW_PRIORITIES = {"low"}
+
 
 def yyyymmdd(value: str) -> str:
     return value.replace("-", "")
@@ -40,67 +44,115 @@ def _read_tsv(path: Path) -> list[dict]:
         return list(csv.DictReader(handle, delimiter="\t"))
 
 
+def partition_literature(records: list[dict]) -> dict[str, list[dict]]:
+    groups = {"high_value": [], "background": [], "low": [], "excluded": [], "manual_review": []}
+    for item in records:
+        priority = item.get("priority", "")
+        status = item.get("exclusion_status", "keep")
+        if status == "exclude":
+            groups["excluded"].append(item)
+        elif priority in HIGH_PRIORITIES:
+            groups["high_value"].append(item)
+        elif priority in BACKGROUND_PRIORITIES:
+            groups["background"].append(item)
+        elif priority == "needs_manual_review" or status == "needs_manual_review":
+            groups["manual_review"].append(item)
+        else:
+            groups["low"].append(item)
+    return groups
+
+
+def _daily_dataset_path(report_dir: Path, suffix: str) -> Path:
+    daily_path = report_dir / f"daily_newly_detected_datasets_{suffix}.tsv"
+    if daily_path.exists():
+        return daily_path
+    return report_dir / f"refined_dataset_registry_{suffix}.tsv"
+
+
 def build_daily_report(run_date: str, report_dir: Path) -> str:
     suffix = yyyymmdd(run_date)
-    literature = _read_json(report_dir / f"literature_digest_{suffix}.json")
-    datasets = _read_tsv(report_dir / f"new_dataset_registry_{suffix}.tsv")
+    literature = _read_json(report_dir / f"refined_literature_digest_{suffix}.json")
+    datasets = _read_tsv(_daily_dataset_path(report_dir, suffix))
+    curated = _read_tsv(report_dir / "curated_dataset_registry.tsv")
+    groups = partition_literature(literature)
+    curated_action = [item for item in curated if item.get("dataset_action") in {"approve_download", "inspect_processed_files", "download_processed_counts_only", "metadata_only", "defer", "needs_manual_review"}]
 
     lines = [
         f"# Daily Ovarian AI Target Report: {run_date}",
         "",
-        "## 1. New high-value papers",
+        "## 1. Retained high-value papers",
     ]
-    if literature:
-        for item in literature:
+    if groups["high_value"]:
+        for item in groups["high_value"]:
             lines.extend(
                 [
-                    f"- {item['title']}",
-                    f"  - journal/preprint server: {item['journal']}",
-                    f"  - publication date: {item['date']}",
+                    f"- {item.get('title')}",
+                    f"  - journal/preprint server: {item.get('journal')}",
+                    f"  - publication date: {item.get('date')}",
                     f"  - modality: {', '.join(item.get('modality') or [])}",
-                    f"  - available data/code: {item['data_availability']} / {item['code_availability']}",
-                    f"  - relevance: {item['reason']}",
-                    f"  - priority: {item['priority']}",
+                    f"  - public data/code verified: {item.get('public_data_verified')} / {item.get('public_code_verified')}",
+                    f"  - evidence_level: {item.get('evidence_level', '')}",
+                    f"  - priority: {item.get('priority')}",
                 ]
             )
     else:
-        lines.append("- No literature records found for this MVP run.")
+        lines.append("- None retained after refined evidence filtering.")
 
-    lines.extend(["", "## 2. New datasets"])
+    lines.extend(["", "## 2. Background/method papers"])
+    background = groups["background"] + groups["manual_review"]
+    if background:
+        for item in background:
+            lines.extend(
+                [
+                    f"- {item.get('title')}",
+                    f"  - priority: {item.get('priority')}",
+                    f"  - downgrade/status: {item.get('downgrade_reason') or item.get('exclusion_status')}",
+                ]
+            )
+    else:
+        lines.append("- None.")
+
+    lines.extend(["", "## 3. Newly detected datasets"])
     if datasets:
         for item in datasets:
             lines.extend(
                 [
-                    f"- {item['dataset_id']}: {item['title']}",
-                    f"  - sample count: {item['sample_count']}",
-                    f"  - modality: {item['modality']}",
-                    f"  - download URL: {item['download_url']}",
-                    f"  - priority score: {item['priority_score']}",
-                    f"  - recommended action: {item['recommended_action']}",
+                    f"- {item.get('dataset_id')}: {item.get('title')}",
+                    f"  - action: {item.get('dataset_action') or item.get('recommended_action')}",
+                    f"  - source: {item.get('source_type')}",
                 ]
             )
     else:
-        lines.append("- No dataset records found for this MVP run.")
+        lines.append("- None.")
+
+    lines.extend(["", "## 4. Curated datasets requiring action"])
+    if curated_action:
+        for item in curated_action:
+            lines.extend(
+                [
+                    f"- {item.get('dataset_id')}: {item.get('title')}",
+                    f"  - modality: {item.get('modality')}",
+                    f"  - dataset_action: {item.get('dataset_action')}",
+                    f"  - action_reason: {item.get('action_reason')}",
+                ]
+            )
+    else:
+        lines.append("- None.")
 
     lines.extend(
         [
             "",
-            "## 3. New strategies worth learning",
-            "- PubMed metadata triage: prioritize papers with ovarian cancer plus single-cell, spatial, multi-omics, dependency, or resistance terms.",
-            "- GEO metadata triage: review high-score GSE records first, then approve only small metadata-safe downloads in the next phase.",
-            "",
-            "## 4. Candidate target changes",
+            "## 5. Candidate target changes",
             "- New candidates: none yet; MVP v0.1 is metadata-only.",
             "- Evidence strengthened: none yet.",
             "- Evidence weakened: none yet.",
             "- Suggested removals: none yet.",
             "",
-            "## 5. Questions for ChatGPT judgment",
-            "- Which PubMed/GEO hits should be promoted to manual review?",
-            "- Which evidence type is most publishable for a short-term ovarian cancer project?",
-            "- Which GEO datasets should be approved for metadata-only or small-sample download next?",
+            "## 6. Pipeline warnings",
+            f"- Low-priority literature records: {len(groups['low'])}.",
+            f"- Excluded literature records: {len(groups['excluded'])}.",
             "",
-            "## 6. Next Codex tasks",
+            "## 7. Next executable tasks",
             "- script: refine PubMed and GEO ranking heuristics.",
             "- input: reviewed search terms and manual inclusion/exclusion feedback.",
             "- output: cleaner literature digest and dataset registry.",

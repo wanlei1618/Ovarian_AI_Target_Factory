@@ -1,0 +1,5 @@
+sample_id	cell_line	condition	ip_or_input	replicate	library_strategy	metadata_confidence
+GSM9883110	ES2	RBMS1 antibody	IP	1	RIP-seq	medium
+GSM9883111	ES2	RBMS1 antibody	input	2	RIP-seq	medium
+GSM9883112	ES2	RBMS1 antibody	IP	3	RIP-seq	medium
+GSM9883113	ES2	RBMS1 antibody	input	4	RIP-seq	medium

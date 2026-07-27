@@ -1,0 +1,30 @@
+accession	sample_id	donor_id	title	disease_group	ctc_group	platform	metadata_confidence
+GSE337705	GSM9859752	GSM9859752	HGSOC 01 PBMC/buffy coat single-cell RNA-seq	HGSOC	unknown	GEO	medium
+GSE337705	GSM9859753	GSM9859753	BENIGN CTRL 01 PBMC/buffy coat single-cell RNA-seq	benign gynecologic controls	unknown	GEO	medium
+GSE337705	GSM9859754	GSM9859754	HGSOC 02 PBMC/buffy coat single-cell RNA-seq	HGSOC	unknown	GEO	medium
+GSE337705	GSM9859755	GSM9859755	BENIGN CTRL 02 PBMC/buffy coat single-cell RNA-seq	benign gynecologic controls	unknown	GEO	medium
+GSE337705	GSM9859756	GSM9859756	BENIGN CTRL 03 PBMC/buffy coat single-cell RNA-seq	benign gynecologic controls	unknown	GEO	medium
+GSE337705	GSM9859757	GSM9859757	HGSOC 03 PBMC/buffy coat single-cell RNA-seq	HGSOC	unknown	GEO	medium
+GSE337705	GSM9859758	GSM9859758	HGSOC 04 PBMC/buffy coat single-cell RNA-seq	HGSOC	unknown	GEO	medium
+GSE337705	GSM9859759	GSM9859759	BENIGN CTRL 04 PBMC/buffy coat single-cell RNA-seq	benign gynecologic controls	unknown	GEO	medium
+GSE337705	GSM9859760	GSM9859760	HGSOC 05 PBMC/buffy coat single-cell RNA-seq	HGSOC	unknown	GEO	medium
+GSE337705	GSM9859761	GSM9859761	HGSOC 06 PBMC/buffy coat single-cell RNA-seq	HGSOC	unknown	GEO	medium
+GSE337705	GSM9859762	GSM9859762	HGSOC 07 PBMC/buffy coat single-cell RNA-seq	HGSOC	unknown	GEO	medium
+GSE337705	GSM9859763	GSM9859763	HGSOC 08 PBMC/buffy coat single-cell RNA-seq	HGSOC	unknown	GEO	medium
+GSE337705	GSM9859764	GSM9859764	HGSOC 09 PBMC/buffy coat single-cell RNA-seq	HGSOC	unknown	GEO	medium
+GSE337705	GSM9859765	GSM9859765	HGSOC 10 PBMC/buffy coat single-cell RNA-seq	HGSOC	unknown	GEO	medium
+GSE337705	GSM9859766	GSM9859766	HGSOC 11 PBMC/buffy coat single-cell RNA-seq	HGSOC	unknown	GEO	medium
+GSE337705	GSM9859767	GSM9859767	HGSOC 12 PBMC/buffy coat single-cell RNA-seq	HGSOC	unknown	GEO	medium
+GSE337706	GSM9859768	GSM9859768	BRCA 01 PBMC/buffy coat single-cell RNA-seq	unknown	unknown	GEO	medium
+GSE337706	GSM9859769	GSM9859769	BRCA 02 PBMC/buffy coat single-cell RNA-seq	unknown	unknown	GEO	medium
+GSE337706	GSM9859770	GSM9859770	BRCA 03 PBMC/buffy coat single-cell RNA-seq	unknown	unknown	GEO	medium
+GSE337706	GSM9859771	GSM9859771	BRCA 04 PBMC/buffy coat single-cell RNA-seq	unknown	unknown	GEO	medium
+GSE337706	GSM9859772	GSM9859772	BRCA 05 PBMC/buffy coat single-cell RNA-seq	unknown	unknown	GEO	medium
+GSE337706	GSM9859773	GSM9859773	BRCA 06 PBMC/buffy coat single-cell RNA-seq	unknown	unknown	GEO	medium
+GSE337706	GSM9859774	GSM9859774	BRCA 07 PBMC/buffy coat single-cell RNA-seq	unknown	unknown	GEO	medium
+GSE337706	GSM9859775	GSM9859775	BRCA 08 PBMC/buffy coat single-cell RNA-seq	unknown	unknown	GEO	medium
+GSE337706	GSM9859776	GSM9859776	BRCA 09 PBMC/buffy coat single-cell RNA-seq	unknown	unknown	GEO	medium
+GSE337706	GSM9859777	GSM9859777	BRCA 10 PBMC/buffy coat single-cell RNA-seq	unknown	unknown	GEO	medium
+GSE337706	GSM9859778	GSM9859778	HEALTHY CTRL 01 PBMC/buffy coat single-cell RNA-seq	healthy controls	unknown	GEO	medium
+GSE337706	GSM9859779	GSM9859779	HEALTHY CTRL 02 PBMC/buffy coat single-cell RNA-seq	healthy controls	unknown	GEO	medium
+GSE337706	GSM9859780	GSM9859780	HEALTHY CTRL 03 PBMC/buffy coat single-cell RNA-seq	healthy controls	unknown	GEO	medium
