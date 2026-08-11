@@ -1,0 +1,15 @@
+{
+  "module": "target_factory",
+  "analysis_status": "COMPLETED_WITH_WARNINGS",
+  "timestamp": "2026-07-27T00:19:53",
+  "run_id": "20260727_000754_a879f8a",
+  "outputs": [
+    "D:\\OC_external_datasheet\\results\\target_factory\\20260727_000754_a879f8a\\evidence_records.tsv",
+    "D:\\OC_external_datasheet\\results\\target_factory\\20260727_000754_a879f8a\\candidate_target_table.tsv"
+  ],
+  "row_counts": {
+    "evidence_records": 50,
+    "candidate_target_table": 7
+  },
+  "quality_gate_passed": true
+}

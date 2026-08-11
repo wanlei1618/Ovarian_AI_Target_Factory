@@ -1,0 +1,74 @@
+{
+  "git_status": {
+    "cmd": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "returncode": 0,
+    "stdout": "M ovarian_ai_target_factory/scripts/05_validation/scrna_bcr_gse319733_pipeline.R\n M ovarian_ai_target_factory/src/ovarian_ai/datasets/dataset_watcher.py\n M ovarian_ai_target_factory/src/ovarian_ai/literature/literature_watcher.py\n M ovarian_ai_target_factory/src/ovarian_ai/report/report_generator.py\n?? ovarian_ai_target_factory/scripts/03_target_factory/\n?? ovarian_ai_target_factory/scripts/05_validation/gse319733_analysis.py\n?? ovarian_ai_target_factory/scripts/run_phase0_precheck.py\n?? ovarian_ai_target_factory/scripts/sync_results_to_github.py\n?? ovarian_ai_target_factory/src/ovarian_ai/utils/run_status.py\n?? ovarian_ai_target_factory/tests/",
+    "stderr": ""
+  },
+  "git_remote": {
+    "cmd": [
+      "git",
+      "remote",
+      "-v"
+    ],
+    "returncode": 0,
+    "stdout": "origin\thttps://github.com/wanlei1618/Ovarian_AI_Target_Factory.git (fetch)\norigin\thttps://github.com/wanlei1618/Ovarian_AI_Target_Factory.git (push)",
+    "stderr": ""
+  },
+  "git_branch": {
+    "cmd": [
+      "git",
+      "branch",
+      "--show-current"
+    ],
+    "returncode": 0,
+    "stdout": "codex/next-analysis",
+    "stderr": ""
+  },
+  "python_version": {
+    "cmd": [
+      "python",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "Python 3.7.4",
+    "stderr": ""
+  },
+  "rscript_path": "D:\\R\\R-4.6.1\\bin\\Rscript.exe",
+  "rscript_version": {
+    "cmd": [
+      "D:\\R\\R-4.6.1\\bin\\Rscript.exe",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "Rscript (R) version 4.6.1 (2026-06-24)",
+    "stderr": ""
+  },
+  "git_version": {
+    "cmd": [
+      "git",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "git version 2.40.0.windows.1",
+    "stderr": ""
+  },
+  "gh_version": {
+    "cmd": [
+      "D:/Tools/gh/gh.exe",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "gh version 2.96.0 (2026-07-02)\nhttps://github.com/cli/cli/releases/tag/v2.96.0",
+    "stderr": ""
+  },
+  "disk_usage": {
+    "data_root": "D:\\OC_external_datasheet",
+    "data_root_free_gb": 62.07,
+    "c_drive_free_gb": 11.36
+  }
+}

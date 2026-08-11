@@ -1,0 +1,21 @@
+{
+  "module": "GSE319733_download_extract",
+  "analysis_status": "COMPLETED",
+  "timestamp": "2026-07-27T00:08:14",
+  "run_id": "20260727_000754_a879f8a",
+  "quality_gate_passed": true,
+  "required_outputs": [
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\archive_download_manifest.json",
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\archive_member_inventory.tsv",
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\extracted_file_manifest.tsv"
+  ],
+  "required_nonempty_outputs": [
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\extracted_file_manifest.tsv"
+  ],
+  "row_counts": {
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\extracted_file_manifest.tsv": 50
+  },
+  "blocking_reason": "",
+  "archive_only_layout_detected": true,
+  "direct_member_download_attempts": 0
+}

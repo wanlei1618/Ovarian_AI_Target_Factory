@@ -1,0 +1,59 @@
+{
+  "module": "GSE319733_sample_manifest",
+  "analysis_status": "COMPLETED",
+  "timestamp": "2026-07-27T00:08:15",
+  "run_id": "20260727_000754_a879f8a",
+  "quality_gate_passed": true,
+  "required_outputs": [
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest.tsv"
+  ],
+  "required_nonempty_outputs": [
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest.tsv"
+  ],
+  "row_counts": {
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest.tsv": 10
+  },
+  "blocking_reason": "",
+  "errors": [
+    {
+      "filename": "GSM9524771_GEO_Metadata_LN1.csv.gz",
+      "error": "missing patient or tissue in filename"
+    },
+    {
+      "filename": "GSM9524772_GEO_Metadata_LN2.csv.gz",
+      "error": "missing patient or tissue in filename"
+    },
+    {
+      "filename": "GSM9524773_GEO_Metadata_LN3.csv.gz",
+      "error": "missing patient or tissue in filename"
+    },
+    {
+      "filename": "GSM9524774_GEO_Metadata_LN4.csv.gz",
+      "error": "missing patient or tissue in filename"
+    },
+    {
+      "filename": "GSM9524775_GEO_Metadata_LN5.csv.gz",
+      "error": "missing patient or tissue in filename"
+    },
+    {
+      "filename": "GSM9524776_GEO_Metadata_LN6.csv.gz",
+      "error": "missing patient or tissue in filename"
+    },
+    {
+      "filename": "GSM9524783_GEO_Metadata_PT1.csv.gz",
+      "error": "missing patient or tissue in filename"
+    },
+    {
+      "filename": "GSM9524784_GEO_Metadata_PT2.csv.gz",
+      "error": "missing patient or tissue in filename"
+    },
+    {
+      "filename": "GSM9524785_GEO_Metadata_PT3.csv.gz",
+      "error": "missing patient or tissue in filename"
+    },
+    {
+      "filename": "GSM9524786_GEO_Metadata_PT4.csv.gz",
+      "error": "missing patient or tissue in filename"
+    }
+  ]
+}

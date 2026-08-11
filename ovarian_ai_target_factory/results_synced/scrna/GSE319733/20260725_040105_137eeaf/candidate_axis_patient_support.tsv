@@ -1,0 +1,3 @@
+axis	patient_id	support_status	support_reason
+SPP1-CD44/ITGB1		NOT_TESTED	Processed matrix unavailable or insufficient for patient-level validation.
+CD209-C1Q-myeloid niche		NOT_TESTED	Requires parsed celltype-level expression and patient-level comparison.

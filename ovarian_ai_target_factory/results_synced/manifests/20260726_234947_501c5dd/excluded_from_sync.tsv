@@ -1,0 +1,11 @@
+source	size_bytes	reason
+D:\OC_external_datasheet\results\pipeline_qc\20260726_234947_501c5dd\pytest.xml	3823	suffix not allowed
+D:\OC_external_datasheet\results\daily_reports\logs\dataset_watcher_20260712.log	1910	not part of requested run/date
+D:\OC_external_datasheet\results\daily_reports\logs\dataset_watcher_20260724.log	1634	not part of requested run/date
+D:\OC_external_datasheet\results\daily_reports\logs\dataset_watcher_20260725.log	896	not part of requested run/date
+D:\OC_external_datasheet\results\daily_reports\logs\literature_watcher_20260712.log	3355	not part of requested run/date
+D:\OC_external_datasheet\results\daily_reports\logs\literature_watcher_20260724.log	2442	not part of requested run/date
+D:\OC_external_datasheet\results\daily_reports\logs\literature_watcher_20260725.log	1221	not part of requested run/date
+D:\OC_external_datasheet\results\daily_reports\logs\report_generator_20260712.log	192	not part of requested run/date
+D:\OC_external_datasheet\results\daily_reports\logs\report_generator_20260724.log	128	not part of requested run/date
+D:\OC_external_datasheet\results\daily_reports\logs\report_generator_20260725.log	64	not part of requested run/date

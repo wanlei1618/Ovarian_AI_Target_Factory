@@ -1,0 +1,544 @@
+{
+  "synced": [
+    {
+      "source": "D:\\OC_external_datasheet\\results\\pipeline_qc\\20260727_000754_a879f8a\\analysis_execution_status.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\pipeline_qc\\20260727_000754_a879f8a\\analysis_execution_status.tsv",
+      "size_bytes": 1156,
+      "sha256": "2b848ae5c06fc0e1d636e0766802825226bb30b161afbc19a8444b47f37faf8d",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\pipeline_qc\\20260727_000754_a879f8a\\python_environment.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\pipeline_qc\\20260727_000754_a879f8a\\python_environment.json",
+      "size_bytes": 265,
+      "sha256": "e724e714c52455797ab92f0b048ed12d638cbe27f4a4d310f09ffb9988ebce39",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\pipeline_qc\\20260727_000754_a879f8a\\python_packages.txt",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\pipeline_qc\\20260727_000754_a879f8a\\python_packages.txt",
+      "size_bytes": 396,
+      "sha256": "100e6273e8927cdbe1b858e742d3d6cab91d8caa98a85e0220ae7654bbc537f0",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\pipeline_qc\\20260727_000754_a879f8a\\r_package_check.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\pipeline_qc\\20260727_000754_a879f8a\\r_package_check.tsv",
+      "size_bytes": 164,
+      "sha256": "5fe3efe58afa512401a968929524b972ae0a89a9c1c0a39cf61b4dfe30da0dc2",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\pipeline_qc\\20260727_000754_a879f8a\\r_session_info.txt",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\pipeline_qc\\20260727_000754_a879f8a\\r_session_info.txt",
+      "size_bytes": 644,
+      "sha256": "c9b0b80b409f4f369ec361e29b3f9466e75b7f0535517108bb0f91438fe23319",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\annotation_concordance.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\annotation_concordance.tsv",
+      "size_bytes": 168,
+      "sha256": "a2d2ea258b9c733d5099277a48afcf2dfd7dee12d338e4ff2add35457066c942",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\archive_download_manifest.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\archive_download_manifest.json",
+      "size_bytes": 379,
+      "sha256": "d6cd68d74e00a518681814499cc5c1ad1cf79cf5c25751bdcc2170792b42cfce",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\archive_member_inventory.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\archive_member_inventory.tsv",
+      "size_bytes": 4056,
+      "sha256": "306c31ee655d29c841e7439b133ba58d27258959a10f3d883fa5fd4d58e85b8e",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\bcr_analysis_status.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\bcr_analysis_status.json",
+      "size_bytes": 252,
+      "sha256": "84b009338f0c07622bcd058a91d10ac1976f517be66c947b6cec903e6bf20e35",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\bcr_analysis_summary.md",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\bcr_analysis_summary.md",
+      "size_bytes": 147,
+      "sha256": "dca9a30f1d6a5f5083e2400ec15129f2f8ded07716ed50bf2237737842741574",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\bcr_diversity_by_patient.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\bcr_diversity_by_patient.tsv",
+      "size_bytes": 755,
+      "sha256": "7381f28f02b7e708c1971133a3a9d9d04d2ac71a30c88a8123517385043f05ce",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\bcr_qc_summary.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\bcr_qc_summary.tsv",
+      "size_bytes": 755,
+      "sha256": "7381f28f02b7e708c1971133a3a9d9d04d2ac71a30c88a8123517385043f05ce",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\candidate_axis_evidence.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\candidate_axis_evidence.tsv",
+      "size_bytes": 14861,
+      "sha256": "a995356129f37a03621d64d1640e85fe17c02bde50040f71d653893220796c60",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\cells_retained_by_sample.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\cells_retained_by_sample.tsv",
+      "size_bytes": 312,
+      "sha256": "cfde326867ed4d742df71358ac8b43ada5b4c0e4c47d386a7a5d42f94994c081",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\celltype_counts_by_sample.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\celltype_counts_by_sample.tsv",
+      "size_bytes": 2427,
+      "sha256": "c67d5c2c0e258bc1c140ffdb02d1ed55cdbb047f86ed1e2e2588e49188106bcf",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\celltype_proportions_by_patient.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\celltype_proportions_by_patient.tsv",
+      "size_bytes": 2337,
+      "sha256": "552c1b1cf17cc0c87ca3c743483b510c4ae02480ab3bade20f045a43247474a9",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\clonotype_expansion_by_sample.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\clonotype_expansion_by_sample.tsv",
+      "size_bytes": 2854819,
+      "sha256": "b82b9b4c84ca38127319012e8180c5f3b8d2221116c3940f0d267574b6d68448",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\clonotype_network.pdf",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\clonotype_network.pdf",
+      "size_bytes": 4468,
+      "sha256": "77e6a05e2ff092b4d5a656c67b9e64f1e3bdb7ac0c6d3aad5dabad0e0449fde5",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\dotplot_broad_markers.pdf",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\dotplot_broad_markers.pdf",
+      "size_bytes": 4974,
+      "sha256": "7d7df8eb67294a3edd1e5308a42e230eca1347163559bf852b50ec0cc0c1dd02",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\download_extract_status.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\download_extract_status.json",
+      "size_bytes": 996,
+      "sha256": "cfd15ec07e449097a99eff7d7b48a68ffa39cd8be19f7a35f46c65568a3322d1",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\extracted_file_manifest.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\extracted_file_manifest.tsv",
+      "size_bytes": 14684,
+      "sha256": "03b3d77bead7a44ac6a9844582114765756266f1691e68670622b92e933b1605",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\gex_analysis_status.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\gex_analysis_status.json",
+      "size_bytes": 252,
+      "sha256": "c27d11c0e24a9c8dc4d5ea7c865d3b245d89693163ff6742675f7facd822cf56",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\integration_qc.md",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\integration_qc.md",
+      "size_bytes": 206,
+      "sha256": "8bc2735dbf626350127cfd5c47b045e5312b5c314cff72f845b198618ec1bd63",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\key_gene_expression_by_celltype.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\key_gene_expression_by_celltype.tsv",
+      "size_bytes": 19615,
+      "sha256": "7790ee82250fd6f93efe8f6d29488a90e0e6297bcf8a7adc5ef4f4aab4d71ad7",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\key_gene_expression_by_patient.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\key_gene_expression_by_patient.tsv",
+      "size_bytes": 17098,
+      "sha256": "66d832eb4268f5ef1bf1e327e3b81a0f790f55c2bd9191e85d591685f9175f28",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\marker_summary.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\marker_summary.tsv",
+      "size_bytes": 3155,
+      "sha256": "b434439c7c166eb99ee092e8f78d72871f8efe61116c31aac924f11f85f1713d",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\paired_celltype_comparison.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\paired_celltype_comparison.tsv",
+      "size_bytes": 795,
+      "sha256": "99cdc1e692b4c38b0a9c5186b3f6fef192ad51ced09473f64dcc664fa73ca800",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\paired_effect_plots.pdf",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\paired_effect_plots.pdf",
+      "size_bytes": 4802,
+      "sha256": "219cd64a0b90ea72b48790179b630770d118b483bb124639e13a6b42504efaaa",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\patient_consistency_summary.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\patient_consistency_summary.tsv",
+      "size_bytes": 220,
+      "sha256": "4345c2a52cf8e4cd8178c99649fc31702d5eeaa091aaf1cd124a819603754f61",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\patient_statistics_status.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\patient_statistics_status.json",
+      "size_bytes": 321,
+      "sha256": "6e80fa6666d2d4e4e3a06b2de6da00e7e42d8f6f662919a7b8190cc26d5ae787",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\pseudobulk_Bcell_LN_vs_PT.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\pseudobulk_Bcell_LN_vs_PT.tsv",
+      "size_bytes": 1051,
+      "sha256": "408428abda5796ada8f9e6bba2b481319b41d9b4579ce7c0d5c0a189c642fb36",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\pseudobulk_myeloid_LN_vs_PT.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\pseudobulk_myeloid_LN_vs_PT.tsv",
+      "size_bytes": 111,
+      "sha256": "9a2cc532074708d1178146297f3d17aa1581ece480a9315d06f1e25234641243",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\qc_scatter.pdf",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\qc_scatter.pdf",
+      "size_bytes": 2569941,
+      "sha256": "e9f165810eaacebe8ef82dbf0d8c1396c5e703085876150124aa2c5e3223d446",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\qc_thresholds.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\qc_thresholds.tsv",
+      "size_bytes": 319,
+      "sha256": "8a5cc9f2670242876c3985dde3e71f32d316feade846915e1973d28b7b7e6986",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\qc_violin.pdf",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\qc_violin.pdf",
+      "size_bytes": 145229,
+      "sha256": "d9d58df9f19962fde720d575814c90133d94e011040738400c518b85aca78691",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest.tsv",
+      "size_bytes": 5857,
+      "sha256": "781e3aa60eaab33df0574f4e302e6d28984723120d24004cdebace223534985b",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest_errors.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest_errors.tsv",
+      "size_bytes": 756,
+      "sha256": "dabf4f352920db8c23469a784ce61ba513cf2fb02a8cb55fe5ee43b400b93706",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest_status.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest_status.json",
+      "size_bytes": 1947,
+      "sha256": "d66c874eab62f07a60d60d2d4876310526378fadf1e16832c3a83152d7ea270b",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest_validation.md",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest_validation.md",
+      "size_bytes": 236,
+      "sha256": "75e9265a12f389e74b16b4db4d2c05fd793b0a7b6712c8a66cc60568e6f1546c",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_qc_summary.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_qc_summary.tsv",
+      "size_bytes": 701,
+      "sha256": "1e1db4efff38d97e98d481542b1f3ecbaf394d04916c747c3b956220a34d3d13",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\shared_clonotypes_LN_PT.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\shared_clonotypes_LN_PT.tsv",
+      "size_bytes": 254544,
+      "sha256": "7aa99aaa1ab51d79a5ada3c8fb41f567f0636ed0c0f5ac2d931abff9f6ea722d",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\shared_clonotype_summary_by_patient.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\shared_clonotype_summary_by_patient.tsv",
+      "size_bytes": 222,
+      "sha256": "a8f7bfb6517f77f00867a6a1a3f0855136d12557fc1ed44272118e2d653f7cbc",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\umap_broad_celltype.pdf",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\umap_broad_celltype.pdf",
+      "size_bytes": 4974,
+      "sha256": "187400af57427fe60e6f1fc02afab0b82bf8bcab2bd022eaea94ae3e5c118b1f",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\umap_by_patient.pdf",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\umap_by_patient.pdf",
+      "size_bytes": 4974,
+      "sha256": "0020eb97d08b7f0b326b249363c4f066da1435b9f96150e3bbfe420716b5b8a8",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\umap_by_sample.pdf",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\umap_by_sample.pdf",
+      "size_bytes": 4974,
+      "sha256": "ede9f30a9635eed71504fb9accf263566ffba65b483448e9a1e4f44d26f086e0",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\umap_by_tissue.pdf",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\scrna\\GSE319733\\20260727_000754_a879f8a\\umap_by_tissue.pdf",
+      "size_bytes": 4974,
+      "sha256": "187400af57427fe60e6f1fc02afab0b82bf8bcab2bd022eaea94ae3e5c118b1f",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\status.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\status.json",
+      "size_bytes": 275,
+      "sha256": "c3fb83243cd874b844aac11db7d7d27f0e868c3d6c16fce55c13be4ee8ba2311",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\analysis_feasibility.md",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\analysis_feasibility.md",
+      "size_bytes": 399,
+      "sha256": "3d01071780b2648d6130ec34d980b4f4d3aed5e919964d6e12ad6d09ddcf9f37",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\combined_study_manifest.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\combined_study_manifest.tsv",
+      "size_bytes": 3252,
+      "sha256": "2aa5f25d35dbc100d446fb0de8167c7c91b30ead213c6058d6ac629183e4b1f9",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\ctc_group_counts.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\ctc_group_counts.tsv",
+      "size_bytes": 35,
+      "sha256": "7bb3d119a8b25062643087460f0ba2133eb81ba4f5740ad03f3ec612176d8657",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\disease_group_counts.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\disease_group_counts.tsv",
+      "size_bytes": 100,
+      "sha256": "7a40dad0663e1c09fc8bd5fb81e95ffcdcc37ed895fb073d14cdfe097e338fe4",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\donor_manifest.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\donor_manifest.tsv",
+      "size_bytes": 1574,
+      "sha256": "f8c863d745824a6bae6aebafde83a0c288fbb6b192786cacee97f281248e06ed",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\processed_file_decision.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\processed_file_decision.tsv",
+      "size_bytes": 375,
+      "sha256": "5c5071d2eadc3117cda288a7d5bd9273bc0f293d3745bf8756c34d9b921ef194",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\sample_platform_map.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\sample_platform_map.tsv",
+      "size_bytes": 781,
+      "sha256": "a38a971195d5f8da6bef936e96883fa71f195af979664131cfdc759b283f8264",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\status.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\status.json",
+      "size_bytes": 2013,
+      "sha256": "ecccad64ef5666027e6fa353dc38f9b27c83da92c95059eeae4052fcfc75c194",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\supplementary_file_inventory.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\supplementary_file_inventory.tsv",
+      "size_bytes": 794,
+      "sha256": "994653ecb147f2f64d1feb3380eda34248b4344741c033fe773a422b48c5866c",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\GSE338829_assay_classification.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\GSE338829_assay_classification.json",
+      "size_bytes": 564,
+      "sha256": "447215fb84542b16c030f57539627c937a9bd5dd4536e10248741e110fd8bc77",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\GSE338829_download_decision.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\GSE338829_download_decision.json",
+      "size_bytes": 564,
+      "sha256": "447215fb84542b16c030f57539627c937a9bd5dd4536e10248741e110fd8bc77",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\GSE338829_metadata_summary.md",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\GSE338829_metadata_summary.md",
+      "size_bytes": 1240,
+      "sha256": "e4e56e2f55fcc099a2a71abd6e70cb646da1a5196267b3f6c74e9f492a8c9cf1",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\GSE338829_processed_file_decision.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\GSE338829_processed_file_decision.tsv",
+      "size_bytes": 86,
+      "sha256": "159f6e7e4f453de23a0ae2578b5386a1c3497eb8f54620bb300dece2c8a4827b",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\GSE338829_sample_design.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\GSE338829_sample_design.tsv",
+      "size_bytes": 300,
+      "sha256": "3538cd662431104b1cb75724cf877117c741d84ab64ca78828801c7c3b0b3d62",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\RBMS1_NEDD4_evidence_scope.md",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\RBMS1_NEDD4_evidence_scope.md",
+      "size_bytes": 284,
+      "sha256": "486bf34e38c46d75bd13b257b02a3c45e56b950eaf0e93da4863ad03c3195aca",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\status.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\status.json",
+      "size_bytes": 1830,
+      "sha256": "197f8b3766548eaf3b970b8b8b4506b5d46b92b0a75c2555f5bcd68f9cdea296",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\supplementary_file_inventory.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\dataset_feasibility\\20260727_000754_a879f8a\\GSE338829\\supplementary_file_inventory.tsv",
+      "size_bytes": 194,
+      "sha256": "d4fc6d1b0cb2851be285bfe7ded8c160b322871b6f2cc8a502b27a36f8ad92bf",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\target_factory\\20260727_000754_a879f8a\\candidate_target_table.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\target_factory\\20260727_000754_a879f8a\\candidate_target_table.tsv",
+      "size_bytes": 3276,
+      "sha256": "b26137ba6aaefb94d9a01e16f59720ca7837689fec2f069b355ab05d0d8efa11",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\target_factory\\20260727_000754_a879f8a\\evidence_records.tsv",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\target_factory\\20260727_000754_a879f8a\\evidence_records.tsv",
+      "size_bytes": 20486,
+      "sha256": "f7c1e71b77c7b3a9c1f2c4a790fefe783b3b83752af003398464b61c80dbb00b",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\target_factory\\20260727_000754_a879f8a\\status.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\target_factory\\20260727_000754_a879f8a\\status.json",
+      "size_bytes": 528,
+      "sha256": "4f0986cb0bb84cf088f0ecd1fac192a7310df747677ac1adb7d6d3d730341107",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\final_reports\\20260727_000754_a879f8a\\Final_Execution_Report.md",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\final_reports\\20260727_000754_a879f8a\\Final_Execution_Report.md",
+      "size_bytes": 2686,
+      "sha256": "4b49ae9c1302fb87025d9d443d5334357417af7c0b6c17db3bb77e0cb908dd54",
+      "action": "copied"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\final_reports\\20260727_000754_a879f8a\\run_manifest.json",
+      "target": "D:\\OC_external_datasheet\\ovarian_ai_target_factory\\results_synced\\final_reports\\20260727_000754_a879f8a\\run_manifest.json",
+      "size_bytes": 770,
+      "sha256": "e285a41e0882a8e3250cc5571ca0089f0bb7b53e47f7f9d9b9036e2592a0546b",
+      "action": "copied"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "D:\\OC_external_datasheet\\results\\pipeline_qc\\20260727_000754_a879f8a\\pytest.xml",
+      "size_bytes": 3823,
+      "reason": "suffix not allowed"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\daily_reports\\logs\\dataset_watcher_20260712.log",
+      "size_bytes": 1910,
+      "reason": "not part of requested run/date"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\daily_reports\\logs\\dataset_watcher_20260724.log",
+      "size_bytes": 1634,
+      "reason": "not part of requested run/date"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\daily_reports\\logs\\dataset_watcher_20260725.log",
+      "size_bytes": 896,
+      "reason": "not part of requested run/date"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\daily_reports\\logs\\literature_watcher_20260712.log",
+      "size_bytes": 3355,
+      "reason": "not part of requested run/date"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\daily_reports\\logs\\literature_watcher_20260724.log",
+      "size_bytes": 2442,
+      "reason": "not part of requested run/date"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\daily_reports\\logs\\literature_watcher_20260725.log",
+      "size_bytes": 1221,
+      "reason": "not part of requested run/date"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\daily_reports\\logs\\report_generator_20260712.log",
+      "size_bytes": 192,
+      "reason": "not part of requested run/date"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\daily_reports\\logs\\report_generator_20260724.log",
+      "size_bytes": 128,
+      "reason": "not part of requested run/date"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\daily_reports\\logs\\report_generator_20260725.log",
+      "size_bytes": 64,
+      "reason": "not part of requested run/date"
+    },
+    {
+      "source": "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\celltype_annotation.tsv",
+      "size_bytes": 7680559,
+      "reason": "cell-level table excluded from GitHub sync"
+    }
+  ]
+}

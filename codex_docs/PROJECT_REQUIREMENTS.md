@@ -33,12 +33,12 @@ ChatGPT 负责：机制判断、证据整合、创新性判断、审稿人视角
 Codex 在写任何下载、缓存、结果或中间文件脚本时，必须遵守：
 
 ```text
-项目代码目录：D:\Ovarian_AI_Target_Factory\repo\ovarian_ai_target_factory
-原始数据目录：D:\Ovarian_AI_Target_Factory\data_raw
-处理后数据：D:\Ovarian_AI_Target_Factory\data_processed
-结果目录：D:\Ovarian_AI_Target_Factory\results
-缓存目录：D:\Ovarian_AI_Target_Factory\cache
-日志目录：D:\Ovarian_AI_Target_Factory\logs
+项目代码目录：D:\OC_external_datasheet\repo\ovarian_ai_target_factory
+原始数据目录：D:\OC_external_datasheet\data_raw
+处理后数据：D:\OC_external_datasheet\data_processed
+结果目录：D:\OC_external_datasheet\results
+缓存目录：D:\OC_external_datasheet\cache
+日志目录：D:\OC_external_datasheet\logs
 ```
 
 禁止默认把大文件写入：
@@ -58,8 +58,8 @@ C:\ProgramData
 ```text
 1. 环境变量 OVARIAN_AI_DATA_ROOT
 2. config/paths.yaml 中的 data_root
-3. 如果是 Windows 且 D 盘存在，则默认 D:\Ovarian_AI_Target_Factory
-4. 如果是 WSL 且 /mnt/d 存在，则默认 /mnt/d/Ovarian_AI_Target_Factory
+3. 如果是 Windows 且 D 盘存在，则默认 D:\OC_external_datasheet
+4. 如果是 WSL 且 /mnt/d 存在，则默认 /mnt/d/OC_external_datasheet
 5. 如果以上都不存在，才允许使用当前项目目录下的 ./local_data，并给出警告
 ```
 
@@ -90,10 +90,10 @@ def get_data_root() -> Path:
             return Path(cfg["data_root"]).expanduser().resolve()
 
     if platform.system().lower().startswith("win") and Path("D:/").exists():
-        return Path("D:/Ovarian_AI_Target_Factory").resolve()
+        return Path("D:/OC_external_datasheet").resolve()
 
     if Path("/mnt/d").exists():
-        return Path("/mnt/d/Ovarian_AI_Target_Factory").resolve()
+        return Path("/mnt/d/OC_external_datasheet").resolve()
 
     fallback = get_project_root() / "local_data"
     print(f"[WARNING] D drive not found. Using fallback path: {fallback}")
@@ -137,11 +137,11 @@ get_data_root <- function() {
   }
 
   if (.Platform$OS.type == "windows" && dir.exists("D:/")) {
-    return("D:/Ovarian_AI_Target_Factory")
+    return("D:/OC_external_datasheet")
   }
 
   if (dir.exists("/mnt/d")) {
-    return("/mnt/d/Ovarian_AI_Target_Factory")
+    return("/mnt/d/OC_external_datasheet")
   }
 
   warning("D drive not found. Using ./local_data. Large downloads may occupy the current drive.")
@@ -258,12 +258,12 @@ ovarian_ai_target_factory/
 ### 3.1 `config/paths.yaml`
 
 ```yaml
-data_root: "D:/Ovarian_AI_Target_Factory"
-raw_dir: "D:/Ovarian_AI_Target_Factory/data_raw"
-processed_dir: "D:/Ovarian_AI_Target_Factory/data_processed"
-results_dir: "D:/Ovarian_AI_Target_Factory/results"
-cache_dir: "D:/Ovarian_AI_Target_Factory/cache"
-logs_dir: "D:/Ovarian_AI_Target_Factory/logs"
+data_root: "D:/OC_external_datasheet"
+raw_dir: "D:/OC_external_datasheet/data_raw"
+processed_dir: "D:/OC_external_datasheet/data_processed"
+results_dir: "D:/OC_external_datasheet/results"
+cache_dir: "D:/OC_external_datasheet/cache"
+logs_dir: "D:/OC_external_datasheet/logs"
 
 max_single_download_gb: 50
 warn_if_c_drive_used: true
@@ -439,7 +439,7 @@ dataset_id	title	disease	histology	modality	platform	species	sample_count	cell_c
 ### 5.2 每日输出文件
 
 ```text
-D:/Ovarian_AI_Target_Factory/results/daily_reports/YYYY-MM-DD/
+D:/OC_external_datasheet/results/daily_reports/YYYY-MM-DD/
 ├── literature_digest.json
 ├── literature_digest.md
 ├── new_dataset_registry.tsv
@@ -519,7 +519,7 @@ D:/Ovarian_AI_Target_Factory/results/daily_reports/YYYY-MM-DD/
 ### 6.2 每周输出文件
 
 ```text
-D:/Ovarian_AI_Target_Factory/results/weekly_reports/YYYY-WW/
+D:/OC_external_datasheet/results/weekly_reports/YYYY-WW/
 ├── candidate_target_table.tsv
 ├── target_score_matrix.tsv
 ├── top20_target_cards.md
@@ -546,7 +546,7 @@ gene_symbol	target_score	rank_class	bulk_logfc	bulk_fdr	cox_hr	cox_p	cnv_cor	met
 每个候选靶点生成一个 Markdown 卡片，保存到：
 
 ```text
-D:/Ovarian_AI_Target_Factory/results/target_cards/<GENE>.md
+D:/OC_external_datasheet/results/target_cards/<GENE>.md
 ```
 
 模板：
@@ -724,7 +724,7 @@ D:/Ovarian_AI_Target_Factory/results/target_cards/<GENE>.md
 7. 成功标准；
 8. 失败时的排错策略；
 9. 是否涉及大文件下载；
-10. 若涉及大文件，必须写入 D:/Ovarian_AI_Target_Factory，不得写入 C 盘。
+10. 若涉及大文件，必须写入 D:/OC_external_datasheet，不得写入 C 盘。
 
 输出格式为 Markdown checklist。
 ```
@@ -789,11 +789,11 @@ D:/Ovarian_AI_Target_Factory/results/target_cards/<GENE>.md
 成功标准：
 
 ```text
-D:/Ovarian_AI_Target_Factory/data_raw 存在
-D:/Ovarian_AI_Target_Factory/data_processed 存在
-D:/Ovarian_AI_Target_Factory/results 存在
-D:/Ovarian_AI_Target_Factory/cache 存在
-D:/Ovarian_AI_Target_Factory/logs 存在
+D:/OC_external_datasheet/data_raw 存在
+D:/OC_external_datasheet/data_processed 存在
+D:/OC_external_datasheet/results 存在
+D:/OC_external_datasheet/cache 存在
+D:/OC_external_datasheet/logs 存在
 ```
 
 Codex 要求：
@@ -880,15 +880,15 @@ dataset_id, title, disease, modality, platform, sample_count, download_url, prio
 输入：
 
 ```text
-D:/Ovarian_AI_Target_Factory/data_raw/depmap/
+D:/OC_external_datasheet/data_raw/depmap/
 candidate_gene_list.txt
 ```
 
 输出：
 
 ```text
-D:/Ovarian_AI_Target_Factory/data_processed/depmap/depmap_ovarian_dependency.tsv
-D:/Ovarian_AI_Target_Factory/results/figures/depmap_dependency_heatmap.pdf
+D:/OC_external_datasheet/data_processed/depmap/depmap_ovarian_dependency.tsv
+D:/OC_external_datasheet/results/figures/depmap_dependency_heatmap.pdf
 ```
 
 分析内容：
@@ -923,8 +923,8 @@ config/target_scoring.yaml
 输出：
 
 ```text
-D:/Ovarian_AI_Target_Factory/results/weekly_reports/YYYY-WW/candidate_target_table.tsv
-D:/Ovarian_AI_Target_Factory/results/weekly_reports/YYYY-WW/target_score_matrix.tsv
+D:/OC_external_datasheet/results/weekly_reports/YYYY-WW/candidate_target_table.tsv
+D:/OC_external_datasheet/results/weekly_reports/YYYY-WW/target_score_matrix.tsv
 ```
 
 要求：
@@ -950,7 +950,7 @@ candidate_target_table.tsv
 输出：
 
 ```text
-D:/Ovarian_AI_Target_Factory/results/target_cards/<GENE>.md
+D:/OC_external_datasheet/results/target_cards/<GENE>.md
 ```
 
 ### 10.7 `src/ovarian_ai/report/report_generator.py`
@@ -969,8 +969,8 @@ target_cards/
 输出：
 
 ```text
-D:/Ovarian_AI_Target_Factory/results/daily_reports/YYYY-MM-DD/daily_evidence_report.md
-D:/Ovarian_AI_Target_Factory/results/weekly_reports/YYYY-WW/weekly_evidence_report.md
+D:/OC_external_datasheet/results/daily_reports/YYYY-MM-DD/daily_evidence_report.md
+D:/OC_external_datasheet/results/weekly_reports/YYYY-WW/weekly_evidence_report.md
 ```
 
 ### 10.8 `src/ovarian_ai/virtual_ko/virtual_ko_pipeline.py`
@@ -988,7 +988,7 @@ D:/Ovarian_AI_Target_Factory/results/weekly_reports/YYYY-WW/weekly_evidence_repo
 输出：
 
 ```text
-D:/Ovarian_AI_Target_Factory/data_processed/virtual_ko/virtual_ko_summary.tsv
+D:/OC_external_datasheet/data_processed/virtual_ko/virtual_ko_summary.tsv
 ```
 
 ### 10.9 `scripts/check_disk_usage.py`
@@ -998,7 +998,7 @@ D:/Ovarian_AI_Target_Factory/data_processed/virtual_ko/virtual_ko_summary.tsv
 要求：
 
 ```text
-- 检查 D:/Ovarian_AI_Target_Factory 总占用
+- 检查 D:/OC_external_datasheet 总占用
 - 检查 C 盘剩余空间
 - 如果脚本检测到 data_raw 或 cache 在 C 盘，立即警告
 - 输出 logs/disk_usage_YYYY-MM-DD.log
@@ -1039,10 +1039,10 @@ TCGA-OV methylation
 输出：
 
 ```text
-D:/Ovarian_AI_Target_Factory/data_processed/tcga_ov/tcga_expression_summary.tsv
-D:/Ovarian_AI_Target_Factory/data_processed/tcga_ov/tcga_survival_summary.tsv
-D:/Ovarian_AI_Target_Factory/data_processed/tcga_ov/tcga_cnv_expression_summary.tsv
-D:/Ovarian_AI_Target_Factory/data_processed/tcga_ov/tcga_methylation_expression_summary.tsv
+D:/OC_external_datasheet/data_processed/tcga_ov/tcga_expression_summary.tsv
+D:/OC_external_datasheet/data_processed/tcga_ov/tcga_survival_summary.tsv
+D:/OC_external_datasheet/data_processed/tcga_ov/tcga_cnv_expression_summary.tsv
+D:/OC_external_datasheet/data_processed/tcga_ov/tcga_methylation_expression_summary.tsv
 ```
 
 分析：
@@ -1071,7 +1071,7 @@ GEO 表达矩阵
 输出：
 
 ```text
-D:/Ovarian_AI_Target_Factory/data_processed/bulk_validation/bulk_validation_summary.tsv
+D:/OC_external_datasheet/data_processed/bulk_validation/bulk_validation_summary.tsv
 ```
 
 分析：
@@ -1090,8 +1090,8 @@ D:/Ovarian_AI_Target_Factory/data_processed/bulk_validation/bulk_validation_summ
 输出：
 
 ```text
-D:/Ovarian_AI_Target_Factory/data_processed/cptac_ov/cptac_protein_summary.tsv
-D:/Ovarian_AI_Target_Factory/data_processed/cptac_ov/cptac_phospho_summary.tsv
+D:/OC_external_datasheet/data_processed/cptac_ov/cptac_protein_summary.tsv
+D:/OC_external_datasheet/data_processed/cptac_ov/cptac_phospho_summary.tsv
 ```
 
 分析：
@@ -1117,9 +1117,9 @@ metadata
 输出：
 
 ```text
-D:/Ovarian_AI_Target_Factory/data_processed/scrna/scrna_target_summary.tsv
-D:/Ovarian_AI_Target_Factory/results/figures/scrna_featureplots/
-D:/Ovarian_AI_Target_Factory/results/figures/scrna_dotplots/
+D:/OC_external_datasheet/data_processed/scrna/scrna_target_summary.tsv
+D:/OC_external_datasheet/results/figures/scrna_featureplots/
+D:/OC_external_datasheet/results/figures/scrna_dotplots/
 ```
 
 分析：
@@ -1151,8 +1151,8 @@ Visium/GeoMx/ST 表达矩阵
 输出：
 
 ```text
-D:/Ovarian_AI_Target_Factory/data_processed/spatial/spatial_target_summary.tsv
-D:/Ovarian_AI_Target_Factory/results/figures/spatial/
+D:/OC_external_datasheet/data_processed/spatial/spatial_target_summary.tsv
+D:/OC_external_datasheet/results/figures/spatial/
 ```
 
 分析：
@@ -1181,8 +1181,8 @@ cell type annotation
 输出：
 
 ```text
-D:/Ovarian_AI_Target_Factory/data_processed/ligand_receptor/lr_axis_summary.tsv
-D:/Ovarian_AI_Target_Factory/results/figures/ligand_receptor/
+D:/OC_external_datasheet/data_processed/ligand_receptor/lr_axis_summary.tsv
+D:/OC_external_datasheet/results/figures/ligand_receptor/
 ```
 
 分析：
@@ -1214,7 +1214,7 @@ D:/Ovarian_AI_Target_Factory/results/figures/ligand_receptor/
 输出：
 
 ```text
-D:/Ovarian_AI_Target_Factory/results/figures/<GENE>/
+D:/OC_external_datasheet/results/figures/<GENE>/
 ```
 
 ---
@@ -1276,7 +1276,7 @@ D:/Ovarian_AI_Target_Factory/results/figures/<GENE>/
 请根据当前项目需求，创建一个名为 ovarian_ai_target_factory 的项目，用于自动化发现卵巢癌多组学/多模态候选靶点。
 
 强制要求：
-1. 所有大数据、缓存、中间文件和结果默认写入 D:/Ovarian_AI_Target_Factory；
+1. 所有大数据、缓存、中间文件和结果默认写入 D:/OC_external_datasheet；
 2. 不得默认写入 C 盘 Downloads、Documents、AppData 或系统临时目录；
 3. 路径必须通过统一函数读取：Python 用 src/ovarian_ai/utils/paths.py，R 用 R/utils_paths.R；
 4. 如果 D 盘不存在，允许 fallback 到 ./local_data，但必须发出明显警告；
@@ -1406,7 +1406,7 @@ Rscript R/01_tcga_ov_pipeline.R --config config/paths.yaml --candidate candidate
 MVP 完成后，应能得到：
 
 ```text
-1. D:/Ovarian_AI_Target_Factory 目录已建立
+1. D:/OC_external_datasheet 目录已建立
 2. 每日文献报告可生成
 3. 每日数据集报告可生成
 4. TCGA-OV 至少完成表达 + 生存 + CNV 分析

@@ -1,0 +1,97 @@
+datasets:
+  - dataset_id: GSE319733
+    title: Tumor-draining lymph nodes in ovarian cancer lack germinal centers but harbor tumor-reactive memory B cells clonally linked to intra-tumoral B cells
+    disease: ovarian cancer
+    modality: single-cell RNA-seq / BCR
+    platform: 10x Genomics
+    sample_count: "20"
+    download_url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE319733
+    priority_score: "9"
+    recommended_action: Approved for metadata and direct processed-file parsing only.
+    dataset_action: inspect_processed_files
+    action_reason: Ovarian cancer scRNA-seq/BCR dataset; inspect processed files before any matrix download.
+    raw_file_size_estimate: RAW.tar present; not downloaded by default
+    modality_confidence: high
+    disease_relevance: high
+    main_project_relevance: medium
+    branch_project: B-cell / tumor-draining lymph node immune niche in ovarian cancer
+    approved_by_rule: "yes"
+    source_type: curated_manual
+    analysis_status: METADATA_ONLY
+    evidence_level: limited
+    ovarian_data_used: "yes"
+    hgsoc_specific: unknown
+    public_data_accession: GSE319733
+    public_data_verified: "yes"
+    public_code_url: ""
+    public_code_verified: "no"
+    independent_validation: unknown
+    functional_perturbation: "no"
+    single_cell_validation: "yes"
+    spatial_validation: "no"
+    depmap_validation: "no"
+    drug_response_validation: "no"
+  - dataset_id: GSE262172
+    title: GSK-J4 treatment in ovarian cancer cell lines (ATAC-Seq)
+    disease: ovarian cancer
+    modality: ATAC-seq
+    platform: ""
+    sample_count: "9"
+    download_url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE262172
+    priority_score: "6"
+    recommended_action: Metadata-only archive during MVP.
+    dataset_action: metadata_only
+    action_reason: ATAC-seq ovarian cancer cell-line drug-treatment dataset; ATAC workflow is outside MVP.
+    raw_file_size_estimate: unknown; no raw download approved
+    modality_confidence: high
+    disease_relevance: medium
+    main_project_relevance: low
+    branch_project: chromatin accessibility and epigenetic drug response
+    approved_by_rule: "no"
+    source_type: curated_manual
+    analysis_status: METADATA_ONLY
+    evidence_level: limited
+    ovarian_data_used: "yes"
+    hgsoc_specific: "no"
+    public_data_accession: GSE262172
+    public_data_verified: "yes"
+    public_code_url: ""
+    public_code_verified: "no"
+    independent_validation: unknown
+    functional_perturbation: drug treatment
+    single_cell_validation: "no"
+    spatial_validation: "no"
+    depmap_validation: "no"
+    drug_response_validation: partial
+  - dataset_id: GSE310580
+    title: DNA Methylation Profiling Enables Subclassification of Mucinous Ovarian Carcinoma and Distinguishes It from Extraovarian Mucinous Metastases
+    disease: ovarian cancer
+    modality: methylation
+    platform: ""
+    sample_count: "162"
+    download_url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE310580
+    priority_score: "3"
+    recommended_action: Metadata-only archive during MVP.
+    dataset_action: metadata_only
+    action_reason: Mucinous ovarian carcinoma methylation classifier; diagnostic ML branch, not current HGSOC target discovery mainline.
+    raw_file_size_estimate: unknown; no raw download approved
+    modality_confidence: high
+    disease_relevance: medium
+    main_project_relevance: low
+    branch_project: mucinous ovarian carcinoma methylation classification
+    approved_by_rule: "no"
+    source_type: curated_manual
+    analysis_status: METADATA_ONLY
+    evidence_level: limited
+    ovarian_data_used: "yes"
+    hgsoc_specific: "no"
+    public_data_accession: GSE310580
+    public_data_verified: "yes"
+    public_code_url: ""
+    public_code_verified: "no"
+    independent_validation: unknown
+    functional_perturbation: "no"
+    single_cell_validation: "no"
+    spatial_validation: "no"
+    depmap_validation: "no"
+    drug_response_validation: "no"

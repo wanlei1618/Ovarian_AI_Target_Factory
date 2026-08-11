@@ -1,0 +1,8 @@
+module	status	detail	path
+python_pytest	COMPLETED	29 passed	D:\OC_external_datasheet\results\pipeline_qc\20260727_000754_a879f8a\pytest.xml
+GSE319733_download_extract	COMPLETED	50 files extracted	D:\OC_external_datasheet\results\scrna\GSE319733\20260727_000754_a879f8a\extracted_file_manifest.tsv
+GSE319733_GEX	COMPLETED	{'celltype_annotation': 43432, 'sample_qc_summary': 10}	D:\OC_external_datasheet\results\scrna\GSE319733\20260727_000754_a879f8a\gex_analysis_status.json
+GSE319733_BCR	COMPLETED	{'bcr_qc_summary': 10, 'shared_clonotypes_LN_PT': 5413}	D:\OC_external_datasheet\results\scrna\GSE319733\20260727_000754_a879f8a\bcr_analysis_status.json
+GSE319733_patient_statistics	COMPLETED	P1,P2,P3,P4	D:\OC_external_datasheet\results\scrna\GSE319733\20260727_000754_a879f8a\patient_statistics_status.json
+dataset_feasibility	COMPLETED_WITH_WARNINGS	GSE337705/337706 and GSE338829 checked	D:\OC_external_datasheet\results\dataset_feasibility\20260727_000754_a879f8a
+target_factory	COMPLETED_WITH_WARNINGS	50 evidence records	D:\OC_external_datasheet\results\target_factory\20260727_000754_a879f8a\evidence_records.tsv
