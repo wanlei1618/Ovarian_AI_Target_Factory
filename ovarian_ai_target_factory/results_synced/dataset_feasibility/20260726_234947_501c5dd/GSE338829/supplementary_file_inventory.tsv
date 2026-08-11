@@ -1,4 +1,0 @@
-filename	url	size_bytes	file_type	download_decision	decision_reason
-GSE338829_RBMS1_RIP_seq.txt.gz	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE338nnn/GSE338829/suppl/GSE338829_RBMS1_RIP_seq.txt.gz	383117	gz	inspect_processed_files	processed or metadata-sized file can be inspected if needed
-GSE338829_RBMS1_peak.xlsx	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE338nnn/GSE338829/suppl/GSE338829_RBMS1_peak.xlsx	3559673	xlsx	metadata_only	unknown file type or size
-https://www.hhs.gov/vulnerability-disclosure-policy/index.html	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE338nnn/GSE338829/suppl/https://www.hhs.gov/vulnerability-disclosure-policy/index.html	0	html	metadata_only	HTTP Error 404: Not Found
