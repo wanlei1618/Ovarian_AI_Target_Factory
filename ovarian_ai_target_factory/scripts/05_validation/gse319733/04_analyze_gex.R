@@ -4,20 +4,20 @@ get_arg <- function(flag, default = NA_character_) {
   if (is.na(idx) || idx == length(args)) default else args[[idx + 1]]
 }
 run_id <- get_arg("--run-id")
-config <- get_arg("--config", "D:/Ovarian_AI_Target_Factory/ovarian_ai_target_factory/config/paths.yaml")
+config <- get_arg("--config", "D:/OC_external_datasheet/ovarian_ai_target_factory/config/paths.yaml")
 if (is.na(run_id) || "--help" %in% args || "-h" %in% args) {
   cat("Usage: Rscript 04_analyze_gex.R --run-id <RUN_ID> [--config <paths.yaml>]\n")
   quit(status = ifelse(is.na(run_id), 1, 0))
 }
 
-.libPaths(unique(c("D:/Ovarian_AI_Target_Factory/R_library", .libPaths())))
+.libPaths(unique(c("D:/OC_external_datasheet/R_library", .libPaths())))
 suppressPackageStartupMessages({
   library(Matrix)
   library(data.table)
   library(ggplot2)
 })
 
-root <- "D:/Ovarian_AI_Target_Factory"
+root <- "D:/OC_external_datasheet"
 out_dir <- file.path(root, "results", "scrna", "GSE319733", run_id)
 processed_dir <- file.path(root, "data_processed", "scrna", "GSE319733", run_id)
 dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)

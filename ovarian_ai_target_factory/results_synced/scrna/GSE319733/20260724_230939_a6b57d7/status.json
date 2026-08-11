@@ -57,14 +57,14 @@
   ],
   "errors": [],
   "outputs": [
-    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\bcr_basic_summary.tsv",
-    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\celltype_marker_summary.tsv",
-    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\GSE319733_initial_summary.md",
-    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\key_gene_expression_by_tissue.tsv",
-    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\NOT_RUN_reason.txt",
-    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\sample_manifest.tsv",
-    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\sample_qc_summary.tsv",
-    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\status.json",
-    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\supplementary_file_inventory.tsv"
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\bcr_basic_summary.tsv",
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\celltype_marker_summary.tsv",
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\GSE319733_initial_summary.md",
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\key_gene_expression_by_tissue.tsv",
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\NOT_RUN_reason.txt",
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\sample_manifest.tsv",
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\sample_qc_summary.tsv",
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\status.json",
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260724_230939_a6b57d7\\supplementary_file_inventory.tsv"
   ]
 }

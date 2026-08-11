@@ -4,17 +4,17 @@
 - analysis_code_sha: ecbcea14cf30f79eed3109b834346cce36570df0
 - results_commit_sha: eed8ab89540e467836773aac98fae0a5fbefbf0f
 - branch: codex/after-244c94d
-- PR URL: https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/3
+- PR URL: https://github.com/wanlei1618/OC_external_datasheet/pull/3
 
 ## Python/R Environment
-- Python: D:/Ovarian_AI_Target_Factory/envs/py313; Python 3.13.13
+- Python: D:/OC_external_datasheet/envs/py313; Python 3.13.13
 - pytest: 29 passed; junit saved to pipeline_qc/pytest.xml
 - R: D:/R/R-4.6.1/bin/Rscript.exe; sessionInfo and package check saved under pipeline_qc
 
 ## GSE319733 Archive
 - GSE319733_RAW.tar size_bytes: 352532480
 - GSE319733_RAW.tar sha256: aea75da36ee401f9cd80fdfb0e13158969322bc3868b3cda95444194bdc1d589
-- archive_path: D:\Ovarian_AI_Target_Factory\data_raw\single_cell\GSE319733\archives\GSE319733_RAW.tar
+- archive_path: D:\OC_external_datasheet\data_raw\single_cell\GSE319733\archives\GSE319733_RAW.tar
 - extracted_whitelisted_files: 50
 - extracted_file_types: cell_metadata=10, gex_barcodes=10, gex_features=10, gex_matrix=10, vdj_contigs=10
 - FASTQ/BAM extracted: no
@@ -46,16 +46,16 @@
 - RBMS1/NEDD4 source_dataset: GSE338829 only
 
 ## D-Drive Paths
-- raw: D:\Ovarian_AI_Target_Factory\data_raw
-- processed: D:\Ovarian_AI_Target_Factory\data_processed
-- results: D:\Ovarian_AI_Target_Factory\results
-- cache: D:\Ovarian_AI_Target_Factory\cache
+- raw: D:\OC_external_datasheet\data_raw
+- processed: D:\OC_external_datasheet\data_processed
+- results: D:\OC_external_datasheet\results
+- cache: D:\OC_external_datasheet\cache
 
 ## GitHub Sync Policy
-- synced root: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced
+- synced root: D:\OC_external_datasheet\ovarian_ai_target_factory\results_synced
 - large/raw unsynced: GSE319733_RAW.tar, MTX/barcodes/features, cell-level annotation table, RDS, FASTQ/BAM, cache/logs/secrets
 - GitHub only receives lightweight reports/tables/PDFs under ovarian_ai_target_factory/results_synced.
 
 ## GitHub Provenance
 - last_verified_remote_commit_before_report_cleanup: fb8dc5426a4715efb05817907a81437ce1b24245
-- pr_url: https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/3
+- pr_url: https://github.com/wanlei1618/OC_external_datasheet/pull/3

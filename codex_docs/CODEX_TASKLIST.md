@@ -3,7 +3,7 @@
 ## Batch 0：安全初始化
 
 - [ ] 创建 `ovarian_ai_target_factory/` 项目结构
-- [ ] 创建 `config/paths.yaml`，默认数据根目录为 `D:/Ovarian_AI_Target_Factory`
+- [ ] 创建 `config/paths.yaml`，默认数据根目录为 `D:/OC_external_datasheet`
 - [ ] 创建 `src/ovarian_ai/utils/paths.py`
 - [ ] 创建 `R/utils_paths.R`
 - [ ] 创建 `scripts/initialize_project.py`

@@ -39,18 +39,18 @@
 - SPP1, CD44, ITGB1, MMP14 are retained as exploratory inputs only; no high-score assignment was made.
 
 ## Key D-Drive Paths
-- raw data: D:\Ovarian_AI_Target_Factory\data_raw
-- processed data: D:\Ovarian_AI_Target_Factory\data_processed
-- results: D:\Ovarian_AI_Target_Factory\results
-- cache: D:\Ovarian_AI_Target_Factory\cache
-- logs: D:\Ovarian_AI_Target_Factory\logs
+- raw data: D:\OC_external_datasheet\data_raw
+- processed data: D:\OC_external_datasheet\data_processed
+- results: D:\OC_external_datasheet\results
+- cache: D:\OC_external_datasheet\cache
+- logs: D:\OC_external_datasheet\logs
 
 ## GitHub Sync Directories
-- pipeline_qc: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced\pipeline_qc\20260724_230939_a6b57d7
-- daily_reports: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced\daily_reports\20260724_230939_a6b57d7
-- scrna/GSE319733: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced\scrna\GSE319733\20260724_230939_a6b57d7
-- target_factory: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced\target_factory\20260724_230939_a6b57d7
-- final_reports: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced\final_reports\20260724_230939_a6b57d7
+- pipeline_qc: D:\OC_external_datasheet\ovarian_ai_target_factory\results_synced\pipeline_qc\20260724_230939_a6b57d7
+- daily_reports: D:\OC_external_datasheet\ovarian_ai_target_factory\results_synced\daily_reports\20260724_230939_a6b57d7
+- scrna/GSE319733: D:\OC_external_datasheet\ovarian_ai_target_factory\results_synced\scrna\GSE319733\20260724_230939_a6b57d7
+- target_factory: D:\OC_external_datasheet\ovarian_ai_target_factory\results_synced\target_factory\20260724_230939_a6b57d7
+- final_reports: D:\OC_external_datasheet\ovarian_ai_target_factory\results_synced\final_reports\20260724_230939_a6b57d7
 
 ## Unsynced Large Files
 - RAW.tar and all large raw sequencing formats are excluded by policy.

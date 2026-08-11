@@ -1,9 +1,9 @@
-data_root: "D:/Ovarian_AI_Target_Factory"
-raw_dir: "D:/Ovarian_AI_Target_Factory/data_raw"
-processed_dir: "D:/Ovarian_AI_Target_Factory/data_processed"
-results_dir: "D:/Ovarian_AI_Target_Factory/results"
-cache_dir: "D:/Ovarian_AI_Target_Factory/cache"
-logs_dir: "D:/Ovarian_AI_Target_Factory/logs"
+data_root: "D:/OC_external_datasheet"
+raw_dir: "D:/OC_external_datasheet/data_raw"
+processed_dir: "D:/OC_external_datasheet/data_processed"
+results_dir: "D:/OC_external_datasheet/results"
+cache_dir: "D:/OC_external_datasheet/cache"
+logs_dir: "D:/OC_external_datasheet/logs"
 
 max_single_download_gb: 50
 warn_if_c_drive_used: true

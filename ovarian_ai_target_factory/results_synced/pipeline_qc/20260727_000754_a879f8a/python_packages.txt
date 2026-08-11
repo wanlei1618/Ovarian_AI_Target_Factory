@@ -1,7 +1,7 @@
 colorama==0.4.6
 iniconfig==2.3.0
 numpy==2.5.1
--e git+https://github.com/wanlei1618/Ovarian_AI_Target_Factory.git@a879f8aa0f88a1a1b05f286d3bf7d6281fff2725#egg=ovarian_ai_target_factory&subdirectory=ovarian_ai_target_factory
+-e git+https://github.com/wanlei1618/OC_external_datasheet.git@a879f8aa0f88a1a1b05f286d3bf7d6281fff2725#egg=ovarian_ai_target_factory&subdirectory=ovarian_ai_target_factory
 packaging==26.2
 pandas==3.0.5
 pluggy==1.6.0

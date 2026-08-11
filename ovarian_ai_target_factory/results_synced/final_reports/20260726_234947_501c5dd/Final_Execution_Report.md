@@ -5,7 +5,7 @@
 - local_git_sha: ca625c0069418dd27b3443a5b2c22fc064814a6f
 - results_commit_sha: caa1db1600dc22fa91aea793c73a4a17bf5e5d89
 - remote_branch: codex/next-analysis
-- draft_pr: https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/2
+- draft_pr: https://github.com/wanlei1618/OC_external_datasheet/pull/2
 - remote_main_note: GitHub sync is performed with lightweight result copies; no force push is used.
 
 ## Module Status
@@ -47,19 +47,19 @@
 - RBMS1/NEDD4 evidence is assigned to GSE338829 only, not GSE319733.
 
 ## Key D-Drive Paths
-- raw data: D:\Ovarian_AI_Target_Factory\data_raw
-- processed data: D:\Ovarian_AI_Target_Factory\data_processed
-- results: D:\Ovarian_AI_Target_Factory\results
-- cache: D:\Ovarian_AI_Target_Factory\cache
-- logs: D:\Ovarian_AI_Target_Factory\logs
+- raw data: D:\OC_external_datasheet\data_raw
+- processed data: D:\OC_external_datasheet\data_processed
+- results: D:\OC_external_datasheet\results
+- cache: D:\OC_external_datasheet\cache
+- logs: D:\OC_external_datasheet\logs
 
 ## GitHub Sync Directories
-- pipeline_qc: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced\pipeline_qc\20260726_234947_501c5dd
-- daily_reports: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced\daily_reports\20260726_234947_501c5dd
-- scrna/GSE319733: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced\scrna\GSE319733\20260726_234947_501c5dd
-- dataset_feasibility: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced\dataset_feasibility\20260726_234947_501c5dd
-- target_factory: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced\target_factory\20260726_234947_501c5dd
-- final_reports: D:\Ovarian_AI_Target_Factory\ovarian_ai_target_factory\results_synced\final_reports\20260726_234947_501c5dd
+- pipeline_qc: D:\OC_external_datasheet\ovarian_ai_target_factory\results_synced\pipeline_qc\20260726_234947_501c5dd
+- daily_reports: D:\OC_external_datasheet\ovarian_ai_target_factory\results_synced\daily_reports\20260726_234947_501c5dd
+- scrna/GSE319733: D:\OC_external_datasheet\ovarian_ai_target_factory\results_synced\scrna\GSE319733\20260726_234947_501c5dd
+- dataset_feasibility: D:\OC_external_datasheet\ovarian_ai_target_factory\results_synced\dataset_feasibility\20260726_234947_501c5dd
+- target_factory: D:\OC_external_datasheet\ovarian_ai_target_factory\results_synced\target_factory\20260726_234947_501c5dd
+- final_reports: D:\OC_external_datasheet\ovarian_ai_target_factory\results_synced\final_reports\20260726_234947_501c5dd
 
 ## Unsynced Large Files
 - RAW.tar and all large raw sequencing formats are excluded by policy.

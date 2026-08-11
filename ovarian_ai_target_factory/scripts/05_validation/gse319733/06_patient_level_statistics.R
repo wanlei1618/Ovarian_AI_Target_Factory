@@ -8,12 +8,12 @@ if (is.na(run_id) || "--help" %in% args || "-h" %in% args) {
   cat("Usage: Rscript 06_patient_level_statistics.R --run-id <RUN_ID>\n")
   quit(status = ifelse(is.na(run_id), 1, 0))
 }
-.libPaths(unique(c("D:/Ovarian_AI_Target_Factory/R_library", .libPaths())))
+.libPaths(unique(c("D:/OC_external_datasheet/R_library", .libPaths())))
 suppressPackageStartupMessages({
   library(data.table)
   library(ggplot2)
 })
-root <- "D:/Ovarian_AI_Target_Factory"
+root <- "D:/OC_external_datasheet"
 out_dir <- file.path(root, "results", "scrna", "GSE319733", run_id)
 if (!file.exists(file.path(out_dir, "celltype_annotation.tsv")) || !file.exists(file.path(out_dir, "key_gene_expression_by_patient.tsv"))) {
   writeLines(sprintf('{\n  "module": "GSE319733_patient_statistics_R",\n  "analysis_status": "BLOCKED",\n  "quality_gate_passed": false,\n  "row_counts": {},\n  "paired_patients": "",\n  "timestamp": "%s",\n  "blocking_reason": "GEX annotation outputs are unavailable; patient-level analysis not run"\n}\n', as.character(Sys.time())), file.path(out_dir, "patient_statistics_status.json"))

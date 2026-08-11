@@ -47,4 +47,4 @@
 - script: refine PubMed and GEO ranking heuristics.
 - input: reviewed search terms and manual inclusion/exclusion feedback.
 - output: cleaner literature digest and dataset registry.
-- success criteria: no large downloads; all outputs remain under D:/Ovarian_AI_Target_Factory/results.
+- success criteria: no large downloads; all outputs remain under D:/OC_external_datasheet/results.

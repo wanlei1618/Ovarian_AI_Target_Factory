@@ -16,7 +16,7 @@
       "-v"
     ],
     "returncode": 0,
-    "stdout": "origin\thttps://github.com/wanlei1618/Ovarian_AI_Target_Factory.git (fetch)\norigin\thttps://github.com/wanlei1618/Ovarian_AI_Target_Factory.git (push)",
+    "stdout": "origin\thttps://github.com/wanlei1618/OC_external_datasheet.git (fetch)\norigin\thttps://github.com/wanlei1618/OC_external_datasheet.git (push)",
     "stderr": ""
   },
   "git_branch": {
@@ -67,7 +67,7 @@
     "stderr": ""
   },
   "disk_usage": {
-    "data_root": "D:\\Ovarian_AI_Target_Factory",
+    "data_root": "D:\\OC_external_datasheet",
     "data_root_free_gb": 61.98,
     "c_drive_free_gb": 9.76
   }

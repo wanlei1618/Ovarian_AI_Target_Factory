@@ -16,11 +16,11 @@ get_data_root <- function() {
   }
 
   if (.Platform$OS.type == "windows" && dir.exists("D:/")) {
-    return("D:/Ovarian_AI_Target_Factory")
+    return("D:/OC_external_datasheet")
   }
 
   if (dir.exists("/mnt/d")) {
-    return("/mnt/d/Ovarian_AI_Target_Factory")
+    return("/mnt/d/OC_external_datasheet")
   }
 
   warning("D drive not found. Using ./local_data. Large downloads may occupy the current drive.")

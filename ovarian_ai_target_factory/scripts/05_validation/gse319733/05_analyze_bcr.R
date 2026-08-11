@@ -8,12 +8,12 @@ if (is.na(run_id) || "--help" %in% args || "-h" %in% args) {
   cat("Usage: Rscript 05_analyze_bcr.R --run-id <RUN_ID>\n")
   quit(status = ifelse(is.na(run_id), 1, 0))
 }
-.libPaths(unique(c("D:/Ovarian_AI_Target_Factory/R_library", .libPaths())))
+.libPaths(unique(c("D:/OC_external_datasheet/R_library", .libPaths())))
 suppressPackageStartupMessages({
   library(data.table)
   library(ggplot2)
 })
-root <- "D:/Ovarian_AI_Target_Factory"
+root <- "D:/OC_external_datasheet"
 out_dir <- file.path(root, "results", "scrna", "GSE319733", run_id)
 manifest <- fread(file.path(out_dir, "sample_manifest.tsv"))
 if (!("has_vdj" %in% names(manifest))) {

@@ -5,13 +5,13 @@
   "run_id": "20260727_000754_a879f8a",
   "quality_gate_passed": true,
   "required_outputs": [
-    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest.tsv"
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest.tsv"
   ],
   "required_nonempty_outputs": [
-    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest.tsv"
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest.tsv"
   ],
   "row_counts": {
-    "D:\\Ovarian_AI_Target_Factory\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest.tsv": 10
+    "D:\\OC_external_datasheet\\results\\scrna\\GSE319733\\20260727_000754_a879f8a\\sample_manifest.tsv": 10
   },
   "blocking_reason": "",
   "errors": [

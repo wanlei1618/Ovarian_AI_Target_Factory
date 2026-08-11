@@ -6,24 +6,24 @@
   "errors": [],
   "quality_gate_passed": true,
   "required_outputs": [
-    "D:\\Ovarian_AI_Target_Factory\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\donor_manifest.tsv"
+    "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\donor_manifest.tsv"
   ],
   "required_nonempty_outputs": [
-    "D:\\Ovarian_AI_Target_Factory\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\donor_manifest.tsv"
+    "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\donor_manifest.tsv"
   ],
   "row_counts": {
-    "D:\\Ovarian_AI_Target_Factory\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\donor_manifest.tsv": 29
+    "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\donor_manifest.tsv": 29
   },
   "blocking_reason": "",
   "outputs": [
-    "D:\\Ovarian_AI_Target_Factory\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\analysis_feasibility.md",
-    "D:\\Ovarian_AI_Target_Factory\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\combined_study_manifest.tsv",
-    "D:\\Ovarian_AI_Target_Factory\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\ctc_group_counts.tsv",
-    "D:\\Ovarian_AI_Target_Factory\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\disease_group_counts.tsv",
-    "D:\\Ovarian_AI_Target_Factory\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\donor_manifest.tsv",
-    "D:\\Ovarian_AI_Target_Factory\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\processed_file_decision.tsv",
-    "D:\\Ovarian_AI_Target_Factory\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\sample_platform_map.tsv",
-    "D:\\Ovarian_AI_Target_Factory\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\status.json",
-    "D:\\Ovarian_AI_Target_Factory\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\supplementary_file_inventory.tsv"
+    "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\analysis_feasibility.md",
+    "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\combined_study_manifest.tsv",
+    "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\ctc_group_counts.tsv",
+    "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\disease_group_counts.tsv",
+    "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\donor_manifest.tsv",
+    "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\processed_file_decision.tsv",
+    "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\sample_platform_map.tsv",
+    "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\status.json",
+    "D:\\OC_external_datasheet\\results\\dataset_feasibility\\20260727_000754_a879f8a\\GSE337705_GSE337706\\supplementary_file_inventory.tsv"
   ]
 }

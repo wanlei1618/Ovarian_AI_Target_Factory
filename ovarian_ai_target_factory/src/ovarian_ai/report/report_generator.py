@@ -156,7 +156,7 @@ def build_daily_report(run_date: str, report_dir: Path) -> str:
             "- script: refine PubMed and GEO ranking heuristics.",
             "- input: reviewed search terms and manual inclusion/exclusion feedback.",
             "- output: cleaner literature digest and dataset registry.",
-            "- success criteria: no large downloads; all outputs remain under D:/Ovarian_AI_Target_Factory/results.",
+            "- success criteria: no large downloads; all outputs remain under D:/OC_external_datasheet/results.",
         ]
     )
     return "\n".join(lines) + "\n"
@@ -226,11 +226,11 @@ def build_next_action_report(run_date: str, report_dir: Path) -> str:
             "- Are SPP1/CD44/ITGB1 worth prioritizing as an immune-niche invasion axis after GSE319733 parsing?",
             "",
             "## 10. Path compliance summary",
-            "- Raw data root: D:/Ovarian_AI_Target_Factory/data_raw",
-            "- Processed data root: D:/Ovarian_AI_Target_Factory/data_processed",
-            "- Results root: D:/Ovarian_AI_Target_Factory/results",
-            "- Cache root: D:/Ovarian_AI_Target_Factory/cache",
-            "- This report is generated under D:/Ovarian_AI_Target_Factory/results/daily_reports.",
+            "- Raw data root: D:/OC_external_datasheet/data_raw",
+            "- Processed data root: D:/OC_external_datasheet/data_processed",
+            "- Results root: D:/OC_external_datasheet/results",
+            "- Cache root: D:/OC_external_datasheet/cache",
+            "- This report is generated under D:/OC_external_datasheet/results/daily_reports.",
             "- No C-drive output path is approved.",
             "",
         ]

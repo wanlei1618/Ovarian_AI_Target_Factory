@@ -37,10 +37,10 @@ def get_data_root(config_path: Path | None = None) -> Path:
         return Path(cfg["data_root"]).expanduser().resolve()
 
     if platform.system().lower().startswith("win") and Path("D:/").exists():
-        return Path("D:/Ovarian_AI_Target_Factory").resolve()
+        return Path("D:/OC_external_datasheet").resolve()
 
     if Path("/mnt/d").exists():
-        return Path("/mnt/d/Ovarian_AI_Target_Factory").resolve()
+        return Path("/mnt/d/OC_external_datasheet").resolve()
 
     fallback = get_project_root() / "local_data"
     print(f"[WARNING] D drive not found. Using fallback path: {fallback}")

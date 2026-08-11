@@ -120,7 +120,7 @@ def build_report(matches: list[dict], output_path: Path, run_date: str) -> str:
         "## Recommended fixes",
         "- Route all raw data, processed data, results, cache, and logs through `config/paths.yaml` and `ovarian_ai.utils.paths`.",
         "- Keep network downloads pointed to D-drive raw/cache directories.",
-        "- Keep logs under `D:/Ovarian_AI_Target_Factory/results/logs` or another configured D-drive result subdirectory.",
+        "- Keep logs under `D:/OC_external_datasheet/results/logs` or another configured D-drive result subdirectory.",
         "- If temporary files become necessary, create them under the configured cache directory.",
         "",
     ]
