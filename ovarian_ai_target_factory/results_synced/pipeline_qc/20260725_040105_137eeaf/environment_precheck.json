@@ -16,7 +16,7 @@
       "-v"
     ],
     "returncode": 0,
-    "stdout": "origin\thttps://github.com/wanlei1618/OC_external_datasheet.git (fetch)\norigin\thttps://github.com/wanlei1618/OC_external_datasheet.git (push)",
+    "stdout": "origin\thttps://github.com/wanlei1618/Ovarian_AI_Target_Factory.git (fetch)\norigin\thttps://github.com/wanlei1618/Ovarian_AI_Target_Factory.git (push)",
     "stderr": ""
   },
   "git_branch": {

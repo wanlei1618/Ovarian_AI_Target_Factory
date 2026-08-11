@@ -2,7 +2,7 @@ colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1733218098
 exceptiongroup @ file:///home/conda/feedstock_root/build_artifacts/exceptiongroup_1763918002538/work
 iniconfig @ file:///home/conda/feedstock_root/build_artifacts/iniconfig_1760831328738/work
 numpy @ file:///D:/bld/bld/rattler-build_numpy_1779169235/work/dist/numpy-2.4.6-cp311-cp311-win_amd64.whl#sha256=1f5fa3c853dd01b13cacc0fd3cfdc827bb2f4cf73638f3949fcee463a6dc8304
--e git+https://github.com/wanlei1618/OC_external_datasheet.git@0a85d2f229053a3a14c5513c661966d7d4b10cd9#egg=ovarian_ai_target_factory&subdirectory=ovarian_ai_target_factory
+-e git+https://github.com/wanlei1618/Ovarian_AI_Target_Factory.git@0a85d2f229053a3a14c5513c661966d7d4b10cd9#egg=ovarian_ai_target_factory&subdirectory=ovarian_ai_target_factory
 packaging @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_packaging_1777103621/work
 pandas @ file:///D:/bld/bld/rattler-build_pandas_1778602666/work
 pluggy @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_pluggy_1764896838/work

@@ -14,6 +14,6 @@
   "gse319733_samples": 10,
   "paired_patients": "P1,P2,P3,P4",
   "pytest_xml": "D:\\OC_external_datasheet\\results\\pipeline_qc\\20260727_000754_a879f8a\\pytest.xml",
-  "pr_url": "https://github.com/wanlei1618/OC_external_datasheet/pull/3",
+  "pr_url": "https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/3",
   "remote_commit_sha": "1381c77e7028a0d6c809cfbee7df207612415168"
 }

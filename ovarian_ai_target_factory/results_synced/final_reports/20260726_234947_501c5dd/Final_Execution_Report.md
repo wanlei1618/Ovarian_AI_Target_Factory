@@ -5,7 +5,7 @@
 - local_git_sha: ca625c0069418dd27b3443a5b2c22fc064814a6f
 - results_commit_sha: caa1db1600dc22fa91aea793c73a4a17bf5e5d89
 - remote_branch: codex/next-analysis
-- draft_pr: https://github.com/wanlei1618/OC_external_datasheet/pull/2
+- draft_pr: https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/2
 - remote_main_note: GitHub sync is performed with lightweight result copies; no force push is used.
 
 ## Module Status

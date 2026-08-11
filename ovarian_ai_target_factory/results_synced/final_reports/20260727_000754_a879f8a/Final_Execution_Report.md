@@ -4,7 +4,7 @@
 - analysis_code_sha: ecbcea14cf30f79eed3109b834346cce36570df0
 - results_commit_sha: eed8ab89540e467836773aac98fae0a5fbefbf0f
 - branch: codex/after-244c94d
-- PR URL: https://github.com/wanlei1618/OC_external_datasheet/pull/3
+- PR URL: https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/3
 
 ## Python/R Environment
 - Python: D:/OC_external_datasheet/envs/py313; Python 3.13.13
@@ -58,4 +58,4 @@
 
 ## GitHub Provenance
 - last_verified_remote_commit_before_report_cleanup: fb8dc5426a4715efb05817907a81437ce1b24245
-- pr_url: https://github.com/wanlei1618/OC_external_datasheet/pull/3
+- pr_url: https://github.com/wanlei1618/Ovarian_AI_Target_Factory/pull/3
